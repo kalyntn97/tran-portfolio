@@ -1,0 +1,46 @@
+@import '../../styles/colors';
+
+.navbar {
+  height: 7vh;
+  color: $dark-blue;
+  font-size: 1.5rem;
+  a {
+    height: 90%;
+    float: right;
+    padding-right: 2em;
+  }
+  a:first-child {
+    float: left;
+  }
+  a img {
+    height: 100%;
+    padding-right: 0.3em;
+  }
+  a:not(:first-child) img {
+    transform: scale(0);
+  }
+  a:hover img{
+    transform: scale(1);
+    transition: all 0.5s;
+  }
+  a[class='active'] img {
+    transform: scale(1);
+  }
+}
+
+[data-theme='blossom'].navbar {
+  a:hover, a[class='active'] {
+    color: $brown;
+  }
+}
+
+[data-theme='starry'].navbar {
+  a {
+    color: $light-blue;
+  }
+  a:hover, a[class='active'] {
+  color: $brown;
+}
+}
+  
+

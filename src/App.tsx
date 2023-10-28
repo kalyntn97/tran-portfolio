@@ -6,23 +6,32 @@ import NavBar from './components/NavBar/NavBar'
 //pages
 import Landing from './pages/Landing/Landing'
 import About from './pages/About/About'
+import ProjectList from './pages/ProjectList/ProjectList'
+import Contact from './pages/Contact/Contact'
+
 //css
-import './App.scss'
+import styles from './App.module.scss'
 import { ThemeContext } from './contexts/ThemeContext'
+import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher'
 
 const App: React.FC = () => {
-  const { theme, toggleTheme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
+
   return ( 
-    <>
+    <main className={styles.container} data-theme={theme}>
       <NavBar />
+      <ThemeSwitcher />
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/about' element={<About />}/>
+        <Route path='/projects' element={<ProjectList />}/>
+        <Route path='/contact' element={<Contact />}/>
+      </Routes>
       <h1>Test</h1>
-      <button onClick={toggleTheme}>
-        Switch to {theme === 'blossom' ? 'starry' : 'blossom'} mode
-      </button>
-    </>
+    </main>
    )
 }
- 
+  
 export default App
 
 
