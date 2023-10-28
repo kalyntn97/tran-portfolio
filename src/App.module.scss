@@ -1,0 +1,25 @@
+@import './styles/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+[data-theme='blossom'].container {
+  background-color: $light-blue;
+  color: $dark-blue;
+  button {
+    color: $dark-blue;
+  }
+}
+
+[data-theme='starry'].container {
+  background-color: $dark-blue;
+  color: $white;
+  button {
+    color: $white;
+  }
+}
+
