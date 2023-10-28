@@ -4,17 +4,20 @@
   height: 7vh;
   color: $dark-blue;
   font-size: 1.5rem;
+  .favicon {
+    height: 5rem;
+  }
   a {
     height: 90%;
     float: right;
-    padding-right: 2em;
+    padding-right: 2rem;
   }
   a:first-child {
     float: left;
   }
   a img {
     height: 100%;
-    padding-right: 0.3em;
+    padding-right: 0.3rem;
   }
   a:not(:first-child) img {
     transform: scale(0);
@@ -31,6 +34,7 @@
 [data-theme='blossom'].navbar {
   a:hover, a[class='active'] {
     color: $brown;
+    transition: all 0.5s;
   }
 }
 
@@ -40,6 +44,8 @@
   }
   a:hover, a[class='active'] {
   color: $brown;
+  transition: all 0.5s;
+
 }
 }
   

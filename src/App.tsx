@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 //components
 import NavBar from './components/NavBar/NavBar'
+import Footer from './components/Footer/Footer'
 //pages
 import Landing from './pages/Landing/Landing'
 import About from './pages/About/About'
@@ -16,7 +17,7 @@ import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher'
 
 const App: React.FC = () => {
   const { theme } = useContext(ThemeContext)
-
+  
   return ( 
     <main className={styles.container} data-theme={theme}>
       <NavBar />
@@ -27,7 +28,7 @@ const App: React.FC = () => {
         <Route path='/projects' element={<ProjectList />}/>
         <Route path='/contact' element={<Contact />}/>
       </Routes>
-      <h1>Test</h1>
+      <Footer />
     </main>
    )
 }
