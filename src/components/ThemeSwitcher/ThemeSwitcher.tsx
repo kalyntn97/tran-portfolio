@@ -15,7 +15,7 @@ const ThemeSwitcher: React.FC = () => {
   }
   return ( 
     <div data-theme={theme} className={styles.container}>
-      <button onClick={handleUseTheme}><img src={redFlower} />Blossom</button>
+      <button onClick={handleUseTheme}><img src={redFlower} />blossom</button>
       <button onClick={handleUseTheme}>starry</button>
     </div>
    )

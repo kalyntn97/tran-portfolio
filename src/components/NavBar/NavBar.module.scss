@@ -3,21 +3,21 @@
 .navbar {
   height: 7vh;
   color: $dark-blue;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   .favicon {
-    height: 5rem;
+    height: 3em;
   }
   a {
     height: 90%;
     float: right;
-    padding-right: 2rem;
+    padding-right: 2em;
   }
   a:first-child {
     float: left;
   }
   a img {
     height: 100%;
-    padding-right: 0.3rem;
+    padding-right: 0.3em;
   }
   a:not(:first-child) img {
     transform: scale(0);
