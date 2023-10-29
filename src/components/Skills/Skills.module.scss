@@ -1,3 +1,57 @@
+@import '../../styles/colors';
+
 .container {
-  
+  width: 60%;
+  height: 70%;
+  display: flex;
+  font-size: 1rem;
+  .skillContainer {
+    border: 1px solid $white;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    color: $dark-blue;
+    @for $i from 1 through length($green) {
+      &:nth-child(#{$i}) {
+        background-color: nth($green, $i)
+      }
+    }
+    h1 {
+      width: 70%;
+      position: absolute;
+      writing-mode: vertical-lr;
+      font-size: 4.2em;
+      opacity: 80%;
+      transition: all 0.75s;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      opacity: 0;
+      span {
+        img {
+          height: 5em;
+          max-width: 10em;
+          margin: 1em;
+        }
+        p {
+          display: inline-flex;
+          font-size: 1.2em;
+        }
+      } 
+    }
+    &:hover {
+      h1 {
+        transform: translateX(100%);
+        opacity: 10%;
+      }
+      div {
+        opacity: 100%;
+        transition: all 1s;
+      }
+    }
+  }  
 }
+

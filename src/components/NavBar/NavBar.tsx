@@ -6,7 +6,7 @@ import { ThemeContext } from "../../contexts/ThemeContext"
 //css
 import styles from './NavBar.module.scss'
 //assets
-import favicon from '../../../public/favicon.svg'
+import favicon from '../../assets/icons/favicon.svg'
 import orangeFlower from '../../assets/images/orange-flower.png'
 import purpleFlower from '../../assets/images/purple-flower.png'
 import yellowFlower from '../../assets/images/yellow-flower.png'

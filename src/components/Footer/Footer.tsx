@@ -4,7 +4,7 @@ import styles from './Footer.module.scss'
 import gitHubIcon from '../../assets/icons/github.svg'
 import linkedInIcon from '../../assets/icons/linkedin.svg'
 import mailIcon from '../../assets/icons/envelope.svg'
-import favicon from '../../../public/favicon.svg'
+import favicon from '../../assets/icons/favicon.svg'
 
 const Footer = () => {
   return ( 
