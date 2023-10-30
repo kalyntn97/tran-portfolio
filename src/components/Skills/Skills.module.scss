@@ -1,10 +1,10 @@
 @import '../../styles/colors';
+@import '../../styles/typography';
 
 .container {
   width: 60%;
-  height: 70%;
+  height: 70vh;
   display: flex;
-  font-size: 1rem;
   .skillContainer {
     border: 1px solid $white;
     width: 25%;
@@ -22,6 +22,7 @@
       position: absolute;
       writing-mode: vertical-lr;
       font-size: 4.2em;
+      font-family: $accentFontFamily;
       opacity: 80%;
       transition: all 0.75s;
     }
@@ -38,13 +39,13 @@
         }
         p {
           display: inline-flex;
-          font-size: 1.2em;
+          font-size: 1.5em;
         }
       } 
     }
     &:hover {
       h1 {
-        transform: translateX(100%);
+        transform: translateX(95%);
         opacity: 10%;
       }
       div {

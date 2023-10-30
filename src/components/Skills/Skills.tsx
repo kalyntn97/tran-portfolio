@@ -44,10 +44,10 @@ const Skills = () => {
       <div className={styles.skillContainer}>
         <h1>Others</h1>
         <div>
+          <span><img src={react} /><p>React</p></span>
           <span><img src={html5} /><p>HTML5</p></span>
           <span><img src={css3} /><p>CSS3</p></span>
           <span><img src={sass} /><p>Sass & SCSS</p></span>
-          <span><img src={react} /><p>React</p></span>
         </div>
       </div>
 

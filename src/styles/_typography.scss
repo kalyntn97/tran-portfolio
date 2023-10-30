@@ -1,0 +1,27 @@
+
+@font-face {
+  font-family: 'Lemon Milk';
+  src: local('Lemon Milk'), url('src/assets/fonts/LemonMilkMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Champagne & Limousines';
+  src: local('Champagne & Limousines'), url('src/assets/fonts/ChampagneAndLimousinesRegular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Champagne & Limousines';
+  src: local('Champagne & Limousines') url('src/assets/fonts/ChampagneAndLimousinesBold.ttf');
+  font-weight: bold;
+
+}
+
+@font-face {
+  font-family: 'Moonglade';
+  src: local('Moonglade'), url('src/assets/fonts/MoongladeBold.ttf') format('truetype');
+}
+
+$titleFontFamily: 'Moonglade', sans-serif;
+$accentFontFamily: 'Lemon Milk', sans-serif;
+$bodyFontFamily: 'Champagne & Limousines', sans-serif;
