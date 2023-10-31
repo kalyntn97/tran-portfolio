@@ -1,11 +1,13 @@
 @import './styles/colors';
 @import './styles/typography';
+@import './styles/variables';
 
 .container {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
+  height: fit-content;
   h1 {
     font-family: $titleFontFamily;
     font-size: 4em;
@@ -22,18 +24,27 @@
 }
 
 [data-theme='blossom'].container {
+  background: linear-gradient(to bottom, $light-blue, $light-blue2);
   background-color: $light-blue;
   color: $dark-blue;
-  button {
+  button, a {
     color: $dark-blue;
   }
 }
 
 [data-theme='starry'].container {
+  background: linear-gradient(to bottom, $dark-blue, $dark-blue2);
   background-color: $dark-blue;
-  color: $white;
+  color: $light-blue;
   button {
-    color: $white;
+    color: $light-blue;
   }
 }
 
+@media screen and (min-width: $phone) and (max-width: $tablet) {
+
+}
+
+@media screen and (max-width: $phone) {
+  
+}

@@ -17,32 +17,23 @@
     .linkContainer {
       margin-bottom: 2em;
         button, .arrow {
-        font-size: 2.0em;
-        width: 1.5em;
-        margin-right: 0.5em;
-        padding: 0.1em;
-        border-radius: 50%;
-        color: $dark-blue;
-        &:hover {
-          color: $bright-blue;
+          font-size: 2.0em;
+          width: 1.5em;
+          margin-right: 0.5em;
+          padding: 0.1em;
+          border-radius: 50%;
         }
       }
-    }
     a {
       font-weight: bold;
       cursor: pointer;
       &:hover {
-        color: $bright-blue;
         transition: all 0.5s;
       }
     }
     span {
       display: inline-flex;
       align-items: center;
-      a.split {
-        margin-left: 100%;
-        text-wrap: nowrap;
-      }
     }
     .aboutContainer {
       width: 70%;
@@ -72,6 +63,9 @@
             padding: 1em;
           }
         }
+        a:hover {
+          color: $brighter-blue;
+         }
       }
     }
   }
@@ -83,12 +77,19 @@
   }
   .textContainer {
    background-color: $yellow;
- }
+  }
+  .arrow:hover, button:hover {
+    color: $bright-blue;
+  }
 }
 
 [data-theme='starry'].container {
   .textContainer {
-   background-color: $yellow;
+   background-color: $light-purple;
    color: $dark-blue;
- }
+  
+  }
+  .arrow:hover, button:hover {
+    color: nth($green, 4);
+  }
 }

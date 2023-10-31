@@ -14,7 +14,7 @@ import avatar from '../../assets/images/avatar.jpeg'
 const About = () => {
   const { theme } = useContext(ThemeContext)
   const handleClick = () => {
-    window.scrollTo(0,0)
+    scroll.scrollToTop({ offset: -70, duration: 500, smooth: true })
   }
 
   return (
@@ -40,7 +40,7 @@ const About = () => {
                   > 
                   coding
                 </Link>
-              </span> I love to play with my dog and two cats. I like drawing, walking, going to concerts, and listening to podcasts.</p>
+              </span> I love to play with my dog and two cats. I also like drawing, coffee, going to concerts, and listening to podcasts.</p>
             </div>
           </div>
         </div>
