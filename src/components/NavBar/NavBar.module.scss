@@ -1,70 +1,81 @@
+@use '../../styles/variables' as v;
 @import '../../styles/colors';
 @import '../../styles/typography';
 @import '../../styles/variables';
 
 .navbar {
   width: 100%;
-  height: 10vh;
-  color: $dark-blue;
+  height: 7vh;
   font-size: 1.5em;
   font-family: $titleFontFamily;
-  padding: 0.5em;
-  .favicon {
-    height: 3em;
-  }
-  a {
+  position: sticky;
+  top: 0;
+  .leftContainer {
+    float: left;
     max-height: 100%;
-    margin-left: 2em;
+    display: flex;
+    align-items: center;
+    .favicon {
+      height: 3em;
+      margin-right: 2em;
+    }
+  }
+  .rightContainer {
     float: right;
+    max-height: 100%;
     padding: 0.3em;
-    &:first-child {
-      float: left;
-      padding: 0;
-      margin: 0;
-    }
-    img {
-      height: 2.5em;
-      margin-right: 0.3em;
-    }
-    &:not(:first-child) img {
-      transform: scale(0);
-    }
-    &:hover img{
-      transform: scale(1);
-      transition: all 0.5s;
-    }
-    &[class='active'] img {
-      transform: scale(1);
+    display: flex;
+    a {
+      text-align: center;
+      margin: 0.5em;
+      img {
+        height: 2.5em;
+        margin-right: 0.3em;
+        transform: scale(0);
+      }
+      &:hover img{
+        transform: scale(1);
+        transition: all 0.5s;
+      }
+      &[class='active'] img {
+        transform: scale(1);
+      }
     }
   }
 }
 [data-theme='blossom'].navbar {
-  a {
-    &:hover, &[class='active'] {
-      color: $brown;
-      transition: all 0.5s;
+  background-color: rgba( $light-blue, .5);
+  .rightContainer {
+    a {      
+      width: 7em;
+      &:hover, &[class='active'] {
+        color: $brown;
+        transition: all 0.5s;
+      }
     }
   }
 }
 
 [data-theme='starry'].navbar {
-  a:not(:first-child) {
-    color: $light-blue;
-    border-radius: 3em;
-    &:hover, &[class='active'] {
-      font-weight: bold;
-      background-image: url('src/assets/images/sparkle-background.png');
-      background-size: 200% 200%;
-      background-color: $bright-purple;
-      box-shadow: 0px 0px 30px 15px $bright-purple;
-      transition: all 0.75s;      
+  background-color: rgba( $dark-blue, .5);
+  .rightContainer {
+    a {
+      color: $light-blue;
+      width: 5em;
+      height: 1.5em;
+      border-radius: 3em;
+      &:hover, &[class='active'] {
+        font-weight: bold;
+        background-image: url('src/assets/images/sparkle-background.png');
+        background-size: 200% 200%;
+        background-color: $bright-purple;
+        box-shadow: 0px 0px 30px 15px $bright-purple;
+        transition: all 0.75s;      
+      }
+      img {
+        display: none;
+      }
     }
-    & img {
-      display: none;
-    }
-  }
-  a:first-child {
-    
   }
 }
 
@@ -72,15 +83,24 @@
   .navbar {
     display: flex;
     font-size: 1em;
-    a {
-      text-wrap: nowrap;
+    .leftContainer {
+      flex-basis: 30%;
+    }
+    .rightContainer {
+      flex-basis: 60%;
+      a {
+        text-wrap: nowrap;
+        @include v.reset-spacing;
+      }
       img {
         display: inline-flex;
         height: 25px;
       }
     }
-    a:first-child {
-      margin-right: auto;
+  }
+  [data-theme='starry'].navbar {
+    a {
+      margin-top: 1em;
     }
   }
 }

@@ -3,7 +3,6 @@
 @import '../../styles/colors';
 
 .container {
-  min-height: calc(100vh - 7vh - 5vh - 6vh);
   @include v.flex-column;
   @include v.small-spacing;
   .section {

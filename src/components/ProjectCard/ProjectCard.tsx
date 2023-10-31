@@ -17,10 +17,11 @@ const ProjectCard = ({ project }: Project) => {
         </div>
       </div>
       <div className={styles.contentContainer}>
-        <p>Languages: {project.languages.map(l => <li>{l}</li>)}</p>
-        <p>Technology: {project.technology.map(l => <li>{l}</li>)}</p>
+        <p>Languages: {project.languages.map((l, idx) => <li key={idx}>{l}</li>)}</p>
+        <p>Technology: {project.technology.map((l, idx) => <li key={idx}>{l}</li>)}</p>
         <a href={project.planningUrl} target={'_blank'}>Planning Materials</a>
         <img src='' alt={`A screenshot of ${project.title}`}/>
+        <p>{project.intro}</p>
       </div>
     </main>
    )

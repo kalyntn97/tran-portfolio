@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom'
 //components
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer/Footer'
-import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher'
 //contexts
 import { ThemeContext } from './contexts/ThemeContext'
 //pages
@@ -21,7 +20,6 @@ const App: React.FC = () => {
   return ( 
     <main className={styles.container} data-theme={theme}>
       <NavBar />
-      <ThemeSwitcher />
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/about' element={<About />}/>

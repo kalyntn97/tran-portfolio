@@ -18,7 +18,7 @@ export const projects: Array<Project> = [
     title: 'TetraZoo',
     languages: ['HTML5', 'JavaScript'],
     technology: ['CSS3', 'Netlify', 'Git/GitHub'],
-    intro: [],
+    intro: ['test', 'test2'],
     img: [],
     url: 'https://tetrazoo-kalyn.netlify.app/',
     gitHubUrl: 'https://github.com/kalyntn97/tetrazoo',

@@ -1,3 +1,27 @@
+@use '../../styles//variables' as v;
+@import '../../styles/variables';
+
 .container {
-  min-height: calc(100vh - 7vh - 5vh - 6vh);
+  min-height: calc(100vh - 7vh - 6vh);
+  width: 100%;
+  @include v.flex-row;
+  flex-wrap: wrap;
+  .constraint {
+    margin: 1em;
+    padding: 2em;
+    flex: 0 1 30%;
+    @include v.flex-row;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        border-radius: map-get($radius, $i)
+      }
+    }
+    .cardContainer {
+      border: 1px solid black;
+      background-image: radial-gradient(circle, #5cacd4, #70b8db, #83c3e3, #96cfea, #a8dbf2);
+    }
+  }
 }
