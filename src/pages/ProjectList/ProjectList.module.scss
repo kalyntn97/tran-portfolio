@@ -5,23 +5,79 @@
   min-height: calc(100vh - 7vh - 6vh);
   width: 100%;
   @include v.flex-row;
+  display: flex;
   flex-wrap: wrap;
-  .constraint {
-    margin: 1em;
-    padding: 2em;
-    flex: 0 1 30%;
+  .cardContainer {
     @include v.flex-row;
+    @include v.small-spacing;
+    flex-basis: 25%;
+    height: 25em;
     align-items: center;
     text-align: center;
-    border: 1px solid black;
     @for $i from 1 through 6 {
       &:nth-child(#{$i}) {
-        border-radius: map-get($radius, $i)
+        animation-name: floating#{$i};
+        animation-duration: $i*30+s;
+        animation-iteration-count: infinite;
+        background: rgb(0, 174, 255);
+        background: linear-gradient(270deg, #5cacd4, #70b8db, #83c3e3, #96cfea, #a8dbf2);             
+        background-color: rgba(0, 0, 0, 0);
+        background-repeat: repeat;
+        background-size: auto auto;
+        background-color: #b8e4f8;
+        background-size: 1000%;
+        background-repeat: repeat;
       }
-    }
-    .cardContainer {
-      border: 1px solid black;
-      background-image: radial-gradient(circle, #5cacd4, #70b8db, #83c3e3, #96cfea, #a8dbf2);
+      @keyframes floating#{$i} {
+        0% { 
+          border-radius: 51% 49% 34% 66% / 39% 66% 34% 61%; 
+          background-position: 0 50%;
+        }
+        10% { 
+          transform: rotate(random($i)*(-1)*1+deg) translateY((random(5))+px) translateX(random(5)+px);
+          border-radius: 39% 61% 38% 62% / 53% 54% 46% 47%; 
+        }
+        20% {
+          transform: rotate(random($i)*(-1)*1+deg) translateY((random(10))+px) translateX(random(10)+px);
+          border-radius: 56% 44% 52% 48% / 57% 35% 65% 43%;
+        }
+        30% {
+          transform: rotate(random($i)*(-1)*1+deg) translateY((random(15))+px) translateX(random(15)+px);
+          border-radius: 41% 59% 45% 55% / 33% 56% 44% 67%; 
+        }
+        40%{ 
+          transform: rotate(random($i)*(-1)*1+deg) translateY((random(20))+px) translateX(random(20)+px);
+          border-radius: 46% 54% 60% 40% / 55% 74% 26% 45%; 
+        }
+        50% {
+          transform: rotate(random($i)*(-1)*1+deg) translateY((random(25))+px) translateX(random(25)+px);
+          border-radius: 44% 56% 22% 78% / 31% 74% 26% 69%;
+          background-position: 100% 50%;
+        }
+        60% { 
+          transform: rotate(random($i)*2+deg) translateY((random(20))+px) translateX(random(20)+px);
+          border-radius: 31% 69% 32% 68% / 31% 71% 29% 69%; 
+        }
+        70% {
+          transform: rotate(random($i)*2+deg) translateY((random(15))+px) translateX(random(15)+px);
+          border-radius: 44% 56% 60% 40% / 63% 36% 64% 37%;
+        }
+        80% { 
+          transform: rotate(random($i)*2+deg) translateY((random(10))+px) translateX(random(10)+px);
+          border-radius: 46% 54% 38% 62% / 44% 48% 52% 56%; 
+        }
+        90% { 
+          transform: rotate(random($i)*2+deg) translateY((random(5))+px) translateX(random(5)+px);
+          border-radius: 66% 34% 57% 43% / 49% 51% 49% 51%; 
+        }
+        100% { 
+          border-radius: 51% 49% 34% 66% / 39% 66% 34% 61%; 
+          background-position: 0 50%;
+        }
+      }
     }
   }
 }
+
+
+

@@ -10,10 +10,8 @@ const ProjectList= () => {
   return ( 
     <main className={styles.container} >
       {projects.map( (project: Project, idx) =>
-        <div className={styles.constraint}>
-          <div className={styles.cardContainer} key={idx}>
-            <ProjectCard key={project.id} project={project} />
-          </div>
+        <div className={styles.cardContainer} key={idx}>
+          <ProjectCard key={project.id} project={project} />
         </div>
       )}
     </main>

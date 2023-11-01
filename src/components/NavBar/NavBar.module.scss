@@ -61,16 +61,18 @@
   .rightContainer {
     a {
       color: $light-blue;
-      width: 5em;
-      height: 1.5em;
+      width: 5.5em;
+      height: 2em;
+      padding-top: 0.3em;
       border-radius: 3em;
+      border: 3px solid transparent;
       &:hover, &[class='active'] {
         font-weight: bold;
         background-image: url('src/assets/images/sparkle-background.png');
-        background-size: 200% 200%;
-        background-color: $bright-purple;
-        box-shadow: 0px 0px 30px 15px $bright-purple;
-        transition: all 0.75s;      
+        background-size: 300% 300%;
+        border: 3px solid $bright-purple;
+        box-shadow: 0px 0px 30px 10px $bright-purple;
+        transition: all .3s ease-in-out;    
       }
       img {
         display: none;
