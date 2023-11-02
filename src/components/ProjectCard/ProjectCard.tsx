@@ -1,15 +1,11 @@
 //css
 import styles from './ProjectCard.module.scss'
-//import data
-import { Project } from '../../data/projectContent'
 //assets
 import gitHubIcon from '../../assets/icons/github.svg'
 import noteIcon from '../../assets/icons/note.svg'
-import { useState } from 'react'
-
 
 const ProjectCard = (props) => {
-  const handleClick = (id) => {
+  const handleClick = (e, id) => {
     props.handleOpen(id)
   }
 
@@ -30,17 +26,11 @@ const ProjectCard = (props) => {
         <div className={styles.imgContainer}>
           <img src={props.project.img[0]} alt={`A screenshot of ${props.project.title}`}/>
         </div>
-        <div className={styles.movingContainer}>
+        <div className={styles.movingContainer} onClick={(e) => handleClick(e, props.project.id)}>
           <p className={styles.intro}>{props.project.intro}</p>
-          <button onClick={() => handleClick(props.project.id)}><p>See more →</p></button>
+          <button><p>See more →</p></button>
         </div>
       </div>
-    {/*   {showDetailView && <div className={styles.detailView}>
-        <div className={styles.detailContainer}>
-          <p>Languages: {project.languages.map((l, idx) => <li key={idx}>{l}</li>)}</p>
-          <p>Technology: {project.technology.map((l, idx) => <li key={idx}>{l}</li>)}</p>
-        </div>
-      </div>} */}
     </main>
    )
 }

@@ -1,3 +1,109 @@
+@use '../../styles/variables' as v;
+@import '../../styles/variables';
+@import '../../styles/colors';
+@import '../../styles/typography';
+
 .container {
-  
-}
+  width: 100%;
+  height: 100%;
+  @include v.flex-row;
+  font-family: $bodyFontFamily;
+  .leftColumn {
+    max-width: 60%;
+    max-height: 100%;
+    align-self: center;
+    img {
+      width: 100%;
+      max-height: 100%;
+      margin: 1em;
+      border-radius: 15px;
+    }
+  }
+  .rightColumn {
+    max-width: 40%;
+    max-height: 100%;
+    .header {
+      @include v.flex-column;
+      height: 20%;
+      width: 100%;
+      margin: 1em 0;
+      .linkWrapper {
+        position: relative;
+        display: block;
+        .hover {
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -0.2em;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: $dark-blue;
+            transform: scaleX(0);
+            transform-origin: bottom left;
+            transition: transform 0.3s;
+          }
+          &:hover:after {
+            transform: scaleX(1);
+          }
+          h1 {
+            font-size: 3em;
+            font-family: $accentFontFamily;
+          }
+        }
+      }
+      .linkContainer {
+        @include flex-row;
+        padding: 1.5em;
+        img {
+          width: 2em;
+          margin: 0 1em;
+        }
+        a:hover {
+          transform: translateY(-0.2em);
+          transition: all 0.25s;
+        }
+      }
+    }
+    .contentContainer {
+      max-height: 80%;
+      width: 100%;
+      margin: 1em 0;
+      @include v.flex-column;
+      .introContainer {
+        width: 100%;
+        height: 30%;
+        @include v.flex-column;
+        margin: 1em 0;
+        .intro {
+          font-size: 1.5em;
+          font-family: $bodyFontFamily;
+          font-weight: bold;
+          width: 70%;
+          text-align: center;
+          margin: 0.5em 0;
+        }
+      }
+      .details {
+        width: 100%;
+        height: 70%;
+        @include v.flex-column;
+        margin: 1em 0;
+        h3, li {
+          font-size: 1.5em;
+        }
+        li {
+          list-style: none;
+          padding: 0.5em;
+        }
+        div {
+          @include v.flex-row;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+}              
+
+
+
