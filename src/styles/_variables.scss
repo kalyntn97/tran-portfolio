@@ -14,9 +14,14 @@
   padding: 2em;
 }
 
-@mixin small-spacing {
+@mixin medium-spacing {
   margin: 2em;
   padding: 1em;
+}
+
+@mixin small-spacing {
+  margin: 1em;
+  padding: 0.5em;
 }
 
 @mixin reset-spacing {

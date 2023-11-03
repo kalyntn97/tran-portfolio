@@ -9,7 +9,8 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from './About.module.scss'
 //assets
 import avatar from '../../assets/images/avatar.jpeg'
-// import downArrow from '../../assets/icons/downarrow.svg'
+import circleDown from '../../assets/icons/circledown.svg'
+import circleUp from '../../assets/icons/circleup.svg'
 
 const About = () => {
   const { theme } = useContext(ThemeContext)
@@ -52,13 +53,10 @@ const About = () => {
             duration={500}
             className={styles.arrow}
             > 
-          ∨
-        </Link>
-        <button
-          onClick={handleClick}
-        > 
-          ∧
-        </button></span>
+              <img src={circleDown} alt="a downward arrow" />
+          </Link>
+          <button onClick={handleClick}><img src={circleUp} alt="an upward arrow" /></button>
+        </span>
       </section>
 
       <section

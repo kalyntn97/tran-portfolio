@@ -1,3 +1,44 @@
+@use '../../styles/variables' as v;
+@import '../../styles/typography';
+@import '../../styles/colors';
+
 .container {
- 
+  @include v.flex-column;
+  width: 40%;
+  max-height: 90%;
+  .contactForm {
+    @include v.flex-column;
+    width: 100%;
+    max-height: 90%;
+    font-size: 1.0em;
+    border-radius: 1em;
+    background-color: $shadow;
+    font-family: $bodyFontFamily;
+    @include v.medium-spacing;
+    label {
+      font-family: $titleFontFamily;
+      margin: 0.5em;
+    }
+    input, textarea {
+      width: 90%;
+      @include v.small-spacing;
+    }
+    input {
+      height: 2em;
+    }
+    textarea {
+      height: 10em;
+    }
+    button {
+      background-color: $light-blue2;
+      @include v.small-spacing;
+      width: 6em;
+      height: 2.5em;
+      border-radius: 0.5em;
+      &:hover {
+        background-color: $shadow;
+        transition: all 0.5s ease-out;
+      }
+    }
+  }
 }

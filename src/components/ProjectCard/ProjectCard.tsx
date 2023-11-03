@@ -28,7 +28,10 @@ const ProjectCard = (props) => {
         </div>
         <div className={styles.movingContainer} onClick={(e) => handleClick(e, props.project.id)}>
           <p className={styles.intro}>{props.project.intro}</p>
-          <button><p>See more →</p></button>
+          <button className={styles.seeMore}>
+            <span className={styles.circle} aria-aria-hidden='true'></span>
+            <span className={styles.btnText}>See more</span>
+          </button>
         </div>
       </div>
     </main>

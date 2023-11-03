@@ -43,10 +43,16 @@ const ProjectList= () => {
             transform: 'translate(-50%,-50%)',
             width: '60vw',
             height: '80vh',
+            border: 'none',
+            borderRadius: '1em',
+          },
+          overlay: {
+            backgroundColor: 'rgba(0,0,0,0.5)'
           }
         }}
       >
         <ProjectCardExpanded id={`${isClicked.id}-${isClicked.name}`} project={isClicked}/>
+        <button onClick={handleClose} className='close-btn fill'><span>Go back</span></button>
       </Modal> 
     </main>
    )

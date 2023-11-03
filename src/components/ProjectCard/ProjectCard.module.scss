@@ -72,28 +72,41 @@
       inset: 16em auto auto auto;
       opacity: 0;
       transition: inset .3s ease-in, opacity .3s ease-in;
-      button {
+      .seeMore {
         position: relative;
-        @include v.reset-spacing;
-        font-weight: bold;
-        font-size: 0.8em;
-        p {
+        display: inline-block;
+        outline: none;
+        margin: 1em;
+        border: 0;
+        padding: 0;
+        vertical-align: middle;
+        width: 7em;
+        height: auto;
+        .circle {
+          transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
           position: relative;
+          display: block;
           margin: 0;
-          &:after {
-            content: '';
-            position: absolute;
-            bottom: -0.2em;
-            left: 0;
+          width: 0;
+          height: 1.5em;
+          background: $dark-blue;
+          border-radius: 1.625em;
+        }
+        .btnText {
+          transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+          position: absolute;
+          inset: 0 0 0 0;
+          line-height: 1.5em;
+          color: $dark-blue;
+          text-align: center;
+          text-transform: uppercase;   
+        }
+        &:hover {
+          .circle {
             width: 100%;
-            height: 2px;
-            background-color: $brighter-blue;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease-out;
           }
-          &:hover:after {
-            transform: scaleX(1);
+          .btnText {
+            color: #fff;
           }
         }
       }

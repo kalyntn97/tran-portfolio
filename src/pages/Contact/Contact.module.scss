@@ -1,3 +1,10 @@
+@use '../../styles/variables' as v;
+@import '../../styles/typography';
+@import '../../styles/colors';
+
 .container {
   min-height: calc(100vh - 7vh - 6vh);
+  width: 100%;
+  @include v.flex-column;
+  
 }

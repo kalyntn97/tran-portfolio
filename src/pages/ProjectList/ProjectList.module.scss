@@ -1,37 +1,29 @@
 @use '../../styles//variables' as v;
 @import '../../styles/variables';
+@import '../../styles/colors';
 
 .container {
-  min-height: calc(100vh - 7vh - 6vh);
-  width: 100%;
   @include v.flex-row;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
   .cardContainer {
     @include v.flex-row;
-    @include v.small-spacing;
+    @include v.medium-spacing;
     flex-basis: 25%;
     height: 25em;
     align-items: center;
     text-align: center;
+    box-shadow: inset 20px 20px 20px $shadow, 25px 35px 20px $shadow, 25px 30px 30px $shadow, inset -20px -20px 25px $white;
     @for $i from 1 through 6 {
       &:nth-child(#{$i}) {
         animation-name: floating#{$i};
         animation-duration: $i*30+s;
         animation-iteration-count: infinite;
-        background: rgb(0, 174, 255);
-        background: linear-gradient(270deg, #5cacd4, #70b8db, #83c3e3, #96cfea, #a8dbf2);             
-        background-color: rgba(0, 0, 0, 0);
-        background-repeat: repeat;
-        background-size: auto auto;
-        background-color: #b8e4f8;
-        background-size: 1000%;
-        background-repeat: repeat;
       }
       @keyframes floating#{$i} {
         0% { 
           border-radius: 51% 49% 34% 66% / 39% 66% 34% 61%; 
-          background-position: 0 50%;
         }
         10% { 
           transform: rotate(random($i)*(-1)*1+deg) translateY((random(5))+px) translateX(random(5)+px);
@@ -52,7 +44,6 @@
         50% {
           transform: rotate(random($i)*(-1)*1+deg) translateY((random(25))+px) translateX(random(25)+px);
           border-radius: 44% 56% 22% 78% / 31% 74% 26% 69%;
-          background-position: 100% 50%;
         }
         60% { 
           transform: rotate(random($i)*2+deg) translateY((random(20))+px) translateX(random(20)+px);
@@ -72,7 +63,6 @@
         }
         100% { 
           border-radius: 51% 49% 34% 66% / 39% 66% 34% 61%; 
-          background-position: 0 50%;
         }
       }
     }

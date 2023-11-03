@@ -8,8 +8,6 @@
   height: 7vh;
   font-size: 1.5em;
   font-family: $titleFontFamily;
-  position: sticky;
-  top: 0;
   .leftContainer {
     float: left;
     max-height: 100%;
@@ -44,7 +42,7 @@
   }
 }
 [data-theme='blossom'].navbar {
-  background-color: rgba( $light-blue, .5);
+  background-color: rgba( $light-blue, .9);
   .rightContainer {
     a {      
       width: 7em;
@@ -57,7 +55,7 @@
 }
 
 [data-theme='starry'].navbar {
-  background-color: rgba( $dark-blue, .5);
+  background-color: rgba( $dark-blue, .9);
   .rightContainer {
     a {
       color: $light-blue;
