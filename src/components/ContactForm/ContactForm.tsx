@@ -28,7 +28,6 @@ const ContactForm = () => {
       }
     )
     setFormData({name: '', email: '', message: ''})
-    
   }
 
   return ( 

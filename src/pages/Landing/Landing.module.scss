@@ -1,3 +1,116 @@
+@use '../../styles//variables' as v;
+@import '../../styles/variables';
+@import '../../styles/colors';
+@import '../../styles/typography';
+
 .container {
-  min-height: calc(100vh - 7vh - 6vh);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  .laptop {
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    @include  v.flex-column;
+    z-index: 1;
+    .screen{
+      width: 95%;
+      height: 90%;
+      border-radius: 1em;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .window {
+        width: 95%;
+        height: 90%;
+        background-color: white;
+        @include v.flex-column;
+        .windowBar {
+          width: 100%;
+          height: 5%;
+          border: 1px solid black;
+          border-radius: 0.5em 0.5em 0 0;
+          background-color: nth($window, 1);
+          @include v.flex-row;
+          justify-content: left;
+          align-items: center;
+          padding: 0.3em;
+          .roundBtn {
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: black;
+            margin: 0.3em;
+            @for $i from 1 through 3 {
+              &:nth-child(#{$i}) {
+                background-color: nth($buttons, $i);
+              }
+            }
+          }
+        }
+        .windowBody {
+          width: 100%;
+          height: 95%;
+          @include v.flex-row;
+          background-color: nth($window, 2);
+          .header {
+            width: 60%;
+            @include v.flex-column;
+            h1 {
+              font-family: $titleFontFamily;
+              font-size: 5em;
+              margin: 0.5em 0;
+            }
+            h2 {
+              font-family: $subtitleFontFamily;
+              font-size: 1.5em;
+            }
+          }
+          .linkContainer {
+            width: 30%;
+            @include v.flex-column;
+            align-items: flex-end;
+            margin: 2em 0;
+            a {
+              font-family: $menuFontFamily;
+              font-size: 1.5em;
+              margin: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .keyboard {
+      width: 95%;
+      height: 10%;
+      border-radius: 1em;
+      background-color: silver;
+    }
+  }
+  .table {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+  }
+  .image {
+    position: absolute;
+    z-index: 999;
+    width: 80%;
+    height: auto;
+    top: 20%;
+    left: 10%;
+    transform: rotate(150deg);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

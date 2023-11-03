@@ -12,8 +12,9 @@ import avatar from '../../assets/images/avatar.jpeg'
 import circleDown from '../../assets/icons/circledown.svg'
 import circleUp from '../../assets/icons/circleup.svg'
 
-const About = () => {
+const About = (props) => {
   const { theme } = useContext(ThemeContext)
+  props.setShowNavAndFooter(true)
   const handleClick = () => {
     scroll.scrollToTop({ offset: -70, duration: 500, smooth: true })
   }

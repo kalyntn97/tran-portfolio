@@ -16,7 +16,7 @@
     font-family: $bodyFontFamily;
     @include v.medium-spacing;
     label {
-      font-family: $titleFontFamily;
+      font-family: $headingFontFamily;
       margin: 0.5em;
     }
     input, textarea {

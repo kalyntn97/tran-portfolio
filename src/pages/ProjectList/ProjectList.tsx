@@ -11,7 +11,8 @@ import './Modal.css'
 import { projects } from '../../data/projectContent'
 import { Project } from '../../data/projectContent'
 
-const ProjectList= () => {
+const ProjectList= (props) => {
+  props.setShowNavAndFooter(true)
   const [open, setOpen] = useState(false)
   const [isClicked, setIsClicked] = useState<Project>({})
 
