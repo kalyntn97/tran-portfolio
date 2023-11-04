@@ -1,5 +1,9 @@
 //npm modules
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+//components
+import { ThemeContext } from '../../contexts/ThemeContext'
+import ThemeSwitcher from '../../components/ThemeSwitcher/ThemeSwitcher'
 //css
 import styles from './Landing.module.scss'
 //assets
@@ -7,9 +11,11 @@ import sleepingCat from '../../assets/images/sleepingCat.png'
 
 const Landing = (props) => {
   props.setShowNavAndFooter(false)
+  const { theme } = useContext(ThemeContext)
 
   return ( 
-    <main className={styles.container}>
+    <main className={styles.container} data-theme={theme}>
+      <ThemeSwitcher />
       <div className={styles.laptop}>
         <div className={styles.screen}>
           <div className={styles.window}>
@@ -24,9 +30,9 @@ const Landing = (props) => {
                 <h2>a software engineer</h2>
               </div>
               <div className={styles.linkContainer}>
-                <NavLink to='/about'>more about me</NavLink>
-                <NavLink to='/projects'>my projects</NavLink>
-                <NavLink to='/contact'>contact me</NavLink>
+                <NavLink to='/about' data-replace='more about me'><span>more about me</span></NavLink>
+                <NavLink to='/projects' data-replace='my projects'><span>my projects</span></NavLink>
+                <NavLink to='/contact' data-replace='contact me'><span>contact me</span></NavLink>
               </div>
             </div>
           </div>
