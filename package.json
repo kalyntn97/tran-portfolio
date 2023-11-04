@@ -12,11 +12,11 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "dotenv": "^16.3.1",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.17.0",
-    "react-scripts": "^5.0.1",
     "react-scroll": "^1.9.0",
     "react-spring": "^9.7.3",
     "react-use-measure": "^2.1.1",
