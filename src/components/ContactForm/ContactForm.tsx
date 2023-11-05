@@ -9,13 +9,13 @@ import paperPlane from '../../assets/icons/paperplane.png'
 
 const ContactForm = () => {
   const { theme } = useContext(ThemeContext)
-  const form = useRef<HTMLFormElement | string>()
+  const form = useRef<HTMLFormElement>(null)
   const [formData, setFormData] = useState({name: '', email: '', message: ''})
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!form || !form.current) return
     emailjs.sendForm(
@@ -64,10 +64,8 @@ const ContactForm = () => {
         <textarea
           required
           name='message' 
-          type='text' 
           placeholder='Message'
           id='messageInput'
-          // eslint-disable-next-line
           onChange={handleChange}
           value={formData.message}
         />
