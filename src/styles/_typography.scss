@@ -1,30 +1,28 @@
-
 @font-face {
   font-family: 'Lemon Milk';
-  src: local('Lemon Milk'), url('src/assets/fonts/LemonMilkMedium.otf') format('opentype');
+  src: local('Lemon Milk'), url('../assets/fonts/LemonMilkMedium.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Champagne & Limousines';
-  src: local('Champagne & Limousines'), url('src/assets/fonts/ChampagneAndLimousinesRegular.ttf') format('truetype');
+  src: local('Champagne & Limousines'), url('../assets/fonts/ChampagneAndLimousinesRegular.ttf') format('truetype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Champagne & Limousines';
-  src: local('Champagne & Limousines'), url('src/assets/fonts/ChampagneAndLimousinesBold.ttf');
+  src: local('Champagne & Limousines'), url('../assets/fonts/ChampagneAndLimousinesBold.ttf');
   font-weight: bold;
-
 }
 
 @font-face {
   font-family: 'Moonglade';
-  src: local('Moonglade'), url('src/assets/fonts/MoongladeBold.ttf') format('truetype');
+  src: local('Moonglade'), url('../assets/fonts/MoongladeBold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Nico Moji';
-  src: local('Nico Moji'), url('src/assets/fonts/NicoMojiRegular.ttf') format('truetype');
+  src: local('Nico Moji'), url('../assets/fonts/NicoMojiRegular.ttf') format('truetype');
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
