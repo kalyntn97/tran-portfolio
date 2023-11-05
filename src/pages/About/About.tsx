@@ -59,8 +59,8 @@ const About: React.FC<IProps> = (props) => {
             <img src={avatar} alt='an avatar' />
             <div className={styles.textContainer}>
               <div>
-                <p>Hi! My name is Tran. I am a Software Engineer dedicated to create user-friendly and whimsical designs that spark joy and smiles. </p>
-                <p>With a previous background in biotech and a passion for art, I am committed to craft delightful digital experiences that seamlessly blend analytical power and creativity</p>
+                <p>Hi! My name is Tran. I am a Software Engineer dedicated to creating user-friendly and whimsical designs that spark joy and smiles. </p>
+                <p>With a previous background in biotech and a passion for art, I am committed to crafting delightful digital experiences that seamlessly blend analytical power and creativity</p>
                 <p>When I am not <span>
                   <Link
                     to="section2"
