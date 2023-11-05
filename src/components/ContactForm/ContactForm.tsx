@@ -9,14 +9,15 @@ import paperPlane from '../../assets/icons/paperplane.png'
 
 const ContactForm = () => {
   const { theme } = useContext(ThemeContext)
-  const form = useRef()
+  const form = useRef<HTMLFormElement | string>()
   const [formData, setFormData] = useState({name: '', email: '', message: ''})
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
+    if (!form || !form.current) return
     emailjs.sendForm(
       import.meta.env.VITE_EMAIL_SERVICE_ID,
       import.meta.env.VITE_EMAIL_TEMPLATE_ID,
@@ -37,6 +38,7 @@ const ContactForm = () => {
   return ( 
     <main className={styles.container} data-theme={theme}>
       <h2>Send me a message!</h2>
+      {/* // eslint-disable-next-line */}
       <form className={styles.contactForm} onSubmit={handleSubmit} ref={form}>
         <label htmlFor="nameInput">Name</label>
         <input 
@@ -65,6 +67,7 @@ const ContactForm = () => {
           type='text' 
           placeholder='Message'
           id='messageInput'
+          // eslint-disable-next-line
           onChange={handleChange}
           value={formData.message}
         />
