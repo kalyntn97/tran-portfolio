@@ -4,7 +4,7 @@
 
 .container {
   @include v.flex-column;
-  @include v.small-spacing;
+  @include v.medium-spacing;
   .section {
     width: 100%;
     height: fit-content;
@@ -13,34 +13,28 @@
     .heading {
       margin-bottom: 0.5em;
     }
+    a {
+      cursor: pointer;
+    }
     .linkContainer {
-      margin-bottom: 2em;
-        button, .arrow {
-          font-size: 2.0em;
-          width: 1.5em;
-          margin-right: 0.5em;
-          padding: 0.1em;
-          border-radius: 50%;
+      img {
+        width: 2em;
+        margin: 2em 1em;
+      }
+      a:hover, button:hover {
+        img {
+          transform: translateY(-0.3em);
         }
       }
-    a {
-      font-weight: bold;
-      cursor: pointer;
-      &:hover {
-        transition: all 0.5s;
-      }
-    }
-    span {
-      display: inline-flex;
-      align-items: center;
     }
     .aboutContainer {
       width: 70%;
       height: 60vh;
       align-items: center;
       justify-content: space-between;
+      overflow: hidden;
       @include v.flex-row;
-      @include v.small-spacing;
+      @include v.medium-spacing;
       img {
         height: 15em;
         border-radius: 50%;
@@ -48,11 +42,12 @@
         box-shadow: 0 0 50px 50px $light-blue inset;
       }
       .textContainer {
-        border-radius: 78% 22% 74% 26% / 34% 61% 39% 66%;
+        border-radius: 88% 12% 87% 13% / 18% 85% 15% 82%;
         width: 65%;
         height: 90%;
-        @include v.small-spacing;
+        @include v.medium-spacing;
         font-size: 1.3em;
+        animation: border-move 10s infinite;
         div {
           width: 90%;
           height: 80%;
@@ -62,8 +57,11 @@
             padding: 1em;
           }
         }
+        a {
+          color: $bright-blue;
+        }
         a:hover {
-          color: $brighter-blue;
+          font-weight: bold;
          }
       }
     }
@@ -91,4 +89,8 @@
   .arrow:hover, button:hover {
     color: nth($green, 4);
   }
+}
+
+@keyframes border-move{
+  50%{ border-radius:13% 87% 11% 89% / 83% 17% 83% 17%; }
 }

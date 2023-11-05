@@ -1,6 +1,25 @@
-.container {
-  height: 100%;
-  button {
-    margin: 0.5em;
+@import '../../styles/colors';
+
+.switch {
+  width: 4rem;
+  height: 2rem;
+  background-color: $light-blue2;
+  margin: 1em;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.1em;
+  border-radius: 50px;
+  .handle {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: $light-purple;
+  }
+}
+[data-isDark='true'].switch {
+  justify-content: flex-end;
+  background-color: $dark-blue2;
+  .handle {
+    background-color: $bright-purple;
   }
 }

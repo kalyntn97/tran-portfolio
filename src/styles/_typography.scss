@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: 'Champagne & Limousines';
-  src: local('Champagne & Limousines') url('src/assets/fonts/ChampagneAndLimousinesBold.ttf');
+  src: local('Champagne & Limousines'), url('src/assets/fonts/ChampagneAndLimousinesBold.ttf');
   font-weight: bold;
 
 }
@@ -22,6 +22,18 @@
   src: local('Moonglade'), url('src/assets/fonts/MoongladeBold.ttf') format('truetype');
 }
 
-$titleFontFamily: 'Moonglade', sans-serif;
+@font-face {
+  font-family: 'Nico Moji';
+  src: local('Nico Moji'), url('src/assets/fonts/NicoMojiRegular.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+$headingFontFamily: 'Moonglade', sans-serif;
 $accentFontFamily: 'Lemon Milk', sans-serif;
 $bodyFontFamily: 'Champagne & Limousines', sans-serif;
+$titleFontFamily: 'Bungee Shade', sans-serif;
+$subtitleFontFamily: 'Press Start 2P', sans-serif;
+$menuFontFamily: 'Nico Moji', sans-serif;

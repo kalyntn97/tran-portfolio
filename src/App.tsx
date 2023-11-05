@@ -1,6 +1,7 @@
 //npm modules
-import { useContext } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 //components
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer/Footer'
@@ -11,22 +12,26 @@ import Landing from './pages/Landing/Landing'
 import About from './pages/About/About'
 import ProjectList from './pages/ProjectList/ProjectList'
 import Contact from './pages/Contact/Contact'
-//css
+//css `
 import styles from './App.module.scss'
 
 const App: React.FC = () => {
   const { theme } = useContext(ThemeContext)
-  
+  const location = useLocation()
+  const [showNavAndFooter, setShowNavAndFooter] = useState(true)
+
   return ( 
     <main className={styles.container} data-theme={theme}>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path='/about' element={<About />}/>
-        <Route path='/projects' element={<ProjectList />}/>
-        <Route path='/contact' element={<Contact />}/>
-      </Routes>
-      <Footer />
+      {showNavAndFooter && <NavBar />}
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path='/' element={<Landing setShowNavAndFooter={setShowNavAndFooter} />} />
+          <Route path='/about' element={<About setShowNavAndFooter={setShowNavAndFooter}/>}/>
+          <Route path='/projects' element={<ProjectList setShowNavAndFooter={setShowNavAndFooter}/>}/>
+          <Route path='/contact' element={<Contact setShowNavAndFooter={setShowNavAndFooter}/>}/>
+        </Routes>
+      </AnimatePresence>
+      {showNavAndFooter && <Footer />}
     </main>
    )
 }

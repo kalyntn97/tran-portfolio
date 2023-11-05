@@ -1,27 +1,50 @@
 //npm modules
-import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+//components
+import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './ProjectCard.module.scss'
-//import data
-import { Project } from '../../data/projectContent'
+//assets
+import gitHubIcon from '../../assets/icons/github.svg'
+import gitHubIconWhite from '../../assets/icons/github-white.png'
+import noteIcon from '../../assets/icons/note.svg'
+import noteIconWhite from '../../assets/icons/note-white.png'
 
-const ProjectCard = ({ project }: Project) => {
-  
+const ProjectCard = (props) => {
+  const { theme } = useContext(ThemeContext)
+
+  const handleClick = (e, id) => {
+    props.handleOpen(id)
+  }
+
   return ( 
     <main className={styles.container}>
       <div className={styles.header}>
-        <h2>{project.title}</h2>
+        <div className={styles.linkWrapper}>
+          <a href={props.project.url} target={'_blank'} className={styles.hover}>
+            <h2>{props.project.title}</h2>
+          </a>
+        </div>
         <div className={styles.linkContainer}>
-          <a href={project.gitHubUrl} target={'_blank'}>GitHub</a>
-          <a href={project.url} target={'_blank'}>Deployment</a>
+          <a href={props.project.gitHubUrl} target={'_blank'}>
+            <img src={theme === 'blossom' ? gitHubIcon : gitHubIconWhite} alt='a GitHub icon'/>
+          </a>
+          <a href={props.project.planningUrl} target={'_blank'}>
+            <img src={theme === 'blossom' ? noteIcon : noteIconWhite} alt='a note icon'/>
+          </a>
         </div>
       </div>
       <div className={styles.contentContainer}>
-        <p>Languages: {project.languages.map((l, idx) => <li key={idx}>{l}</li>)}</p>
-        <p>Technology: {project.technology.map((l, idx) => <li key={idx}>{l}</li>)}</p>
-        <a href={project.planningUrl} target={'_blank'}>Planning Materials</a>
-        <img src='' alt={`A screenshot of ${project.title}`}/>
-        <p>{project.intro}</p>
+        <div className={styles.imgContainer}>
+          <img src={props.project.img[0]} alt={`A screenshot of ${props.project.title}`}/>
+        </div>
+        <div className={styles.movingContainer} onClick={(e) => handleClick(e, props.project.id)}>
+          <p className={styles.intro}>{props.project.intro}</p>
+          <button className={styles.seeMore}>
+            <span className={styles.circle} aria-aria-hidden='true'></span>
+            <span className={styles.btnText}>See more</span>
+          </button>
+        </div>
       </div>
     </main>
    )

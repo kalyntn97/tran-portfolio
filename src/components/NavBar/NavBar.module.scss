@@ -7,9 +7,7 @@
   width: 100%;
   height: 7vh;
   font-size: 1.5em;
-  font-family: $titleFontFamily;
-  position: sticky;
-  top: 0;
+  font-family: $headingFontFamily;
   .leftContainer {
     float: left;
     max-height: 100%;
@@ -44,7 +42,7 @@
   }
 }
 [data-theme='blossom'].navbar {
-  background-color: rgba( $light-blue, .5);
+  background-color: rgba( $light-blue, .9);
   .rightContainer {
     a {      
       width: 7em;
@@ -57,20 +55,23 @@
 }
 
 [data-theme='starry'].navbar {
-  background-color: rgba( $dark-blue, .5);
+  background-color: rgba( $dark-blue, .9);
   .rightContainer {
+    margin-top: 0.5em;
     a {
       color: $light-blue;
-      width: 5em;
-      height: 1.5em;
+      width: 5.5em;
+      height: 2em;
+      padding: 0.3em;
       border-radius: 3em;
+      border: 3px solid transparent;
       &:hover, &[class='active'] {
         font-weight: bold;
         background-image: url('src/assets/images/sparkle-background.png');
-        background-size: 200% 200%;
-        background-color: $bright-purple;
-        box-shadow: 0px 0px 30px 15px $bright-purple;
-        transition: all 0.75s;      
+        background-size: 150% 150%;
+        border: 3px solid $bright-purple;
+        box-shadow: 0px 0px 30px 10px $bright-purple;
+        transition: all .3s ease-in-out;    
       }
       img {
         display: none;
