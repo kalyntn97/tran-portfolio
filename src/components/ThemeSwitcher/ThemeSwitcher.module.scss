@@ -16,7 +16,7 @@
     background-color: $light-purple;
   }
 }
-[data-isDark='true'].switch {
+[data-theme='starry'].switch {
   justify-content: flex-end;
   background-color: $dark-blue2;
   .handle {

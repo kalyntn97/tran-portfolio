@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './ContactForm.module.scss'
-import paperPlane from '../../assets/icons/paperplane.png'
+import paperPlane from '/assets/icons/paperplane.png'
 
 const ContactForm = () => {
   const { theme } = useContext(ThemeContext)

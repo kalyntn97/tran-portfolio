@@ -13,11 +13,12 @@ import { projects } from '../../data/projectContent'
 import { Project } from '../../data/projectContent'
 
 type IProps = {
-  setShowNavAndFooter: (val: boolean) => void
+  handleShowNavAndFooter: () => void
 }
 
 const ProjectList: React.FC<IProps>= (props) => {
-  props.setShowNavAndFooter(true)
+  props.handleShowNavAndFooter()
+  
   const [open, setOpen] = useState(false)
   const [isClicked, setIsClicked] = useState<Project | undefined>(undefined)
 

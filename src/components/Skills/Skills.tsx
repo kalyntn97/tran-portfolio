@@ -5,17 +5,17 @@
 //css
 import styles from './Skills.module.scss'
 //assets
-import javascript from '../../assets/icons/javascript.svg'
-import typeScript from '../../assets/icons/typescript.svg'
-import python from '../../assets/icons/python.svg'
-import html5 from '../../assets/icons/html5.svg'
-import css3 from '../../assets/icons/css3.svg'
-import sass from '../../assets/icons/sass.svg'
-import react from '../../assets/icons/react.svg'
-import mongoDB from '../../assets/icons/mongodb.svg'
-import postgreSQL from '../../assets/icons/postgresql.svg'
-import express from '../../assets/icons/expressjs.svg'
-import django from '../../assets/icons/django.svg'
+import javascript from '/assets/icons/javascript.svg'
+import typeScript from '/assets/icons/typescript.svg'
+import python from '/assets/icons/python.svg'
+import html5 from '/assets/icons/html5.svg'
+import css3 from '/assets/icons/css3.svg'
+import sass from '/assets/icons/sass.svg'
+import react from '/assets/icons/react.svg'
+import mongoDB from '/assets/icons/mongodb.svg'
+import postgreSQL from '/assets/icons/postgresql.svg'
+import express from '/assets/icons/expressjs.svg'
+import django from '/assets/icons/django.svg'
 
 const Skills = () => {
   // const [progress, setProgress] = useState(0)

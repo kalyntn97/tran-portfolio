@@ -9,17 +9,19 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './About.module.scss'
 //assets
-import avatar from '../../assets/images/avatar.jpeg'
-import circleDown from '../../assets/icons/circledown.svg'
-import circleUp from '../../assets/icons/circleup.svg'
+import avatar from '/assets/images/avatar.jpeg'
+import circleDown from '/assets/icons/circledown.svg'
+import circleUp from '/assets/icons/circleup.svg'
 
 type IProps = {
-  setShowNavAndFooter: (val: boolean) => void
+  handleShowNavAndFooter: () => void
 }
 
 const About: React.FC<IProps> = (props) => {
   const { theme } = useContext(ThemeContext)
-  props.setShowNavAndFooter(true)
+
+  props.handleShowNavAndFooter()
+
   const handleClick = () => {
     scroll.scrollToTop({ offset: -70, duration: 500, smooth: true })
   }

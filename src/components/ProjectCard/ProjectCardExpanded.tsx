@@ -1,8 +1,8 @@
 //css
 import styles from './ProjectCardExpanded.module.scss'
 //assets
-import gitHubIcon from '../../assets/icons/github.svg'
-import noteIcon from '../../assets/icons/note.svg'
+import gitHubIcon from '/assets/icons/github.svg'
+import noteIcon from '/assets/icons/note.svg'
 import { Project } from '../../data/projectContent'
 
 type IProps = {

@@ -18,17 +18,24 @@ import styles from './App.module.scss'
 const App: React.FC = () => {
   const { theme } = useContext(ThemeContext)
   const location = useLocation()
-  const [showNavAndFooter, setShowNavAndFooter] = useState(true)
+  const [showNavAndFooter, setShowNavAndFooter] = useState(false)
+  const handleShowNavAndFooter = () => {
+    setShowNavAndFooter(true)
+  }
+  const handleHideNavAndFooter = () => {
+    setShowNavAndFooter(false)
+  }
+
 
   return ( 
     <main className={styles.container} data-theme={theme}>
       {showNavAndFooter && <NavBar />}
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-          <Route path='/' element={<Landing setShowNavAndFooter={setShowNavAndFooter} />} />
-          <Route path='/about' element={<About setShowNavAndFooter={setShowNavAndFooter}/>}/>
-          <Route path='/projects' element={<ProjectList setShowNavAndFooter={setShowNavAndFooter}/>}/>
-          <Route path='/contact' element={<Contact setShowNavAndFooter={setShowNavAndFooter}/>}/>
+          <Route path='/' element={<Landing handleHideNavAndFooter={handleHideNavAndFooter} />} />
+          <Route path='/about' element={<About handleShowNavAndFooter={handleShowNavAndFooter}/>}/>
+          <Route path='/projects' element={<ProjectList handleShowNavAndFooter={handleShowNavAndFooter}/>}/>
+          <Route path='/contact' element={<Contact handleShowNavAndFooter={handleShowNavAndFooter}/>}/>
         </Routes>
       </AnimatePresence>
       {showNavAndFooter && <Footer />}

@@ -8,18 +8,19 @@ import ThemeSwitcher from '../../components/ThemeSwitcher/ThemeSwitcher'
 //css
 import styles from './Landing.module.scss'
 //assets
-import sleepingCat from '../../assets/images/sleepingCat.png'
-import gitHubIcon from '../../assets/icons/github.svg'
-import gitHubIconWhite from '../../assets/icons/github-white.png'
-import linkedInIcon from '../../assets/icons/linkedin.svg'
-import linkedInIconWhite from '../../assets/icons/linkedin-white.png'
+import sleepingCat from '/assets/images/sleepingCat.png'
+import gitHubIcon from '/assets/icons/github.svg'
+import gitHubIconWhite from '/assets/icons/github-white.png'
+import linkedInIcon from '/assets/icons/linkedin.svg'
+import linkedInIconWhite from '/assets/icons/linkedin-white.png'
 
 type IProps = {
-  setShowNavAndFooter: (val: boolean) => void
+  handleHideNavAndFooter: () => void
 }
 
 const Landing: React.FC<IProps> = (props) => {
-  props.setShowNavAndFooter(false)
+  props.handleHideNavAndFooter()
+
   const { theme } = useContext(ThemeContext)
 
   const variants = {

@@ -9,11 +9,11 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher"
 //css
 import styles from './NavBar.module.scss'
 //assets
-import favicon from '../../assets/icons/favicon.svg'
-import faviconWhite from '../../assets/icons/favicon-white.svg'
-import orangeFlower from '../../assets/images/orange-flower.png'
-import purpleFlower from '../../assets/images/purple-flower.png'
-import yellowFlower from '../../assets/images/yellow-flower.png'
+import favicon from '/assets/icons/favicon.svg'
+import faviconWhite from '/assets/icons/favicon-white.svg'
+import orangeFlower from '/assets/images/orange-flower.png'
+import purpleFlower from '/assets/images/purple-flower.png'
+import yellowFlower from '/assets/images/yellow-flower.png'
 
 const NavBar: React.FC = () => {
   const { theme } = useContext(ThemeContext)

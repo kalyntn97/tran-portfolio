@@ -7,10 +7,10 @@ import { Project } from '../../data/projectContent'
 //css
 import styles from './ProjectCard.module.scss'
 //assets
-import gitHubIcon from '../../assets/icons/github.svg'
-import gitHubIconWhite from '../../assets/icons/github-white.png'
-import noteIcon from '../../assets/icons/note.svg'
-import noteIconWhite from '../../assets/icons/note-white.png'
+import gitHubIcon from '/assets/icons/github.svg'
+import gitHubIconWhite from '/assets/icons/github-white.png'
+import noteIcon from '/assets/icons/note.svg'
+import noteIconWhite from '/assets/icons/note-white.png'
 
 type Props = {
   handleOpen: (val: string) => void,

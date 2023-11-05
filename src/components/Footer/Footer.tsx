@@ -5,14 +5,14 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './Footer.module.scss'
 //assets
-import gitHubIcon from '../../assets/icons/github.svg'
-import gitHubIconWhite from '../../assets/icons/github-white.png'
-import linkedInIcon from '../../assets/icons/linkedin.svg'
-import linkedInIconWhite from '../../assets/icons/linkedin-white.png'
-import mailIcon from '../../assets/icons/envelope.svg'
-import mailIconWhite from '../../assets/icons/envelope-white.png'
-import favicon from '../../assets/icons/favicon.svg'
-import faviconWhite from '../../assets/icons/favicon-white.svg'
+import gitHubIcon from '/assets/icons/github.svg'
+import gitHubIconWhite from '/assets/icons/github-white.png'
+import linkedInIcon from '/assets/icons/linkedin.svg'
+import linkedInIconWhite from '/assets/icons/linkedin-white.png'
+import mailIcon from '/assets/icons/envelope.svg'
+import mailIconWhite from '/assets/icons/envelope-white.png'
+import favicon from '/assets/icons/favicon.svg'
+import faviconWhite from '/assets/icons/favicon-white.svg'
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext)

@@ -8,14 +8,14 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './Contact.module.scss'
 //assets
-import catLaptop from '../../assets/animations/catLaptop.json'
+import catLaptop from '../../animations/catLaptop.json'
 
 type IProps = {
-  setShowNavAndFooter: (val: boolean) => void
+  handleShowNavAndFooter: () => void
 }
 
 const Contact: React.FC<IProps> = (props) => {
-  props.setShowNavAndFooter(true)
+  props.handleShowNavAndFooter()
   const { theme } = useContext(ThemeContext)
   
   const contact = {
