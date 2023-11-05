@@ -29,13 +29,13 @@ const ProjectCardExpanded = ({ project }) =>  {
           <div className={styles.details}>
             <h3>Built with</h3>
             <div>
-              {project.languages?.map(l => 
+              {project.mainTechnology?.map(l => 
                 <li>{l}</li>
               )}
             </div>
             <h3>&</h3>
             <div>
-              {project.technology?.map(t => 
+              {project.otherTechnology?.map(t => 
                 <li>{t}</li>
               )}
             </div>
