@@ -1,5 +1,5 @@
 //npm modules
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { motion } from "framer-motion"
 //contexts
 import { ThemeContext } from "../../contexts/ThemeContext"
