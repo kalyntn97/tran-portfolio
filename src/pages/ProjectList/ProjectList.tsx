@@ -67,7 +67,7 @@ const ProjectList= (props) => {
           }
         }}
       >
-        <ProjectCardExpanded id={`${isClicked.id}-${isClicked.name}`} project={isClicked}/>
+        <ProjectCardExpanded id={`${isClicked.id}-${isClicked.title}`} project={isClicked}/>
         <button onClick={handleClose} className='close-btn fill'><span>Go back</span></button>
       </Modal> 
     </motion.div>
