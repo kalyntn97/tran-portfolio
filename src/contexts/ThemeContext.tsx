@@ -9,7 +9,7 @@ type ThemeContext = {
 
 type Props = {
   children?: React.ReactNode
-};
+}
 
 export const ThemeContext = createContext<ThemeContext>( {} as ThemeContext )
 

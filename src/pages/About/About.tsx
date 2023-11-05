@@ -13,9 +13,11 @@ import avatar from '../../assets/images/avatar.jpeg'
 import circleDown from '../../assets/icons/circledown.svg'
 import circleUp from '../../assets/icons/circleup.svg'
 
+type IProps = {
+  setShowNavAndFooter: (val: boolean) => void
+}
 
-
-const About = (props) => {
+const About: React.FC<IProps> = (props) => {
   const { theme } = useContext(ThemeContext)
   props.setShowNavAndFooter(true)
   const handleClick = () => {
