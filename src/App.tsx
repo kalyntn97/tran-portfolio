@@ -26,7 +26,6 @@ const App: React.FC = () => {
     setShowNavAndFooter(false)
   }
 
-
   return ( 
     <main className={styles.container} data-theme={theme}>
       {showNavAndFooter && <NavBar />}

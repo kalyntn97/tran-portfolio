@@ -12,7 +12,6 @@ import styles from './ThemeSwitcher.module.scss'
 
 const ThemeSwitcher: React.FC = () => {
   const { theme, useTheme } = useContext(ThemeContext)
-  const [isDark, setIsDark] = useState(false)
   //for future implentation of >2 themes
   // const handleUseTheme = (e) => {
   //   const theme = e.target.id
@@ -23,11 +22,9 @@ const ThemeSwitcher: React.FC = () => {
     if (theme === 'blossom') {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useTheme('starry') 
-      setIsDark(true)
     } else {  
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useTheme('blossom')
-      setIsDark(false)
     }
   }
   const spring = {
