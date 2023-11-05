@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
 export type Project = {
-  id: number;
+  id: string;
   title: string;
   mainTechnology: string[];
   otherTechnology: string[];

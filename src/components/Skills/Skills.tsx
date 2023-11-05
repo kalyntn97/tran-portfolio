@@ -18,16 +18,16 @@ import express from '../../assets/icons/expressjs.svg'
 import django from '../../assets/icons/django.svg'
 
 const Skills = () => {
-  const [progress, setProgress] = useState(0)
-  const [ref, { width }] = useMeasure()
-  const props = useSpring({width: width*progress})
-  const handleLoadingBar = () => {
-    if (progress === 1 ) {
-      setProgress(0)
-    } else {
-      setProgress(progress + 0.25)     
-    }
-  }
+  // const [progress, setProgress] = useState(0)
+  // const [ref, { width }] = useMeasure()
+  // const props = useSpring({width: width*progress})
+  // const handleLoadingBar = () => {
+  //   if (progress === 1 ) {
+  //     setProgress(0)
+  //   } else {
+  //     setProgress(progress + 0.25)     
+  //   }
+  // }
 
   return ( 
     <main className={styles.container}>
@@ -38,7 +38,7 @@ const Skills = () => {
       <div className={styles.skillIndexContainer}>
         <div className={styles.skillContainer}>
           <h1>Languages</h1>
-          <div id='1'>
+          <div>
             <span><img src={javascript} /><p>JavaScript</p></span>
             <span><img src={typeScript} /><p>TypeScript</p></span>
             <span><img src={python} /><p>Python3</p></span>

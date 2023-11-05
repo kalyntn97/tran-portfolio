@@ -15,7 +15,7 @@ import orangeFlower from '../../assets/images/orange-flower.png'
 import purpleFlower from '../../assets/images/purple-flower.png'
 import yellowFlower from '../../assets/images/yellow-flower.png'
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   const { theme } = useContext(ThemeContext)
 
   const variants = {
@@ -39,9 +39,6 @@ const NavBar = () => {
     animate: { y: 0, opacity: 1},
     exit: { y: 100, opacity: 0 }
   }
-
-
-  
 
   return ( 
     <motion.div className={styles.navbar} data-theme={theme} key='nav'

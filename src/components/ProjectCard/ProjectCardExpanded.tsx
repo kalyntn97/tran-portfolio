@@ -3,12 +3,18 @@ import styles from './ProjectCardExpanded.module.scss'
 //assets
 import gitHubIcon from '../../assets/icons/github.svg'
 import noteIcon from '../../assets/icons/note.svg'
+import { Project } from '../../data/projectContent'
 
-const ProjectCardExpanded = ({ project }) =>  {
+type IProps = {
+  project: Project,
+  id: string
+}
+
+const ProjectCardExpanded: React.FC<IProps> = ({ project }) =>  {
   return ( 
     <main className={styles.container}>
       <div className={styles.leftColumn}>
-        <img src={project.img} alt={`A screenshot of ${project.title}`}/>
+        <img src={project.img[0]} alt={`A screenshot of ${project.title}`}/>
       </div>
       <div className={styles.rightColumn}>
         <div className={styles.header}>

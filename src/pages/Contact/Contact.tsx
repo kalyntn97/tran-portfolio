@@ -10,8 +10,11 @@ import styles from './Contact.module.scss'
 //assets
 import catLaptop from '../../assets/animations/catLaptop.json'
 
+type IProps = {
+  setShowNavAndFooter: (val: boolean) => void
+}
 
-const Contact = (props) => {
+const Contact: React.FC<IProps> = (props) => {
   props.setShowNavAndFooter(true)
   const { theme } = useContext(ThemeContext)
   

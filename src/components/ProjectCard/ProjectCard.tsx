@@ -2,6 +2,8 @@
 import { useContext } from 'react'
 //components
 import { ThemeContext } from '../../contexts/ThemeContext'
+//types
+import { Project } from '../../data/projectContent'
 //css
 import styles from './ProjectCard.module.scss'
 //assets
@@ -10,10 +12,16 @@ import gitHubIconWhite from '../../assets/icons/github-white.png'
 import noteIcon from '../../assets/icons/note.svg'
 import noteIconWhite from '../../assets/icons/note-white.png'
 
-const ProjectCard = (props) => {
+type Props = {
+  handleOpen: (val: string) => void,
+  project: Project,
+  id: string,
+}
+
+const ProjectCard: React.FC<Props> = (props) => {
   const { theme } = useContext(ThemeContext)
 
-  const handleClick = (e, id) => {
+  const handleClick = (id: string) => {
     props.handleOpen(id)
   }
 
@@ -38,7 +46,7 @@ const ProjectCard = (props) => {
         <div className={styles.imgContainer}>
           <img src={props.project.img[0]} alt={`A screenshot of ${props.project.title}`}/>
         </div>
-        <div className={styles.movingContainer} onClick={(e) => handleClick(e, props.project.id)}>
+        <div className={styles.movingContainer} onClick={() => handleClick(props.project.id)}>
           <p className={styles.intro}>{props.project.intro}</p>
           <button className={styles.seeMore}>
             <span className={styles.circle} aria-aria-hidden='true'></span>

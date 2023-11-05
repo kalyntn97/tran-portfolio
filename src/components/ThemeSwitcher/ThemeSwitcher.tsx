@@ -8,7 +8,9 @@ import { ThemeContext } from "../../contexts/ThemeContext"
 //css
 import styles from './ThemeSwitcher.module.scss'
 
-const ThemeSwitcher = () => {
+
+
+const ThemeSwitcher: React.FC = () => {
   const { theme, useTheme } = useContext(ThemeContext)
   const [isDark, setIsDark] = useState(false)
   //for future implentation of >2 themes
@@ -19,9 +21,11 @@ const ThemeSwitcher = () => {
   //   }
   const toggleDarkMode = () => {
     if (theme === 'blossom') {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useTheme('starry') 
       setIsDark(true)
     } else {  
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useTheme('blossom')
       setIsDark(false)
     }

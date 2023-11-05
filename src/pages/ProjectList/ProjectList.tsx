@@ -12,18 +12,22 @@ import './Modal.css'
 import { projects } from '../../data/projectContent'
 import { Project } from '../../data/projectContent'
 
-const ProjectList= (props) => {
+type IProps = {
+  setShowNavAndFooter: (val: boolean) => void
+}
+
+const ProjectList: React.FC<IProps>= (props) => {
   props.setShowNavAndFooter(true)
   const [open, setOpen] = useState(false)
-  const [isClicked, setIsClicked] = useState<Project>({})
+  const [isClicked, setIsClicked] = useState<Project | undefined>(undefined)
 
-  const handleOpen = (id) => {
+  const handleOpen = (id: string) => {
     setOpen(true)
     setIsClicked(projects.find(p => p.id === id))
   }
   const handleClose = () => {
     setOpen(false)
-    setIsClicked({})
+    setIsClicked(undefined)
   }
   
   const container = {
@@ -42,16 +46,16 @@ const ProjectList= (props) => {
       animate='animate'
       exit='exit'
     >
-      {projects.map( (project: Project, idx) =>
+      {projects.map((project: Project, idx) =>
         <motion.div variants={card} className={styles.cardContainer} key={idx}>
           <ProjectCard id={project.id} project={project} handleOpen={handleOpen}/>
         </motion.div>
       )}
-      <Modal
+      {isClicked && <Modal
         closeTimeoutMS={500}
         isOpen={open}
         onRequestClose={handleClose}
-        id={`${isClicked.id}-${isClicked.name}`}
+        id={`${isClicked.id}-${isClicked.title}`}
         style={{
           content: {
             left: '50%',
@@ -69,7 +73,7 @@ const ProjectList= (props) => {
       >
         <ProjectCardExpanded id={`${isClicked.id}-${isClicked.title}`} project={isClicked}/>
         <button onClick={handleClose} className='close-btn fill'><span>Go back</span></button>
-      </Modal> 
+      </Modal> }
     </motion.div>
    )
 }

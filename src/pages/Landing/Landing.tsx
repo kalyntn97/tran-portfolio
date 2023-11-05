@@ -14,7 +14,11 @@ import gitHubIconWhite from '../../assets/icons/github-white.png'
 import linkedInIcon from '../../assets/icons/linkedin.svg'
 import linkedInIconWhite from '../../assets/icons/linkedin-white.png'
 
-const Landing: React.FC = (props) => {
+type IProps = {
+  setShowNavAndFooter: (val: boolean) => void
+}
+
+const Landing: React.FC<IProps> = (props) => {
   props.setShowNavAndFooter(false)
   const { theme } = useContext(ThemeContext)
 
