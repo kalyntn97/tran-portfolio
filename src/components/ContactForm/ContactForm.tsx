@@ -1,10 +1,14 @@
 //npm modules
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext } from 'react'
 import emailjs from '@emailjs/browser'
+//components
+import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './ContactForm.module.scss'
+import paperPlane from '../../assets/icons/paperplane.png'
 
 const ContactForm = () => {
+  const { theme } = useContext(ThemeContext)
   const form = useRef()
   const [formData, setFormData] = useState({name: '', email: '', message: ''})
   const handleChange = (e) => {
@@ -20,18 +24,18 @@ const ContactForm = () => {
       import.meta.env.VITE_EMAIL_PUBLIC_KEY
     ).then(
       (result) => {
-        alert('message sent successfully...')
+        alert('Message sent successfully 🚀')
         console.log(result.text)
+        setFormData({name: '', email: '', message: ''})
       },
       (error) => {
         console.log(error.text)
       }
     )
-    setFormData({name: '', email: '', message: ''})
   }
 
   return ( 
-    <main className={styles.container}>
+    <main className={styles.container} data-theme={theme}>
       <h2>Send me a message!</h2>
       <form className={styles.contactForm} onSubmit={handleSubmit} ref={form}>
         <label htmlFor="nameInput">Name</label>
@@ -64,7 +68,10 @@ const ContactForm = () => {
           onChange={handleChange}
           value={formData.message}
         />
-        <button type='submit'>Submit</button>
+        <button type='submit'>
+          <img src={paperPlane} alt="a paper plane" />
+          <span className={styles.word}>Send</span>
+        </button>
       </form>
     </main>
   )

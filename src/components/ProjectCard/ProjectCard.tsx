@@ -1,10 +1,18 @@
+//npm modules
+import { useContext } from 'react'
+//components
+import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './ProjectCard.module.scss'
 //assets
 import gitHubIcon from '../../assets/icons/github.svg'
+import gitHubIconWhite from '../../assets/icons/github-white.png'
 import noteIcon from '../../assets/icons/note.svg'
+import noteIconWhite from '../../assets/icons/note-white.png'
 
 const ProjectCard = (props) => {
+  const { theme } = useContext(ThemeContext)
+
   const handleClick = (e, id) => {
     props.handleOpen(id)
   }
@@ -18,8 +26,12 @@ const ProjectCard = (props) => {
           </a>
         </div>
         <div className={styles.linkContainer}>
-          <a href={props.project.gitHubUrl} target={'_blank'}><img src={gitHubIcon} alt='a GitHub icon'/></a>
-          <a href={props.project.planningUrl} target={'_blank'}><img src={noteIcon} alt='a note icon'/></a>
+          <a href={props.project.gitHubUrl} target={'_blank'}>
+            <img src={theme === 'blossom' ? gitHubIcon : gitHubIconWhite} alt='a GitHub icon'/>
+          </a>
+          <a href={props.project.planningUrl} target={'_blank'}>
+            <img src={theme === 'blossom' ? noteIcon : noteIconWhite} alt='a note icon'/>
+          </a>
         </div>
       </div>
       <div className={styles.contentContainer}>

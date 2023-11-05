@@ -1,6 +1,7 @@
-
-import React, { useRef, useState } from 'react'
+//npm modules
+import { useState } from 'react'
 import Modal from 'react-modal'
+import { motion } from 'framer-motion'
 //components
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import ProjectCardExpanded from '../../components/ProjectCard/ProjectCardExpanded'
@@ -25,12 +26,26 @@ const ProjectList= (props) => {
     setIsClicked({})
   }
   
+  const container = {
+    animate: { transition: { delayChildren: 0.5, staggerChildren: 0.3 } },
+    exit: { y: '-100%', opacity: 0, transition: { duration: 0.5 } }
+  }
+
+  const card = {
+    initial: { y: '100vh' },
+    animate: { y: 0 },
+  }
+
   return ( 
-    <main className={styles.container}>
+    <motion.div variants={container} key='container' className={styles.container}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+    >
       {projects.map( (project: Project, idx) =>
-        <div className={styles.cardContainer} key={idx}>
+        <motion.div variants={card} className={styles.cardContainer} key={idx}>
           <ProjectCard id={project.id} project={project} handleOpen={handleOpen}/>
-        </div>
+        </motion.div>
       )}
       <Modal
         closeTimeoutMS={500}
@@ -55,7 +70,7 @@ const ProjectList= (props) => {
         <ProjectCardExpanded id={`${isClicked.id}-${isClicked.name}`} project={isClicked}/>
         <button onClick={handleClose} className='close-btn fill'><span>Go back</span></button>
       </Modal> 
-    </main>
+    </motion.div>
    )
 }
  

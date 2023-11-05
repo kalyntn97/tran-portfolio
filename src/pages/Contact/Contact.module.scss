@@ -3,8 +3,13 @@
 @import '../../styles/colors';
 
 .container {
-  min-height: calc(100vh - 7vh - 6vh);
+  height: calc(100vh - 7vh - 6vh);
   width: 100%;
-  @include v.flex-column;
+  @include v.flex-row;
+  padding: 3em;
+  .imgContainer {
+    width: 40%;
+    margin: 2em;
+  }
   
 }

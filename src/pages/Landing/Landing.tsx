@@ -9,41 +9,39 @@ import ThemeSwitcher from '../../components/ThemeSwitcher/ThemeSwitcher'
 import styles from './Landing.module.scss'
 //assets
 import sleepingCat from '../../assets/images/sleepingCat.png'
+import gitHubIcon from '../../assets/icons/github.svg'
+import gitHubIconWhite from '../../assets/icons/github-white.png'
+import linkedInIcon from '../../assets/icons/linkedin.svg'
+import linkedInIconWhite from '../../assets/icons/linkedin-white.png'
 
 const Landing: React.FC = (props) => {
   props.setShowNavAndFooter(false)
   const { theme } = useContext(ThemeContext)
+
   const variants = {
     container: {
-      animate: { 
+      animate: {
         transition: { staggerChildren: 1 } 
       },
+      exit: { width: 0, height: 0, x: '50%', y: '50%', opacity: 0 }
     },
     laptop: {
       initial: { y: -100, x: -750 },
       animate: { y: 0 },
-      exit: { y: -100 },
     },
     image: { 
       initial: { opacity: 0 },
       animate: { opacity: 1 },
-      exit : { opacity: 0 }
     },
     windowBody : {
       animate: {
         transition: { delayChildren: 0.2, staggerChildren: 0.5 }
       }
     },
-    header : {
-      initial: { opacity: 0, x: -100 },
-      animate: { x: 0, opacity: 1 },
-      exit: { x: 100, opacity: 0 }
-    },
-    links : { 
-      initial: { x: -100, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-      exit: { x: 100, opacity: 0 }
-    }
+  }
+  const fadeInFromLeft = {
+    initial: { x: -100, opacity: 0 },
+    animate: { x: 0, opacity: 1 }
   }
   
 
@@ -55,7 +53,7 @@ const Landing: React.FC = (props) => {
       variants={variants.container}
     >
       <ThemeSwitcher />
-      <motion.div variants={variants.laptop} key={'laptop'} className={styles.laptop}>
+      <motion.div variants={variants.laptop} key='laptop' className={styles.laptop}>
         <div className={styles.screen}>
           <div className={styles.window}>
             <div className={styles.windowBar}>
@@ -63,12 +61,20 @@ const Landing: React.FC = (props) => {
               <div className={styles.roundBtn}></div>
               <div className={styles.roundBtn}></div>
             </div>
-            <motion.div variants={variants.windowBody} key={'windowBody'} className={styles.windowBody}>
-              <motion.div variants={variants.header} key={'header'} className={styles.header}>
+            <motion.div variants={variants.windowBody} key='windowBody' className={styles.windowBody}>
+              <motion.div variants={fadeInFromLeft} key='header' className={styles.header}>
                 <h1>Tran Nguyen</h1>
-                <h2>a software engineer</h2>
+                <span className={styles.subtitle}>
+                  <a href='https://github.com/kalyntn97' target='_blank'>
+                    <img src={theme === 'blossom' ? gitHubIcon : gitHubIconWhite} />
+                  </a>
+                  <a href='https://www.linkedin.com/in/tran-huynh-nguyen/' target='_blank'>
+                    <img src={theme === 'blossom' ? linkedInIcon : linkedInIconWhite} />
+                  </a>
+                  <h2>a software engineer</h2>
+                </span>
               </motion.div>
-              <motion.div variants={variants.links} key={'links'} className={styles.linkContainer}>
+              <motion.div variants={fadeInFromLeft} key='links' className={styles.linkContainer}>
                 <NavLink to='/about' data-replace='more about me'><span>more about me</span></NavLink>
                 <NavLink to='/projects' data-replace='my projects'><span>my projects</span></NavLink>
                 <NavLink to='/contact' data-replace='contact me'><span>contact me</span></NavLink>
@@ -79,8 +85,9 @@ const Landing: React.FC = (props) => {
         <div className={styles.keyboard}></div>
       </motion.div>
       <div className={styles.table}></div>
-      <motion.div variants={variants.image} key={'image'} className={styles.image}><img src={sleepingCat} alt="a sleeping cat" /></motion.div>
+      <motion.div variants={variants.image} key='image' className={styles.image}><img src={sleepingCat} alt="a sleeping cat" /></motion.div>
     </motion.div>
+ 
   )
 }
  

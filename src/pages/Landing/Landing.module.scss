@@ -64,15 +64,30 @@
           .header {
             width: 60%;
             @include v.flex-column;
-            margin: 1em 0;
             h1 {
               font-family: $titleFontFamily;
               font-size: 5.5em;
-              margin: 0.5em 0;
+              margin-top: 0.3em;
             }
-            h2 {
-              font-family: $subtitleFontFamily;
-              font-size: 1.5em;
+            .subtitle {
+              @include v.flex-row;
+              align-items: center;
+              margin: 1em 0;
+              h2 {
+                font-family: $subtitleFontFamily;
+                font-size: 1.5em;
+                margin: 0 1.5em;
+              }
+              a {
+                &:hover {
+                  transform: translateY(-5px);
+                }
+                img {
+                  width: 2.5em;
+                  margin: 0 0.7em;
+                  z-index: 999;
+                }
+              }
             }
           }
           .linkContainer {
@@ -146,7 +161,7 @@
   }
   .image {
     position: absolute;
-    z-index: 999;
+    z-index: 2;
     width: 80%;
     height: auto;
     top: 20%;

@@ -32,6 +32,7 @@
       height: 60vh;
       align-items: center;
       justify-content: space-between;
+      overflow: hidden;
       @include v.flex-row;
       @include v.medium-spacing;
       img {
