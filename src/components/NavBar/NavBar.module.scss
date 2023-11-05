@@ -57,11 +57,12 @@
 [data-theme='starry'].navbar {
   background-color: rgba( $dark-blue, .9);
   .rightContainer {
+    margin-top: 0.5em;
     a {
       color: $light-blue;
       width: 5.5em;
       height: 2em;
-      padding-top: 0.3em;
+      padding: 0.3em;
       border-radius: 3em;
       border: 3px solid transparent;
       &:hover, &[class='active'] {

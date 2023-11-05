@@ -17,7 +17,7 @@ const Contact = (props) => {
   
   const contact = {
     initial: { y: '100vh'},
-    animate: { y: 0, transition: { delayChildren: 0.5, duration: 0.5 } },
+    animate: { y: 0, transition: { delayChildren: 0.5, duration: 1 } },
     exit: { y: '-100vh' }
   }
 
