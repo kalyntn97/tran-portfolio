@@ -1,7 +1,7 @@
 //npm modules
-import { useState } from 'react'
-import useMeasure from 'react-use-measure'
-import { useSpring, animated } from '@react-spring/web'
+// import { useState } from 'react'
+// import useMeasure from 'react-use-measure'
+// import { useSpring, animated } from '@react-spring/web'
 //css
 import styles from './Skills.module.scss'
 //assets
