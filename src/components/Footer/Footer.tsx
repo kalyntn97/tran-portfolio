@@ -19,10 +19,12 @@ const Footer = () => {
 
   return ( 
     <main className={styles.container}>
-      <img 
-        className={styles.favicon} 
-        src={theme === 'blossom' ? favicon : faviconWhite} 
-      />
+      <a href='/'>
+        <img 
+          className={styles.favicon} 
+          src={theme === 'blossom' ? favicon : faviconWhite} 
+        />
+      </a>
       <a href='https://mail.google.com/mail/?view=cm&source=mailto&to=[tranhnnguyen13@gmail.com]' target='_blank'>
         <img src={theme === 'blossom' ? mailIcon : mailIconWhite} />
       </a>

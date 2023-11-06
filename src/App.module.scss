@@ -20,8 +20,9 @@
   p, a {
     font-family: $bodyFontFamily;
     font-size: 1em;
+    font-weight: bold;
   }
-  button {
+  button, button a {
     font-family: $accentFontFamily;
     font-size: 1em;
   }
