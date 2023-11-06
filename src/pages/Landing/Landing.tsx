@@ -76,7 +76,7 @@ const Landing: React.FC<IProps> = (props) => {
                   <a href='https://www.linkedin.com/in/tran-huynh-nguyen/' target='_blank'>
                     <img src={theme === 'blossom' ? linkedInIcon : linkedInIconWhite} />
                   </a>
-                  <h2>a software engineer</h2>
+                  <h2>software engineer</h2>
                 </span>
               </motion.div>
               <motion.div variants={fadeInFromLeft} key='links' className={styles.linkContainer}>
