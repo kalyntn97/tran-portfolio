@@ -12,6 +12,7 @@ import styles from './About.module.scss'
 import avatar from '/assets/images/avatar.jpeg'
 import circleDown from '/assets/icons/circledown.svg'
 import circleUp from '/assets/icons/circleup.svg'
+import resume from '/Tran_Nguyen_Resume.pdf'
 
 type IProps = {
   handleShowNavAndFooter: () => void
@@ -56,7 +57,10 @@ const About: React.FC<IProps> = (props) => {
         >
           <motion.h1 variants={variants.h1} className={styles.heading}>Who I am</motion.h1>
           <motion.div variants={variants.about} key='about' className={styles.aboutContainer}>
-            <img src={avatar} alt='an avatar' />
+            <div className={styles.photoContainer}>
+              <img src={avatar} alt='an avatar' />
+              <button><a href={resume} target={'_blank'}>RESUME</a></button>
+            </div>
             <div className={styles.textContainer}>
               <div>
                 <p>Hi! My name is Tran. I am a Software Engineer dedicated to creating user-friendly and whimsical designs that spark joy and smiles. </p>

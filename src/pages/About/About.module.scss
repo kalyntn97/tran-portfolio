@@ -1,6 +1,7 @@
 @use '../../styles/variables' as v;
 @import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/typography';
 
 .container {
   @include v.flex-column;
@@ -35,11 +36,29 @@
       overflow: hidden;
       @include v.flex-row;
       @include v.medium-spacing;
-      img {
-        height: 15em;
-        border-radius: 50%;
-        margin: 3em;
-        box-shadow: 0 0 50px 50px $light-blue inset;
+      .photoContainer {
+        @include v.flex-column;
+        img {
+          height: 15em;
+          border-radius: 50%;
+          margin: 3em;
+          box-shadow: 10px 10px 50px #ccc;
+        }
+        button {
+          a { font-family: $accentFontFamily; }
+          padding: 1em;
+          border-radius: .5em;
+          border-top: 2px solid $white;
+          border-left: 2px solid $white;
+          transition-duration: 1s;
+          transition-property: border-top, border-left, border-bottom, border-right, box-shadow;
+          &:hover {
+            
+            border-bottom: 2px solid $bubble-gum;
+            border-right: 2px solid $bubble-gum;
+            box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+          }
+        }
       }
       .textContainer {
         border-radius: 88% 12% 87% 13% / 18% 85% 15% 82%;
@@ -75,8 +94,15 @@
   .textContainer {
    background-color: $yellow;
   }
-  .arrow:hover, button:hover {
-    color: $bright-blue;
+  .photoContainer button {
+    a { color: $bright-blue; }
+    background-color: $light-blue2;
+    border-bottom: 2px solid $bright-blue;
+    border-right: 2px solid $bright-blue;
+    &:hover {
+      border-top: 2px solid $bright-blue;
+      border-left: 2px solid $bright-blue;
+    }
   }
 }
 
@@ -84,10 +110,16 @@
   .textContainer {
    background-color: $light-purple;
    color: $dark-blue;
-  
   }
-  .arrow:hover, button:hover {
-    color: nth($green, 4);
+  .photoContainer button {
+    a { color: $bright-purple; }
+    background-color: $light-purple;
+    border-bottom: 2px solid $bright-purple;
+    border-right: 2px solid $bright-purple;
+    &:hover {
+      border-top: 2px solid $bright-purple;
+      border-left: 2px solid $bright-purple;
+    }
   }
 }
 

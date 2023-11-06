@@ -21,6 +21,10 @@
     font-family: $bodyFontFamily;
     font-size: 1em;
   }
+  button {
+    font-family: $accentFontFamily;
+    font-size: 1em;
+  }
 }
 
 [data-theme='blossom'].container {
