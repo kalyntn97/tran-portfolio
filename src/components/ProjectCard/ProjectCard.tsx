@@ -28,7 +28,7 @@ const ProjectCard: React.FC<Props> = (props) => {
   return ( 
     <main className={styles.container}>
       <div className={styles.header}>
-        <div className={styles.linkWrapper}>
+        <div className={styles.linkWrapper} data-theme={theme}>
           <a href={props.project.url} target={'_blank'} className={styles.hover}>
             <h2>{props.project.title}</h2>
           </a>

@@ -22,7 +22,6 @@
           left: 0;
           width: 100%;
           height: 3px;
-          background-color: $dark-blue;
           transform: scaleX(0);
           transform-origin: bottom left;
           transition: transform 0.3s;
@@ -124,5 +123,10 @@
   }
 }              
 
-
+[data-theme='blossom'].linkWrapper { 
+  .hover:after { background-color: $dark-blue; }
+}
+[data-theme='starry'].linkWrapper {
+  .hover:after { background-color: $white; }
+}
 

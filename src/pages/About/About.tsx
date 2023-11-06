@@ -11,7 +11,9 @@ import styles from './About.module.scss'
 //assets
 import avatar from '/assets/images/avatar.jpeg'
 import circleDown from '/assets/icons/circledown.svg'
+import circleDownWhite from '/assets/icons/circledown-white.png'
 import circleUp from '/assets/icons/circleup.svg'
+import circleUpWhite from '/assets/icons/circleup-white.png'
 import resume from '/Tran_Nguyen_Resume.pdf'
 
 type IProps = {
@@ -86,9 +88,17 @@ const About: React.FC<IProps> = (props) => {
               duration={500}
               className={styles.arrow}
               > 
-                <img src={circleDown} alt="a downward arrow" />
+                <img 
+                  src={theme === 'blossom' ? circleDown : circleDownWhite} 
+                  alt="a downward arrow" 
+                />
             </Link>
-            <button onClick={handleClick}><img src={circleUp} alt="an upward arrow" /></button>
+            <button onClick={handleClick}>
+              <img 
+                src={theme === 'blossom' ? circleUp : circleUpWhite} 
+                alt="an upward arrow" 
+              />
+            </button>
           </span>
         </section>
 
