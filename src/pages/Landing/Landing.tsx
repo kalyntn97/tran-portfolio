@@ -60,6 +60,7 @@ const Landing: React.FC<IProps> = (props) => {
       <ThemeSwitcher />
       <motion.div variants={variants.laptop} key='laptop' className={styles.laptop}>
         <div className={styles.screen}>
+          <div className={styles.shine}></div>
           <div className={styles.window}>
             <div className={styles.windowBar}>
               <div className={styles.roundBtn}></div>

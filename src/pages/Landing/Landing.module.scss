@@ -26,11 +26,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      position: relative;
+      // .shine {
+      //   content: '';
+      //   width: 1%;
+      //   height: 100%;
+      //   position: absolute;
+      //   transform: translateX(90%);
+      //   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4c4c4c+32,595959+40,2b2b2b+19,666666+38,474747+58,2c2c2c+50,000000+49,111111+15,1c1c1c+61,131313+97;Black+Gloss+%231 */
+      //   background: linear-gradient(to right,  rgba(76,76,76,1) 32%,rgba(89,89,89,1) 40%,rgba(43,43,43,1) 19%,rgba(102,102,102,1) 38%,rgba(71,71,71,1) 58%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 49%,rgba(17,17,17,1) 15%,rgba(28,28,28,1) 61%,rgba(19,19,19,1) 97%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      //   animation: slide 500ms linear infinite;
+      // }
       .window {
         width: 95%;
         height: 90%;
-        background-color: white;
         @include v.flex-column;
+        backdrop-filter: blur(2px);
+        z-index: 2;
         .windowBar {
           border-radius: 0.5em 0.5em 0 0;
           width: 100%;
@@ -103,6 +116,7 @@
               overflow: hidden;
               position: relative;
               display: inline-block;
+              z-index: 999;
               &::before, &::after {
                 content: '';
                 position: absolute;
@@ -115,7 +129,7 @@
                 bottom: 0;
                 transform-origin: 100% 50%;
                 transform: scaleX(0);
-                transition: transform .5s ease-in-out;
+                transition: transform .3s ease-in-out;
               }
               &::after {
                 content: attr(data-replace);
@@ -123,7 +137,7 @@
                 top: 0;
                 transform-origin: 100% 50%;
                 transform: translate3d(200%, 0, 0);
-                transition: transform .5s ease-in-out;
+                transition: transform .3s ease-in-out;
                 color: $bright-blue;
               }
               &:hover::before {
@@ -135,7 +149,7 @@
               }
               span {
                 display: inline-block;
-                transition: transform .5s ease-in-out;
+                transition: transform .3s ease-in-out;
               }
               &:hover span {
                 transform: translate3d(-200%, 0, 0);
@@ -202,4 +216,9 @@
 @keyframes rolling {
   25% { transform: rotate(160deg);}
   75% { transform: rotate( 140deg);}
+}
+
+@keyframes slide {
+  0% { transform: translateX(-100%); }
+	100% { transform: translateX(100%); }
 }

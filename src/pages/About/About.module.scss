@@ -53,7 +53,6 @@
           transition-duration: 1s;
           transition-property: border-top, border-left, border-bottom, border-right, box-shadow;
           &:hover {
-            
             border-bottom: 2px solid $bubble-gum;
             border-right: 2px solid $bubble-gum;
             box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;

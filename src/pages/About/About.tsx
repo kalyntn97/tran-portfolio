@@ -31,7 +31,7 @@ const About: React.FC<IProps> = (props) => {
 
   const variants = {
     container : {
-      animate: { transition: { delayChildren: 0.5, staggerChildren: 0.2 } },
+      animate: { transition: { staggerChildren: 0.2 } },
       exit: { opacity: 0, y: '-100%', transition: { duration: 0.5 } }
     },
     h1: {
