@@ -16,7 +16,8 @@
   }
   .laptop {
     width: 100%;
-    height: 100%;
+    height: 90%;
+    margin-top: auto;
     @include  v.flex-column;
     z-index: 1;
     .screen{
@@ -105,13 +106,11 @@
             }
           }
           .linkContainer {
-            width: 30%;
             @include v.flex-column;
             align-items: flex-end;
             margin: 2em 0;
             a {
               font-family: $menuFontFamily;
-              font-size: 1.7em;
               margin: 0.5em;
               padding: 0.2em;
               overflow: hidden;
@@ -219,31 +218,28 @@
 	100% { transform: translateX(100%); }
 }
 
-@media (min-width: 1641px) {
-  .laptop {
-    height: 100%;
-
+@media (min-width: 1367px) {
+  .linkContainer {
+    width: 30%;
+    span, a::after {
+      font-size: 1.7em;
+    }
   }
 }
 
-// @media (min-width: 1367px) and (max-width: 1640px) {
-//   .header {
-//     font-size: 0.9em;
-//   }
-// }
+@media (min-width: 1367px) and (max-width: 1640px) {
+  .header {
+    font-size: 0.9em;
+  }
+}
 
 @media (max-width: 1366px) {
-  .laptop {
-    height: 90%;
-    margin-top: auto;
-  }
   .linkContainer {
     width: 40%;
   }
   .image {
     width: 80%;
     top: 40%;
-
   }
 }
 
@@ -252,7 +248,7 @@
     font-size: 1em;
   }
   .linkContainer {
-    span {
+    span, a::after {
       font-size: 2.2em;
     }
   }
@@ -263,7 +259,7 @@
     font-size: 0.8em;
   }
   .linkContainer {
-    span {
+    span, a::after {
       font-size: 1.7em;
     }
   }
@@ -274,18 +270,17 @@
     font-size: 0.7em;
   }
   .linkContainer {
-    span {
+    span, a::after {
       font-size: 1.5em;
     }
   }
 }
-
 @media (max-width: 940px) {
   .subtitle {
     font-size: 0.7em;
   }
   .linkContainer {
-    span {
+    span, a::after {
       font-size: 0.7em;
     }
   }
@@ -313,7 +308,7 @@
   }
   .linkContainer {
     width: 80%;
-    span {
+    span, a::after {
       font-size: 1.5em;
     }
   }
@@ -327,7 +322,7 @@
     font-size: 1.2em;
   }
   .linkContainer {
-    span {
+    span, a::after {
       font-size: 2em;
     }
   }
@@ -341,7 +336,7 @@
     font-size: 0.7em;
   }
   .linkContainer {
-    span {
+    span, a::after {
       font-size: 1.2em;
     }
   }
