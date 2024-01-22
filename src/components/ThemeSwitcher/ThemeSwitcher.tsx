@@ -4,7 +4,8 @@ import { motion } from "framer-motion"
 //contexts
 import { ThemeContext } from "../../contexts/ThemeContext"
 //assets
-// import redFlower from '/assets/images/red-flower.png'
+import star from '/assets/icons/star.png'
+import flower from '/assets/icons/flower.png'
 //css
 import styles from './ThemeSwitcher.module.scss'
 
@@ -35,9 +36,9 @@ const ThemeSwitcher: React.FC = () => {
 
   return ( 
     <div className={styles.switch} data-theme={theme} onClick={toggleDarkMode}>
-      <motion.div className={styles.handle} layout transition={spring} />
-      {/* <button onClick={handleUseTheme} id='blossom'>⚘</button>
-      <button onClick={handleUseTheme} id='starry'>✰</button> */}
+      <motion.div className={styles.handle} layout transition={spring}>
+        <img src={theme === 'blossom' ? flower : star} />
+      </motion.div>
     </div>
    )
 }

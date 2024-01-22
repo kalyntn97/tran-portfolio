@@ -6,28 +6,28 @@
 .container {
   height: 100vh;
   width: 100%;
-  position: relative;
+  @include v.flex-column;
   overflow: hidden;
-  .laptop {
+  position: relative;
+  .themeSwitch {
     position: absolute;
-    top: 3em;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
+    z-index: 2;
+    left: 0;
+  }
+  .laptop {
+    width: 100%;
     height: 100%;
-    margin: auto;
     @include  v.flex-column;
     z-index: 1;
     .screen{
-      width: 95%;
-      height: 90%;
+      width: 80%;
+      height: 95%;
       border-radius: 1em;
       background-color: rgba(0, 0, 0, 0.921);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      position: relative;
       // .shine {
       //   content: '';
       //   width: 1%;
@@ -76,6 +76,7 @@
           border-radius: 0em 0em 0.5em 0.5em;
           .header {
             width: 60%;
+            text-align: center;
             @include v.flex-column;
             h1 {
               font-family: $titleFontFamily;
@@ -116,7 +117,6 @@
               overflow: hidden;
               position: relative;
               display: inline-block;
-              z-index: 999;
               &::before, &::after {
                 content: '';
                 position: absolute;
@@ -160,13 +160,13 @@
       }
     }
   }
-    .keyboard {
-      width: 97%;
-      height: 0;
-      border-bottom: 50px solid $silver;
-	    border-left: 25px solid transparent;
-	    border-right: 25px solid transparent;
-    }
+  .keyboard {
+    width: 82%;
+    height: 5%;
+    border-bottom: 50px solid $silver;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+  }
   .table {
     width: 100%;
     height: 10%;
@@ -177,15 +177,11 @@
     position: absolute;
     z-index: 2;
     width: 80%;
-    height: auto;
-    top: 20%;
+    height: 'auto';
+    top: 35%;
     left: 10%;
     transform: rotate(150deg);
     animation: rolling 15s ease-in-out infinite;
-    img {
-      width: 100%;
-      height: auto;
-    }
   }
 }
 
@@ -221,4 +217,132 @@
 @keyframes slide {
   0% { transform: translateX(-100%); }
 	100% { transform: translateX(100%); }
+}
+
+@media (min-width: 1641px) {
+  .laptop {
+    height: 100%;
+
+  }
+}
+
+// @media (min-width: 1367px) and (max-width: 1640px) {
+//   .header {
+//     font-size: 0.9em;
+//   }
+// }
+
+@media (max-width: 1366px) {
+  .laptop {
+    height: 90%;
+    margin-top: auto;
+  }
+  .linkContainer {
+    width: 40%;
+  }
+  .image {
+    width: 80%;
+    top: 40%;
+
+  }
+}
+
+@media (min-width: 1181px) and (max-width: 1366px) {
+  .header {
+    font-size: 1em;
+  }
+  .linkContainer {
+    span {
+      font-size: 2.2em;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1180px) {
+  .header {
+    font-size: 0.8em;
+  }
+  .linkContainer {
+    span {
+      font-size: 1.7em;
+    }
+  }
+}
+
+@media (min-width: 941px) and (max-width: 1024px) {
+  .header {
+    font-size: 0.7em;
+  }
+  .linkContainer {
+    span {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media (max-width: 940px) {
+  .subtitle {
+    font-size: 0.7em;
+  }
+  .linkContainer {
+    span {
+      font-size: 0.7em;
+    }
+  }
+  .image {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) {
+  .table, .keyboard {
+    display: none;
+  }
+  .screen {
+    border-radius: 2em;
+  }
+  .windowBody {
+    @include v.flex-column;
+  }
+  .header {
+    font-size: 0.9em;
+    width: 90%;
+  }
+  .subtitle {
+    font-size: 0.9em;
+  }
+  .linkContainer {
+    width: 80%;
+    span {
+      font-size: 1.5em;
+    }
+  }
+  .image {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 1024px) {
+  .header {
+    font-size: 1.2em;
+  }
+  .linkContainer {
+    span {
+      font-size: 2em;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 720px) {
+  .header {
+    font-size: 0.6em;
+  }
+  .subtitle {
+    font-size: 0.7em;
+  }
+  .linkContainer {
+    span {
+      font-size: 1.2em;
+    }
+  }
 }

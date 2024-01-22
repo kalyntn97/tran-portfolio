@@ -80,7 +80,7 @@
   }
 }
 
-@media screen and (max-width: $phone) {
+@include media('null', 'phone') {
   .navbar {
     display: flex;
     font-size: 1em;

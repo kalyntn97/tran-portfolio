@@ -32,7 +32,7 @@ const Landing: React.FC<IProps> = (props) => {
     },
     laptop: {
       initial: { y: -100, x: -750 },
-      animate: { y: 0 },
+      animate: { x: 0, y: 0 },
     },
     image: { 
       initial: { opacity: 0 },
@@ -56,8 +56,10 @@ const Landing: React.FC<IProps> = (props) => {
       animate='animate'
       exit='exit'
       variants={variants.container}
-    >
-      <ThemeSwitcher />
+    > 
+      <div className={styles.themeSwitch}>
+        <ThemeSwitcher />
+      </div>
       <motion.div variants={variants.laptop} key='laptop' className={styles.laptop}>
         <div className={styles.screen}>
           <div className={styles.shine}></div>
@@ -91,7 +93,7 @@ const Landing: React.FC<IProps> = (props) => {
         <div className={styles.keyboard}></div>
       </motion.div>
       <div className={styles.table}></div>
-      <motion.div variants={variants.image} key='image' className={styles.image}><img src={sleepingCat} alt="a sleeping cat" /></motion.div>
+      <img src={sleepingCat} alt="a sleeping cat" className={styles.image} />
     </motion.div>
  
   )
