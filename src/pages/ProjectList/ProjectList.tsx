@@ -63,20 +63,20 @@ const ProjectList: React.FC<IProps>= (props) => {
               left: '50%',
               top: '50%',
               transform: 'translate(-50%,-50%)',
-              width: '60vw',
-              height: '80vh',
+              width: '80vw',
+              height: '90vh',
+              maxWidth: '90vw',
+              maxHeight: '90vh',
               border: 'none',
               borderRadius: '1em',
             },
             overlay: {
               backgroundColor: 'rgba(0,0,0,0.5)'
-            }
+            },
           }}
         >
-          <ProjectCardExpanded id={`${isClicked.id}-${isClicked.title}`} project={isClicked}/>
-          <button onClick={handleClose} className='close-btn fill'>
-            <span>Go back</span>
-          </button>
+          <ProjectCardExpanded id={`${isClicked.id}-${isClicked.title}`} project={isClicked} handleClose={handleClose}/>
+         
         </Modal> 
       }
     </motion.div>

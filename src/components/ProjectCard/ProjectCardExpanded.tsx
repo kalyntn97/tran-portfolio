@@ -1,5 +1,6 @@
 //css
 import styles from './ProjectCardExpanded.module.scss'
+import '../../pages/ProjectList/Modal.css'
 //assets
 import gitHubIcon from '/assets/icons/github.svg'
 import noteIcon from '/assets/icons/note.svg'
@@ -7,10 +8,10 @@ import { Project } from '../../data/projectContent'
 
 type IProps = {
   project: Project,
-  id: string
+  handleClose: () => void
 }
 
-const ProjectCardExpanded: React.FC<IProps> = ({ project }) =>  {
+const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
   return ( 
     <main className={styles.container}>
       <div className={styles.leftColumn}>
@@ -47,6 +48,9 @@ const ProjectCardExpanded: React.FC<IProps> = ({ project }) =>  {
             </div>
           </div>
         </div>
+        <button onClick={handleClose} className='close-btn fill'>
+            <span>Go back</span>
+        </button>
       </div>
     </main>
   )

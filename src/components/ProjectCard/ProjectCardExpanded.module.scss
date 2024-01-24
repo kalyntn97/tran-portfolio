@@ -4,13 +4,27 @@
 @import '../../styles/typography';
 
 .container {
+  @media (orientation: portrait) {
+    @include v.flex-column;
+    .leftColumn, .rightColumn {
+      width: 90%;
+    }
+  }
+  @media (orientation: landscape) {
+    @include v.flex-row;
+    .rightColumn {
+      max-width: 40%;
+      max-height: 100%;
+    }
+    .leftColumn {
+      max-width: 60%;
+      max-height: 100%;
+    }
+  }
   width: 100%;
   height: 90%;
-  @include v.flex-row;
   font-family: $bodyFontFamily;
   .leftColumn {
-    max-width: 60%;
-    max-height: 100%;
     align-self: center;
     img {
       width: 100%;
@@ -20,8 +34,6 @@
     }
   }
   .rightColumn {
-    max-width: 40%;
-    max-height: 100%;
     .header {
       @include v.flex-column;
       height: 20%;
@@ -102,6 +114,7 @@
         }
       }
     }
+    
   }
 }              
 
