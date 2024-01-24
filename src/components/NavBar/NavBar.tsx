@@ -8,7 +8,7 @@ import { ThemeContext } from "../../contexts/ThemeContext"
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher"
 //css
 import styles from './NavBar.module.scss'
-//assets
+//assets  
 import favicon from '/assets/icons/favicon.svg'
 import faviconWhite from '/assets/icons/favicon-white.svg'
 import orangeFlower from '/assets/images/orange-flower.png'
