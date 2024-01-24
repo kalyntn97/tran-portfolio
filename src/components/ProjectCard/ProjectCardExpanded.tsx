@@ -7,11 +7,16 @@ import noteIcon from '/assets/icons/note.svg'
 import { Project } from '../../data/projectContent'
 
 type IProps = {
+  id: string,
   project: Project,
   handleClose: () => void
 }
 
-const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
+const ProjectCardExpanded: React.FC<IProps> = ({ id, project, handleClose }) =>  {
+
+  const handleClickClose = () => {
+    handleClose()
+  }
   return ( 
     <main className={styles.container}>
       <div className={styles.leftColumn}>
@@ -48,7 +53,7 @@ const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
             </div>
           </div>
         </div>
-        <button onClick={handleClose} className='close-btn fill'>
+        <button onClick={handleClickClose} className='close-btn fill'>
             <span>Go back</span>
         </button>
       </div>
