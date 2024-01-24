@@ -3,13 +3,57 @@
 @import '../../styles/colors';
 
 .container {
-  height: calc(100vh - 7vh - 6vh);
   width: 100%;
-  @include v.flex-row;
-  padding: 3em;
-  .imgContainer {
-    width: 40%;
-    margin: 2em;
+  margin: 2em 0;
+  height: calc(100vh - 7vh - 5vh - 4em);
+}
+
+@media (min-width: 1025px) {
+  .container {
+    @include v.flex-row;
+    align-items: center;
+    .imgContainer {
+      width: 40%;
+      height: 90%;
+    }
+    .formContainer {
+      width: 50%;
+      height: 90%;
+    }
   }
-  
+}
+
+@media (max-width: 1024px) {
+  .container {
+    @include v.flex-column;
+    justify-content: center;
+    .imgContainer {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 431px) and (max-width: 1024px) {
+  .container {
+    .imgContainer {
+      width: 25%;
+    }
+    .formContainer {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    .formContainer {
+      margin-top: 4em;
+    }
+  }
+}
+
+@media (orientation: landscape) and (max-width: 932px) {
+  .container {
+    height: fit-content;
+  }
 }

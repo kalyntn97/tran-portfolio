@@ -33,7 +33,9 @@ const Contact: React.FC<IProps> = (props) => {
       <div className={styles.imgContainer}>
         <Lottie animationData={catLaptop} loop={true} />
       </div>
-      <ContactForm />
+      <div className={styles.formContainer}>
+        <ContactForm />
+      </div>
     </motion.div>
    )
 }
