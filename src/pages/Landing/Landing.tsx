@@ -73,12 +73,14 @@ const Landing: React.FC<IProps> = (props) => {
               <motion.div variants={fadeInFromLeft} key='header' className={styles.header}>
                 <h1>Tran Nguyen</h1>
                 <span className={styles.subtitle}>
-                  <a href='https://github.com/kalyntn97' target='_blank'>
-                    <img src={theme === 'blossom' ? gitHubIcon : gitHubIconWhite} />
-                  </a>
-                  <a href='https://www.linkedin.com/in/tran-huynh-nguyen/' target='_blank'>
-                    <img src={theme === 'blossom' ? linkedInIcon : linkedInIconWhite} />
-                  </a>
+                  <span className={styles.subtitleLinks}>       
+                    <a href='https://github.com/kalyntn97' target='_blank'>
+                      <img src={theme === 'blossom' ? gitHubIcon : gitHubIconWhite} />
+                    </a>
+                    <a href='https://www.linkedin.com/in/tran-huynh-nguyen/' target='_blank'>
+                      <img src={theme === 'blossom' ? linkedInIcon : linkedInIconWhite} />
+                    </a>
+                  </span>
                   <h2>software engineer</h2>
                 </span>
               </motion.div>
