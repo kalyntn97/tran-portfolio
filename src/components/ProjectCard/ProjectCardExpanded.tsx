@@ -7,12 +7,11 @@ import noteIcon from '/assets/icons/note.svg'
 import { Project } from '../../data/projectContent'
 
 type IProps = {
-  id: string,
   project: Project,
   handleClose: () => void
 }
 
-const ProjectCardExpanded: React.FC<IProps> = ({ id, project, handleClose }) =>  {
+const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
 
   const handleClickClose = () => {
     handleClose()

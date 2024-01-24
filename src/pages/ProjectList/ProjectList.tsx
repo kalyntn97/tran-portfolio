@@ -75,7 +75,7 @@ const ProjectList: React.FC<IProps>= (props) => {
             },
           }}
         >
-          <ProjectCardExpanded id={`${isClicked.id}-${isClicked.title}`} project={isClicked} handleClose={handleClose}/>
+          <ProjectCardExpanded key={`${isClicked.id}-${isClicked.title}`} project={isClicked} handleClose={handleClose}/>
          
         </Modal> 
       }
