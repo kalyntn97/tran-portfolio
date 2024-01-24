@@ -39,8 +39,8 @@ const About: React.FC<IProps> = (props) => {
       animate: { opacity: 1 }
     },
     about: {
-      initial: { width: 0},
-      animate: { width: '70%', transition: {duration: 1 } }
+      initial: { scale: 0 },
+      animate: { scale: 1, transition: {duration: 1 } }
     }
   }
   
@@ -56,6 +56,7 @@ const About: React.FC<IProps> = (props) => {
           title='About Section'
           id='section1'
           className={styles.section}
+          style={{ minHeight: `80vh`, height: 'fit-content'}}
         >
           <motion.h1 variants={variants.h1} className={styles.heading}>Who I am</motion.h1>
           <motion.div variants={variants.about} key='about' className={styles.aboutContainer}>
@@ -106,6 +107,7 @@ const About: React.FC<IProps> = (props) => {
           title='Skills Section'
           id='section2'
           className={styles.section}
+          style={{ height: 'fit-content' }}
         >
           <h1 className={styles.heading}>Skills</h1>
           <Skills />  

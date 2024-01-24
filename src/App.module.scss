@@ -10,7 +10,6 @@
   height: fit-content;
   h1 {
     font-family: $headingFontFamily;
-    font-size: 4em;
   }
   h2 {
     font-family: $bodyFontFamily;
@@ -46,3 +45,14 @@
   }
 }
 
+@media (min-width: 768px) {
+  .container {
+    h1 { font-size: 4em; }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 767px) {
+  .container {
+    h1 { font-size: 3.4em; }
+  }
+}

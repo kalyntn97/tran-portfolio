@@ -4,7 +4,7 @@
 
 .container {
   width: 100%;
-  height: 100%;
+  max-height: calc(100vh - 5vh);
   display: flex;
   @include v.flex-column;
   .loadingBar {
@@ -36,9 +36,8 @@
     }
   }
   .skillIndexContainer {
-    width: 60%;
-    height: 55vh;
     display: flex;
+    margin-bottom: 2em;
   }
   .skillContainer {
     border: 1px solid $white;
@@ -56,7 +55,6 @@
       width: 70%;
       position: absolute;
       writing-mode: vertical-lr;
-      font-size: 4.2em;
       font-family: $accentFontFamily;
       opacity: 80%;
       transition: all 0.75s;
@@ -66,21 +64,17 @@
       flex-direction: column;
       position: absolute;
       opacity: 0;
+      width: 100%;
       span {
+        text-wrap: nowrap;
+        width: 100%;
         img {
-          height: 5em;
-          max-width: 10em;
           margin: 1em;
-        }
-        p {
-          display: inline-flex;
-          font-size: 1.5em;
         }
       } 
     }
     &:hover {
       h1 {
-        transform: translateX(95%);
         opacity: 10%;
       }
       div {
@@ -90,4 +84,78 @@
     }
   }  
 }
+
+@media (orientation: landscape) {
+  .skillContainer {
+    p {
+      display: inline-flex;
+    }
+    img {
+      max-width: 10em;
+      height: 4em;
+    }
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+  .skillIndexContainer {
+    width: 60%;
+    height: 65vh;
+  }
+  .skillContainer:hover {
+    h1 {
+      transform: translateX(95%);
+    }
+    span p {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 1024px) {
+  .skillIndexContainer {
+    height: 47vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  .skillContainer:hover {
+    h1 {
+      transform: translateX(90%);
+    }
+    span p {
+      font-size: 1em;
+    }
+  }
+}
+
+@media (orientation: portrait) and (min-width: 768px) {
+  .skillContainer {
+    div {
+      span {
+        p {
+          display: inline-flex;
+        }
+        img {
+          max-width: 10em;
+          height: 4em;
+        }
+      }
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 767px) {
+  .skillContainer {
+    div span {
+      img {
+        max-width: 4em;
+        height: 3em;
+      }
+      p {
+        display: none;
+      }
+    }
+  }
+}
+
 

@@ -5,41 +5,25 @@
 
 .container {
   @include v.flex-column;
-  @include v.medium-spacing;
+  @include v.small-spacing;
   .section {
     width: 100%;
-    height: fit-content;
     display: flex;
     @include v.flex-column;
-    .heading {
-      margin-bottom: 0.5em;
-    }
     a {
       cursor: pointer;
     }
     .linkContainer {
-      img {
-        width: 2em;
-        margin: 2em 1em;
-      }
-      a:hover, button:hover {
-        img {
-          transform: translateY(-0.3em);
-        }
-      }
+      height: 10%;
     }
     .aboutContainer {
-      width: 70%;
-      height: 60vh;
       align-items: center;
-      justify-content: space-between;
-      overflow: hidden;
-      @include v.flex-row;
-      @include v.medium-spacing;
+      height: 80%;
       .photoContainer {
         @include v.flex-column;
         img {
-          height: 15em;
+          height: auto;
+          width: 100%;
           border-radius: 50%;
           margin: 3em;
           box-shadow: 10px 10px 50px #ccc;
@@ -61,26 +45,23 @@
       }
       .textContainer {
         border-radius: 88% 12% 87% 13% / 18% 85% 15% 82%;
-        width: 65%;
-        height: 90%;
         @include v.medium-spacing;
         font-size: 1.3em;
         animation: border-move 10s infinite;
         div {
           width: 90%;
           height: 80%;
-          margin-top: 10%;
-          margin-left: 5%;
+          margin: 2em;
           p {
-            padding: 1em;
+            padding: 0.5em;
           }
         }
         a {
           color: $bright-blue;
-        }
-        a:hover {
+          &:hover {
           font-weight: bold;
-         }
+          }
+        }
       }
     }
   }
@@ -119,6 +100,50 @@
       border-top: 2px solid $bright-purple;
       border-left: 2px solid $bright-purple;
     }
+  }
+}
+
+@media (orientation: landscape) {
+  .heading {
+    margin: 0.5em;
+  }
+  .aboutContainer {
+    @include v.flex-row;
+    width: 65%;
+    justify-content: space-between;
+    overflow: hidden;
+    .photoContainer {
+      width: 20%;
+      height: 100%;
+    }
+    .textContainer {
+      width: 80%;
+      height: 100%;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .heading {
+    margin: 0.5em;
+  }
+  .aboutContainer {
+    @include v.flex-column;
+    width: 100%;
+    .photoContainer {
+      width: 30%;
+      height: 30%;
+    }
+    .textContainer {
+      width: 100%;
+      height: 70%;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 767px) {
+  .heading {
+    margin-top: 1.5em;
   }
 }
 
