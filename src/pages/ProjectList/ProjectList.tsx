@@ -52,29 +52,33 @@ const ProjectList: React.FC<IProps>= (props) => {
           <ProjectCard id={project.id} project={project} handleOpen={handleOpen}/>
         </motion.div>
       )}
-      {isClicked && <Modal
-        closeTimeoutMS={500}
-        isOpen={open}
-        onRequestClose={handleClose}
-        id={`${isClicked.id}-${isClicked.title}`}
-        style={{
-          content: {
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%,-50%)',
-            width: '60vw',
-            height: '80vh',
-            border: 'none',
-            borderRadius: '1em',
-          },
-          overlay: {
-            backgroundColor: 'rgba(0,0,0,0.5)'
-          }
-        }}
-      >
-        <ProjectCardExpanded id={`${isClicked.id}-${isClicked.title}`} project={isClicked}/>
-        <button onClick={handleClose} className='close-btn fill'><span>Go back</span></button>
-      </Modal> }
+      {isClicked && 
+        <Modal
+          closeTimeoutMS={500}
+          isOpen={open}
+          onRequestClose={handleClose}
+          id={`${isClicked.id}-${isClicked.title}`}
+          style={{
+            content: {
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%,-50%)',
+              width: '60vw',
+              height: '80vh',
+              border: 'none',
+              borderRadius: '1em',
+            },
+            overlay: {
+              backgroundColor: 'rgba(0,0,0,0.5)'
+            }
+          }}
+        >
+          <ProjectCardExpanded id={`${isClicked.id}-${isClicked.title}`} project={isClicked}/>
+          <button onClick={handleClose} className='close-btn fill'>
+            <span>Go back</span>
+          </button>
+        </Modal> 
+      }
     </motion.div>
    )
 }
