@@ -4,7 +4,7 @@
 
 .container {
   width: 100%;
-  max-height: calc(100vh - 5vh);
+  height: fit-content;
   display: flex;
   @include v.flex-column;
   .loadingBar {
@@ -86,6 +86,10 @@
 }
 
 @media (orientation: landscape) {
+  .skillIndexContainer {
+    width: 60%;
+    height: 65vh;
+  }
   .skillContainer {
     p {
       display: inline-flex;
@@ -97,18 +101,9 @@
   }
 }
 
-@media (orientation: landscape) and (min-width: 1024px) {
+@media (orientation: landscape) and (max-width: 1024px) {
   .skillIndexContainer {
-    width: 60%;
-    height: 65vh;
-  }
-  .skillContainer:hover {
-    h1 {
-      transform: translateX(95%);
-    }
-    span p {
-      font-size: 1.5em;
-    }
+    height: 500px;
   }
 }
 
