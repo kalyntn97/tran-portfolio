@@ -1,0 +1,17 @@
+@use '../../styles//variables' as v;
+
+.subtitleLinks {
+  @include v.flex-row;
+  width: 100%;
+  justify-content: flex-end;
+  a {
+    margin-left: 2em;
+    &:hover {
+      transform: translateY(-5px);
+    }
+    img {
+      z-index: 999;
+      width: 4em;
+    }
+  }
+}

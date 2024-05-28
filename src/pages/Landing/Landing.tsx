@@ -5,14 +5,13 @@ import { motion } from 'framer-motion'
 //components
 import { ThemeContext } from '../../contexts/ThemeContext'
 import ThemeSwitcher from '../../components/ThemeSwitcher/ThemeSwitcher'
+import ContactLinks from '../../components/ContactLinks/ContactLinks'
 //css
 import styles from './Landing.module.scss'
 //assets
-import sleepingCat from '/assets/images/sleepingCat.png'
-import gitHubIcon from '/assets/icons/github.svg'
-import gitHubIconWhite from '/assets/icons/github-white.png'
-import linkedInIcon from '/assets/icons/linkedin.svg'
-import linkedInIconWhite from '/assets/icons/linkedin-white.png'
+import sleepingCat from '/assets/images/cat.png'
+import { LinkSection } from '../../components/Landing/LandingComponents'
+
 
 type IProps = {
   handleHideNavAndFooter: () => void
@@ -22,6 +21,7 @@ const Landing: React.FC<IProps> = (props) => {
   props.handleHideNavAndFooter()
 
   const { theme } = useContext(ThemeContext)
+  
 
   const variants = {
     container: {
@@ -60,42 +60,47 @@ const Landing: React.FC<IProps> = (props) => {
       <div className={styles.themeSwitch}>
         <ThemeSwitcher />
       </div>
-      <motion.div variants={variants.laptop} key='laptop' className={styles.laptop}>
-        <div className={styles.screen}>
-          <div className={styles.shine}></div>
-          <div className={styles.window}>
-            <div className={styles.windowBar}>
-              <div className={styles.roundBtn}></div>
-              <div className={styles.roundBtn}></div>
-              <div className={styles.roundBtn}></div>
-            </div>
-            <motion.div variants={variants.windowBody} key='windowBody' className={styles.windowBody}>
-              <motion.div variants={fadeInFromLeft} key='header' className={styles.header}>
-                <h1>Tran Nguyen</h1>
-                <span className={styles.subtitle}>
-                  <span className={styles.subtitleLinks}>       
-                    <a href='https://github.com/kalyntn97' target='_blank'>
-                      <img src={theme === 'blossom' ? gitHubIcon : gitHubIconWhite} />
-                    </a>
-                    <a href='https://www.linkedin.com/in/tran-huynh-nguyen/' target='_blank'>
-                      <img src={theme === 'blossom' ? linkedInIcon : linkedInIconWhite} />
-                    </a>
-                  </span>
+      <div className={styles.landscape}>
+        <motion.div variants={variants.laptop} key='laptop' className={styles.laptop}>
+          <div className={styles.screen}>
+            <div className={styles.window}>
+              <div className={styles.windowBar}>
+                <div className={styles.roundBtn} />
+                <div className={styles.roundBtn} />
+                <div className={styles.roundBtn} />
+              </div>
+              <motion.div variants={variants.windowBody} key='windowBody' className={styles.windowBody}>
+                <motion.div variants={fadeInFromLeft} key='header' className={styles.header}>
+                  <h1>Tran Nguyen</h1>
                   <h2>software engineer</h2>
-                </span>
+                </motion.div>
+                <div className={styles.linkSection}>
+                  <div className={styles.linkContainerLandscape}>
+                    <LinkSection />
+                  </div>
+                  <ContactLinks />
+                </div>
               </motion.div>
-              <motion.div variants={fadeInFromLeft} key='links' className={styles.linkContainer}>
-                <NavLink to='/about' data-replace='more about me'><span>more about me</span></NavLink>
-                <NavLink to='/projects' data-replace='my projects'><span>my projects</span></NavLink>
-                <NavLink to='/contact' data-replace='contact me'><span>contact me</span></NavLink>
-              </motion.div>
-            </motion.div>
+            </div>
           </div>
+          <div className={styles.keyboard}>
+            <div className={styles.keys} />
+            <div className={styles.mouse} />
+          </div>
+        </motion.div>
+        <img src={sleepingCat} alt="a sleeping cat" className={styles.image} />
+      </div>
+      //* portrait & small screen
+      <div className={styles.portrait}>
+        <div className={styles.header}>
+          <h1>Tran Nguyen</h1>
+          <h2>software engineer</h2>
         </div>
-        <div className={styles.keyboard}></div>
-      </motion.div>
-      <div className={styles.table}></div>
-      <img src={sleepingCat} alt="a sleeping cat" className={styles.image} />
+        <div className={styles.linkContainerPortrait}>
+          <LinkSection />
+        </div>
+        <ContactLinks />
+      </div>
     </motion.div>
  
   )

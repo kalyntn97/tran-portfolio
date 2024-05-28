@@ -1,10 +1,12 @@
+import { useContext } from 'react'
+//context
+import { ThemeContext } from '../../contexts/ThemeContext'
+//types
+import { Project } from '../../data/projectContent'
 //css
 import styles from './ProjectCardExpanded.module.scss'
 import '../../pages/ProjectList/Modal.css'
-//assets
-import gitHubIcon from '/assets/icons/github.svg'
-import noteIcon from '/assets/icons/note.svg'
-import { Project } from '../../data/projectContent'
+import { ProjectLinks } from './ProjectCard'
 
 type IProps = {
   project: Project,
@@ -12,6 +14,8 @@ type IProps = {
 }
 
 const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
+  const { theme } = useContext(ThemeContext)
+  const mode = theme === 'blossom' ? 'light' : 'dark'
 
   const handleClickClose = () => {
     handleClose()
@@ -28,11 +32,9 @@ const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
               <h1>{project.title}</h1>
             </a>
           </div>
-          <div className={styles.linkContainer}>
-            <a href={project.gitHubUrl} target={'_blank'}><img src={gitHubIcon} alt='a GitHub icon'/></a>
-            <a href={project.planningUrl} target={'_blank'}><img src={noteIcon} alt='a note icon'/></a>
-          </div>
+          <ProjectLinks project={project} mode={mode} />
         </div>
+        
         <div className={styles.contentContainer}>
           <div className={styles.introContainer}>
             <h2 className={styles.intro}>{project.intro}</h2>

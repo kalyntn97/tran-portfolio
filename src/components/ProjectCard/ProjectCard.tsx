@@ -2,15 +2,11 @@
 import { useContext } from 'react'
 //components
 import { ThemeContext } from '../../contexts/ThemeContext'
-//types
+//types & utils
 import { Project } from '../../data/projectContent'
+import { getIconSource } from '../../utils/ui'
 //css
 import styles from './ProjectCard.module.scss'
-//assets
-import gitHubIcon from '/assets/icons/github.svg'
-import gitHubIconWhite from '/assets/icons/github-white.png'
-import noteIcon from '/assets/icons/note.svg'
-import noteIconWhite from '/assets/icons/note-white.png'
 
 type Props = {
   handleOpen: (val: string) => void,
@@ -18,36 +14,46 @@ type Props = {
   id: string,
 }
 
-const ProjectCard: React.FC<Props> = (props) => {
+interface ProjectLinksProps {
+  project: Project
+  mode: 'light' | 'dark'
+}
+
+export const ProjectLinks = ({ project, mode }: ProjectLinksProps) => (
+  <div className={styles.linkContainer}>
+  <a href={project.gitHubUrl} target={'_blank'}>
+    <img src={getIconSource('github', mode)} alt='a GitHub icon'/>
+  </a>
+  <a href={project.planningUrl} target={'_blank'}>
+    <img src={getIconSource('note', mode)} alt='a note icon'/>
+  </a>
+</div>
+)
+
+const ProjectCard: React.FC<Props> = ({ project, handleOpen }) => {
   const { theme } = useContext(ThemeContext)
+  const mode = theme === 'blossom' ? 'light' : 'dark'
 
   const handleClick = (id: string) => {
-    props.handleOpen(id)
+    handleOpen(id)
   }
 
   return ( 
     <main className={styles.container}>
       <div className={styles.header}>
         <div className={styles.linkWrapper} data-theme={theme}>
-          <a href={props.project.url} target={'_blank'} className={styles.hover}>
-            <h2>{props.project.title}</h2>
+          <a href={project.url} target={'_blank'} className={styles.hover}>
+            <h2>{project.title}</h2>
           </a>
         </div>
-        <div className={styles.linkContainer}>
-          <a href={props.project.gitHubUrl} target={'_blank'}>
-            <img src={theme === 'blossom' ? gitHubIcon : gitHubIconWhite} alt='a GitHub icon'/>
-          </a>
-          <a href={props.project.planningUrl} target={'_blank'}>
-            <img src={theme === 'blossom' ? noteIcon : noteIconWhite} alt='a note icon'/>
-          </a>
-        </div>
+        <ProjectLinks project={project} mode={mode} />
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.imgContainer}>
-          <img src={props.project.img[0]} alt={`A screenshot of ${props.project.title}`}/>
+          <img src={project.img[0]} alt={`A screenshot of ${project.title}`}/>
         </div>
-        <div className={styles.movingContainer} onClick={() => handleClick(props.project.id)}>
-          <p className={styles.intro}>{props.project.intro}</p>
+        <div className={styles.movingContainer} onClick={() => handleClick(project.id)}>
+          <p className={styles.intro}>{project.intro}</p>
           <button className={styles.seeMore}>
             <span className={styles.circle} aria-aria-hidden='true'></span>
             <span className={styles.btnText}>See more</span>
