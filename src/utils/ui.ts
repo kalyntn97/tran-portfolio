@@ -1,9 +1,10 @@
 export const iconSource: { [name: string]: { light: string, dark: string }} = {
-  favicon: { light: '/assets/icons/favicon.svg', dark: '/assets/icons/favicon-white.svg' },
+  logo: { light: '/assets/images/logo.png', dark: '/assets/images/logo-white.png' },
   github: { light: '/assets/icons/github.png', dark: '/assets/icons/github-white.png' },
   linkedin: { light: '/assets/icons/linkedin.png', dark: '/assets/icons/linkedin-white.png' },
   mail: { light: '/assets/icons/mail.png', dark: '/assets/icons/mail-white.png' },
   note: { light: '/assets/icons/note.png', dark: '/assets/icons/note-white.png' },
+  menu: { light: '/assets/icons/menu.png', dark: '/assets/icons/menu-white.png' },
 }
 
 export const skillIcons = {

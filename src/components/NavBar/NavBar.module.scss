@@ -6,37 +6,23 @@
 .navbar {
   width: 100%;
   height: 7vh;
+  font-size: 1.5em;
   .leftContainer {
     float: left;
-    max-height: 100%;
     display: flex;
+    height: '100%';
     align-items: center;
     .favicon {
-      margin-right: 2em;
-      height: 3em;
+      height: auto;
+      margin: 0 2em 0 0.5em;
     }
   }
   .rightContainer {
+    padding: 0.5em 1em 0 0;
     float: right;
-    padding: 0.3em;
-    display: flex;
-    a {
-      font-family: $headingFontFamily;
-      text-align: center;
-      margin: 0.5em;
-      vertical-align: middle;
-      img {
-        height: 2.5em;
-        margin-right: 0.3em;
-        transform: scale(0);
-      }
-      &:hover img{
-        transform: scale(1);
-        transition: all 0.5s;
-      }
-      &[class='active'] img {
-        transform: scale(1);
-      }
+    height: '100%';
+    a { 
+      font-family: $headingFontFamily; 
     }
   }
 }
@@ -44,12 +30,29 @@
 [data-theme='blossom'].navbar {
   background-color: rgba( $light-blue, .9);
   .rightContainer {
-    a {      
-      width: 7em;
+    a {
+      @include v.flex-row;
+      align-items: center;
+      img {
+        height: 2.5em;
+        margin-right: 0.3em;
+        transform: scale(0);
+      }
+      &:hover img {
+        transform: scale(1);
+        transition: all 0.5s ease-in-out;
+      }
+      &[class='active'] img {
+        transform: scale(1);
+        transition: all 0.5s ease-in-out;
+      }
       &:hover, &[class='active'] {
         color: $brown;
-        transition: all 0.5s;
+        transition: all 0.5s ease-in-out;
       }
+    }
+    .portrait .menuCon {
+      background-color: nth($green, 1);
     }
   }
 }
@@ -59,8 +62,8 @@
   .rightContainer {
     a {
       color: $light-blue;
-      width: 5.5em;
-      padding: 0.3em;
+      padding: 0.5em 0.7em;
+      @include v.flex-row;
       border-radius: 3em;
       border: 3px solid transparent;
       &:hover, &[class='active'] {
@@ -71,34 +74,55 @@
         box-shadow: 0px 0px 30px 10px $bright-purple;
         transition: all .3s ease-in-out;    
       }
-      img {
-        display: none;
-      }
+      img { display: none; }
+    }
+    .portrait .menuCon {
+      background-color: nth($dark-blue2, 1);
     }
   }
 }
 
 @media (orientation: landscape) and (min-width: 768px) {
   .navbar {
-    font-size: 1.5em;
+    .favicon { width: 3em; }
     .rightContainer {
-      max-height: 100%;
+      .portrait { display: none; }
+      .landscape .menuCon {
+        @include v.flex-row;
+        a { margin-left: 3em; }    
+      }
     }
   }
 }
 
 @media (orientation: portrait) or (max-width: 767px) {
   .navbar {
-    font-size: 1em;
-    position: relative;
+    .favicon { width: 3em; }
     .rightContainer {
-      position: absolute;
-      right: 0;
-      height: 20vh;
-      justify-content: space-evenly;
-      @include v.flex-column;
-      align-items: flex-end;
+      .landscape { display: none; }
+      .portrait {
+        position: relative;
+        .menuCon {
+          position: absolute;
+          right: 0;
+          @include v.flex-column;
+          align-items: flex-end;
+          border-radius: 10px;
+          padding: 1em 2em;
+          z-index: 99;
+          top: 2.5em;
+        }
+        .menuIcon { width: 2em; }
+      }
     }
   }
+}
+
+@media (orientation: portrait) and (max-width: 767px) {
+  .navbar { font-size: 1em; }
+}
+
+@media (orientation: portrait) and (min-width: 768px) {
+  .favicon { width: 4em; }
 }
 

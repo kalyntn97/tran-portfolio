@@ -18,7 +18,7 @@ const Footer = () => {
       <a href='/'>
         <img 
           className={styles.favicon} 
-          src={getIconSource('favicon', mode)} 
+          src={getIconSource('logo', mode)} 
         />
       </a>
       <ContactLinks />
