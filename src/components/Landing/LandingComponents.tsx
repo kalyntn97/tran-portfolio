@@ -12,3 +12,12 @@ export const LinkSection = () => {
   )
 }
 
+export const HeaderSection = () => {
+  return (
+    <div className={styles.header}>
+      <h1>Tran Nguyen</h1>
+      <h2>software engineer</h2>
+    </div>
+  )
+}
+
