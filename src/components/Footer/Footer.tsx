@@ -15,13 +15,9 @@ const Footer = () => {
 
   return ( 
     <main className={styles.container}>
-      <a href='/'>
-        <img 
-          className={styles.favicon} 
-          src={getIconSource('logo', mode)} 
-        />
-      </a>
-      <ContactLinks />
+      <div className={styles.linkCon}>
+        <ContactLinks />
+      </div>
     </main>
    )
 }
