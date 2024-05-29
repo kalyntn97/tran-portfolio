@@ -29,7 +29,7 @@ export const getIconSource = (name: string, mode: 'light' | 'dark') => {
 }
 
 export const navLinks = [
-  { name: 'About', title: 'more about me', href: '/about', icon: '/assets/images/orange-flower.png' },
-  { name: 'Projects', title: 'my projects', href: '/projects', icon: '/assets/images/purple-flower.png' },
-  { name: 'Contact', title: 'contact me', href: '/contact', icon: '/assets/images/yellow-flower.png' },
+  { name: 'About', title: 'about me', href: '/about', icon: '/assets/images/orange-flower.png' },
+  { name: 'Projects', title: 'projects', href: '/projects', icon: '/assets/images/purple-flower.png' },
+  { name: 'Contact', title: 'contact', href: '/contact', icon: '/assets/images/yellow-flower.png' },
 ]

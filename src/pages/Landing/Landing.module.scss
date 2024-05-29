@@ -17,16 +17,12 @@
   }
   .image {
     position: absolute;
+    height: auto;
     z-index: 2;
-    width: 60%;
-    height: 'auto';
-    top: 25%;
-    left: 20%;
     transform: rotate(-50deg); 
     animation: rolling 15s ease-in-out infinite;
   }
   .header {
-    // width: 60%;
     text-align: center;
     @include v.flex-column;
     h1 {
@@ -92,7 +88,6 @@
   .landscape {
     .laptop {
       width: 70vw;
-      height: 900px;
       margin-top: 2em;
       @include  v.flex-column;
       z-index: 1;
@@ -152,13 +147,14 @@
               }
             }
             .linkSection {
-              width: 40%;
-              align-items: flex-end;
+              // width: 40%;
               padding: 1em 2em 0em 0;
               .linkContainerLandscape {
                 margin-left: auto;
                 margin-bottom: 1em;
-                a { font-size: 1.5em; }
+                .slideLinkCon {
+                  align-items: flex-end;
+                }
               }
             }
           }
@@ -167,7 +163,6 @@
     }
     .keyboard {
       width: 88%;
-      height: 400px;
       margin-top: -5px;
       background-color: $light-silver;
       clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
@@ -199,13 +194,11 @@
   /* portrait & smaller screens */
   .portrait {
     .linkContainerPortrait {
-      a {
-        font-size: 2em;
-      }
+      a { font-size: 2em; }
     }
   }
 }
-
+/* theming */
 [data-theme='blossom'].container {
   .windowBar {
     background-color: nth($window, 1);
@@ -229,7 +222,7 @@
     background-color: rgb(16, 7, 7);
   }
 }
-
+/* animations */
 @keyframes rolling {
   10% { transform: rotate(-55deg);}
   20% { transform: rotate( -50deg);}
@@ -243,183 +236,64 @@
 	100% { transform: translateX(100%); }
 }
 
-// @media (orientation: landscape) {
-//   .header {
-//    width: 60%;
-//   }
-//   .subtitleLinks a img {
-//     width: 2.5em;
-//   }
-// }
-
-// @media (min-width: 1367px) {
-//   .linkContainer {
-//     width: 30%;
-//     span, a::after {
-//       font-size: 1.7em;
-//     }
-//   }
-// }
-
-// @media (min-width: 1367px) and (max-width: 1640px) {
-//   .header {
-//     font-size: 0.9em;
-//   }
-// }
-
-// @media (max-width: 1366px) {
-//   .linkContainer {
-//     width: 40%;
-//   }
-//   .image {
-//     width: 80%;
-//     top: 40%;
-//   }
-// }
-
-// @media (min-width: 1181px) and (max-width: 1366px) {
-//   .header {
-//     font-size: 1em;
-//   }
-//   .linkContainer {
-//     span, a::after {
-//       font-size: 2.2em;
-//     }
-//   }
-// }
-
-// @media (min-width: 1025px) and (max-width: 1180px) {
-//   .header {
-//     font-size: 0.8em;
-//   }
-//   .linkContainer {
-//     span, a::after {
-//       font-size: 1.7em;
-//     }
-//   }
-// }
-
-// @media (min-width: 941px) and (max-width: 1024px) {
-//   .header {
-//     font-size: 0.7em;
-//   }
-//   .linkContainer {
-//     span, a::after {
-//       font-size: 1.5em;
-//     }
-//   }
-// }
-
-// @media (min-width: 941px) {
-//   .roundBtn {
-//     width: 1em;
-//     height: 1em;
-//   }
-// }
-
-// @media (max-width: 940px) {
-//   .image {
-//     display: none;
-//   }
-//   .roundBtn {
-//     width: 0.7em;
-//     height: 0.7em;
-//   }
-// }
-
-// @media (max-width: 940px) and (min-width: 669px) {
-//   .header {
-//     font-size: 0.7em;
-//   }
-//   .subtitle {
-//     font-size: 0.7em;
-//   }
-//   .linkContainer {
-//     span, a::after {
-//       font-size: 1.4em;
-//     }
-//   }
-// }
-
-// @media (max-width: 668px) {
-//   .header {
-//     font-size: 0.6em;
-//   }
-//   .subtitle {
-//     font-size: 0.8em;
-//   }
-//   .linkContainer {
-//     span, a::after {
-//       font-size: 1.1em;
-//     }
-//   }
-// }
-
-// @media (orientation: portrait) {
-//   .table, .keyboard {
-//     display: none;
-//   }
-//   .screen {
-//     border-radius: 2em;
-//   }
-//   .windowBody {
-//     @include v.flex-column;
-//   }
-//   .header {
-//     font-size: 0.9em;
-//     width: 90%;
-//   }
-//   .subtitle {
-//     font-size: 0.9em;
-//     width: 100%;
-//     @include v.flex-column;
-//     .subtitleLinks a img {
-//       width: 4em;
-//     }
-//   }
-//   .linkContainer {
-//     width: 80%;
-//     span, a::after {
-//       font-size: 1.5em;
-//     }
-//   }
-//   .image {
-//     display: none;
-//   }
-// }
-
-// @media (orientation: portrait) and (min-width: 1024px) {
-//   .header {
-//     font-size: 1.2em;
-//   }
-//   .linkContainer {
-//     span, a::after {
-//       font-size: 2em;
-//     }
-//   }
-// }
-
-// @media (orientation: portrait) and (max-width: 720px) {
-//   .header {
-//     font-size: 0.6em;
-//   }
-//   .subtitle {
-//     font-size: 0.7em;
-//   }
-//   .linkContainer {
-//     span, a::after {
-//       font-size: 1.2em;
-//     }
-//   }
-// }
-
+/* responsive displays */
 @media (orientation: portrait) {
   .landscape {
     display: none;
   }
 }
-@media (orientation: landscape) {
+@media (orientation: landscape) and (min-width: 1024px) {
   .portrait {
     display: none;
+  }
+  .linkSection {
+    width: 50%;
+  }
+}
+/* desktops */
+@media (min-width: 1680px) {
+
+}
+@media (min-width: 1440px) {
+  .laptop {
+    height: 900px;
+    .keyboard { height: 400px; }
+  }
+  .header { font-size: 1em; }
+  .linkSection {
+    span, a::after { font-size: 1.7em; }
+  }
+  .image { 
+    width: 60%;
+    top: 20%;
+    left: 20%;
+  }
+}
+
+/* laptops & ipads */
+@media (max-width: 1440px) and (orientation: landscape) {
+  .laptop {
+    height: 900px;
+    .keyboard { height: 600px; }
+  }
+  .header { font-size: 0.9em; }
+  .linkSection {
+    span, a::after { font-size: 1.3em; }
+  }
+  .image { 
+    width: 60%;
+    top: 20%;
+    left: 20%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1180px) and (orientation: landscape) {
+  .laptop {
+    height: 700px;
+    .keyboard { height: 400; }
+  }
+  .header { font-size: 0.7em; }
+  .linkSection {
+    span, a::after { font-size: 1.2em; }
   }
 }

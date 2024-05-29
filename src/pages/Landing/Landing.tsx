@@ -90,16 +90,17 @@ const Landing: React.FC<IProps> = (props) => {
         </motion.div>
         <img src={sleepingCat} alt="a sleeping cat" className={styles.image} />
       </div>
-      //* portrait & small screen
       <div className={styles.portrait}>
         <div className={styles.header}>
           <h1>Tran Nguyen</h1>
           <h2>software engineer</h2>
         </div>
-        <div className={styles.linkContainerPortrait}>
-          <LinkSection />
+        <div className={styles.linkSection}>
+          <div className={styles.linkContainerPortrait}>
+            <LinkSection />
+          </div>
+            <ContactLinks />
         </div>
-        <ContactLinks />
       </div>
     </motion.div>
  
