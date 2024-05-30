@@ -46,12 +46,6 @@
     overflow: hidden;
     border-radius: 4px;
     cursor: pointer;
-    color: $dark-blue;
-    @for $i from 1 through length($green) {
-      &:nth-child(#{$i}) {
-        background-color: nth($green, $i)
-      }
-    }
     &:hover {
       flex: 6;
     }
@@ -61,7 +55,6 @@
       @include v.flex-column;
       justify-content: center;
       h1 {
-        height: 20%;
         transform: translateY(4em) rotate(-90deg);
         text-align: center;
         // writing-mode: vertical-lr;
@@ -100,6 +93,27 @@
   }
 }
 
+[data-theme='blossom'].container {
+  .skillContainer {
+    color: $dark-blue;
+    @for $i from 1 through length($green) {
+      &:nth-child(#{$i}) {
+        background-color: nth($green, $i)
+      }
+    }
+  }
+}
+
+[data-theme='starry'].container {
+  .skillContainer {
+    @for $i from 1 through length($purple) {
+      &:nth-child(#{$i}) {
+        background-color: nth($purple, $i)
+      }
+    }
+  }
+}
+
 @media (min-width: 1440px) {
   .container {
     width: 50%;
@@ -125,7 +139,7 @@
     width: 100%;
     height: 60vh;
     .contentCon {
-      h1 { font-size: 2em; }
+      h1 { font-size: 1.4em; }
       div span img { width: 1.8em; }
     }
   }

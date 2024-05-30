@@ -64,6 +64,9 @@ const About: React.FC<IProps> = (props) => {
               <img src={avatar} alt='an avatar' />
               <button><a href={resume} target={'_blank'}>RESUME</a></button>
             </div>
+            <div>
+              
+            </div>
             <div className={styles.textContainer}>
               <div>
                 <p>Hi! My name is Tran. I am a Software Engineer dedicated to creating user-friendly and whimsical designs that spark joy and smiles. </p>

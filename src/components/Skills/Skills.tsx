@@ -1,8 +1,10 @@
 //npm modules
+import { useContext } from 'react'
 // import { useState } from 'react'
 // import useMeasure from 'react-use-measure'
 // import { useSpring, animated } from '@react-spring/web'
 //utils
+import { ThemeContext } from '../../contexts/ThemeContext'
 import { DATABASES_HOSTING, FRAMEWORKS_AND_LIBRARIES, LANGUAGES, OTHERS } from '../../utils/ui'
 //css
 import styles from './Skills.module.scss'
@@ -18,6 +20,8 @@ const Skills = () => {
   //     setProgress(progress + 0.25)     
   //   }
   // }
+  const { theme } = useContext(ThemeContext)
+
   const sections = [
     { name: 'Languages', data: LANGUAGES },
     { name: 'FrameWorks & Libraries', data: FRAMEWORKS_AND_LIBRARIES},
@@ -26,7 +30,7 @@ const Skills = () => {
   ]
 
   return ( 
-    <div className={styles.container}>
+    <div className={styles.container} data-theme={theme}>
       {/* <div ref={ref} className={styles.loadingBar} onClick={handleLoadingBar}>
           <animated.div className={styles.fill} style={props} />
           <animated.div className={styles.content}>{props.width.to(x => x.toFixed(0))}</animated.div>
