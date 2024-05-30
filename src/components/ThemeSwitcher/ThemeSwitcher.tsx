@@ -3,13 +3,13 @@ import { useContext } from "react"
 import { motion } from "framer-motion"
 //contexts
 import { ThemeContext } from "../../contexts/ThemeContext"
-//assets
-import star from '/assets/icons/star.png'
-import flower from '/assets/icons/flower.png'
 //css
 import styles from './ThemeSwitcher.module.scss'
 
-
+const themes = {
+  blossom: '/assets/icons/sun.png',
+  starry: '/assets/icons/moon.png',
+}
 
 const ThemeSwitcher: React.FC = () => {
   const { theme, useTheme } = useContext(ThemeContext)
@@ -37,7 +37,7 @@ const ThemeSwitcher: React.FC = () => {
   return ( 
     <div className={styles.switch} data-theme={theme} onClick={toggleDarkMode}>
       <motion.div className={styles.handle} layout transition={spring}>
-        <img src={theme === 'blossom' ? flower : star} />
+        <img src={themes[theme]} />
       </motion.div>
     </div>
    )

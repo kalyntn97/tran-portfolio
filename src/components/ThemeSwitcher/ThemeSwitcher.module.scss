@@ -1,3 +1,4 @@
+@use '../../styles/variables' as v;
 @import '../../styles/colors';
 
 .switch {
@@ -12,13 +13,15 @@
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 50%;
-    // background-color: $light-purple;
+    background-color: nth($green, 2);
+    padding: 5px;
+    @include v.centered
   }
 }
 [data-theme='starry'].switch {
   justify-content: flex-end;
   background-color: $dark-blue2;
   .handle {
-    background-color: $bright-purple;
+    background-color: $dark-blue;
   }
 }

@@ -1,12 +1,27 @@
 .container {
   width: 100%;
   height: 5vh;
+  padding: 0.5em;
   .linkCon {
     float: right;
-    margin-right: 1em;
-    img {
-      height: 100%;
-      width: 2em;
-    }
+  }
+  .favicon {
+    height: 100%;
+    width: auto;
+    float: left;
+  }
+}
+
+@media (orientation: portrait) or (min-width: 401px) {
+  .linkCon a {
+    height: 100%;
+    width: 2em; 
+  }
+} 
+
+@media (orientation: portrait) or (max-width: 400px) {
+  .linkCon a { 
+    height: 100%;
+    width: 1.5em; 
   }
 }

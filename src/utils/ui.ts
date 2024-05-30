@@ -7,23 +7,44 @@ export const iconSource: { [name: string]: { light: string, dark: string }} = {
   menu: { light: '/assets/icons/menu.png', dark: '/assets/icons/menu-white.png' },
 }
 
-export const skillIcons = {
-  css3: '/assets/icons/css3.svg',
-  django: '/assets/icons/django.svg',
-  expressjs: '/assets/icons/expressjs.svg',
-  html5: '/assets/icons/html5.svg',
-  javaScript: '/assets/icons/javascript.svg', 
-  typeScript: '/assets/icons/typescript.svg',
-  postgresql: '/assets/icons/postgresql.svg',
-  python: '/assets/icons/python.svg',
-  react: '/assets/icons/react.svg',
-  sass: '/assets/icons/sass.svg',
-  nextjs: '',
-  reactNative: '',
-  tailwind: '',
-  mongodb: '/assets/icons/mongodb.svg',
-  mongoose: '/assets/icons/mongoose.svg'
-}
+export const LANGUAGES = [
+  { name: 'TypeScript', icon: '/assets/icons/typescript.svg'},
+  { name: 'JavaScript', icon: '/assets/icons/javascript.svg'},
+  { name: 'Python', icon: '/assets/icons/python.svg'},
+  { name: 'HTML5', icon: '/assets/icons/html5.svg'},
+  { name: 'CSS3', icon: '/assets/icons/css3.svg'},
+  // { name: '', icon: '' },
+]
+
+export const FRAMEWORKS_AND_LIBRARIES = [
+  { name: 'ReactJS', icon: '/assets/icons/react.svg'},
+  { name: 'NextJS', icon: '/assets/icons/nextjs.svg'},
+  { name: 'React Native', icon: '/assets/icons/react-native.png'},
+  { name: 'ExpressJS', icon: '/assets/icons/expressjs.svg'},
+  { name: 'Django', icon: '/assets/icons/django.svg'},
+  { name: 'Sass', icon: '/assets/icons/sass.svg'},
+  { name: 'TailwindCSS', icon: '/assets/icons/tailwind.svg'},
+  { name: 'Mongoose', icon: '/assets/icons/mongoose.svg'},
+  // { name: '', icon: '' },
+]
+
+export const DATABASES_HOSTING = [
+  { name: 'MongoDB', icon: '/assets/icons/mongodb.svg'},
+  { name: 'PostgreSQL', icon: '/assets/icons/postgresql.svg'},
+  { name: 'Netlify', icon: '/assets/icons/netlify.png' },
+  { name: 'Heroku', icon: '/assets/icons/heroku.png' },
+  // { name: '', icon: '' },
+]
+
+export const OTHERS = [
+  { name: 'Git', icon: '/assets/icons/git.svg' },
+  { name: 'GitHub', icon: '/assets/icons/github.png' },
+  { name: 'Docker', icon: '/assets/icons/docker.svg' },
+  { name: 'Postman', icon: '/assets/icons/postman.svg' },
+  { name: 'VSCode', icon: '/assets/icons/vscode.png' },
+  // { name: '', icon: '' },
+
+]
 
 export const getIconSource = (name: string, mode: 'light' | 'dark') => {
   return iconSource[name][mode] || ''

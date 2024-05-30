@@ -9,6 +9,12 @@
   justify-content: center;
 }
 
+@mixin centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin large-spacing {
   margin: 3em;
   padding: 2em;
