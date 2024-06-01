@@ -10,11 +10,8 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from './About.module.scss'
 //assets
 import avatar from '/assets/images/avatar.jpeg'
-import circleDown from '/assets/icons/circledown.svg'
-import circleDownWhite from '/assets/icons/circledown-white.png'
-import circleUp from '/assets/icons/circleup.svg'
-import circleUpWhite from '/assets/icons/circleup-white.png'
 import resume from '/Tran_Nguyen_Resume.pdf'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 type IProps = {
   handleShowNavAndFooter: () => void
@@ -25,9 +22,6 @@ const About: React.FC<IProps> = (props) => {
 
   props.handleShowNavAndFooter()
 
-  const handleClick = () => {
-    scroll.scrollToTop({ offset: -70, duration: 500, smooth: true })
-  }
 
   const variants = {
     container : {
@@ -60,13 +54,6 @@ const About: React.FC<IProps> = (props) => {
         >
           <motion.h1 variants={variants.h1} className={styles.heading}>Who I am</motion.h1>
           <motion.div variants={variants.about} key='about' className={styles.aboutContainer}>
-            <div className={styles.photoContainer}>
-              <img src={avatar} alt='an avatar' />
-              <button><a href={resume} target={'_blank'}>RESUME</a></button>
-            </div>
-            <div>
-              
-            </div>
             <div className={styles.textContainer}>
               <div>
                 <p>Hi! My name is Tran. I am a Software Engineer dedicated to creating user-friendly and whimsical designs that spark joy and smiles. </p>
@@ -83,27 +70,10 @@ const About: React.FC<IProps> = (props) => {
                 </span> I love to play with my dog and two cats. I also like drawing, coffee, going to concerts, and listening to podcasts.</p>
               </div>
             </div>
+            <div className={styles.profileContainer}>
+              <ProfileCard />
+            </div>
           </motion.div>
-          <span className={styles.linkContainer}>
-            <Link
-              to="section2"
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className={styles.arrow}
-              > 
-                <img 
-                  src={theme === 'blossom' ? circleDown : circleDownWhite} 
-                  alt="a downward arrow" 
-                />
-            </Link>
-            <button onClick={handleClick}>
-              <img 
-                src={theme === 'blossom' ? circleUp : circleUpWhite} 
-                alt="an upward arrow" 
-              />
-            </button>
-          </span>
         </section>
 
         <section

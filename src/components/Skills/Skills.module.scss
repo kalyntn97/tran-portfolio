@@ -39,7 +39,6 @@
   //   }
   // }
   .skillContainer {
-    border: 1px solid $white;
     @include v.centered;
     height: 100%;
     flex: 1;
@@ -98,7 +97,8 @@
     color: $dark-blue;
     @for $i from 1 through length($green) {
       &:nth-child(#{$i}) {
-        background-color: nth($green, $i)
+        background-color: rgba(nth($green, $i), 50%);
+        border: 2px solid nth($green, $i);
       }
     }
   }
@@ -108,7 +108,8 @@
   .skillContainer {
     @for $i from 1 through length($purple) {
       &:nth-child(#{$i}) {
-        background-color: nth($purple, $i)
+        background-color: rgba(nth($purple, $i), 50%);
+        border: 2px solid nth($purple, $i);
       }
     }
   }

@@ -10,39 +10,9 @@
     width: 100%;
     display: flex;
     @include v.flex-column;
-    a {
-      cursor: pointer;
-    }
-    .linkContainer {
-      height: 10%;
-    }
+    .heading { margin: 0.5em 0; }
     .aboutContainer {
       align-items: center;
-      height: 80%;
-      .photoContainer {
-        @include v.flex-column;
-        img {
-          height: auto;
-          width: 100%;
-          border-radius: 50%;
-          margin: 3em;
-          box-shadow: 10px 10px 50px #ccc;
-        }
-        button {
-          a { font-family: $accentFontFamily; }
-          padding: 1em;
-          border-radius: .5em;
-          border-top: 2px solid $white;
-          border-left: 2px solid $white;
-          transition-duration: 1s;
-          transition-property: border-top, border-left, border-bottom, border-right, box-shadow;
-          &:hover {
-            border-bottom: 2px solid $bubble-gum;
-            border-right: 2px solid $bubble-gum;
-            box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
-          }
-        }
-      }
       .textContainer {
         border-radius: 88% 12% 87% 13% / 18% 85% 15% 82%;
         @include v.medium-spacing;
@@ -52,15 +22,11 @@
           width: 90%;
           height: 80%;
           margin: 2em;
-          p {
-            padding: 0.5em;
-          }
+          p { padding: 0.5em; }
         }
         a {
           color: $bright-blue;
-          &:hover {
-          font-weight: bold;
-          }
+          &:hover { font-weight: bold; }
         }
       }
     }
@@ -68,83 +34,44 @@
 }
 
 [data-theme='blossom'].container {
-  .heading {
-    color: $brighter-blue;
-  }
-  .textContainer {
-   background-color: $yellow;
-  }
-  .photoContainer button {
-    a { color: $bright-blue; }
-    background-color: $light-blue2;
-    border-bottom: 2px solid $bright-blue;
-    border-right: 2px solid $bright-blue;
-    &:hover {
-      border-top: 2px solid $bright-blue;
-      border-left: 2px solid $bright-blue;
-    }
-  }
+  .heading { color: $brighter-blue; }
+  .textContainer { background-color: $yellow; }
 }
 
 [data-theme='starry'].container {
   .textContainer {
-   background-color: $light-purple;
-   color: $dark-blue;
-  }
-  .photoContainer button {
-    a { color: $bright-purple; }
     background-color: $light-purple;
-    border-bottom: 2px solid $bright-purple;
-    border-right: 2px solid $bright-purple;
-    &:hover {
-      border-top: 2px solid $bright-purple;
-      border-left: 2px solid $bright-purple;
-    }
+    color: $dark-blue;
   }
 }
 
 @media (orientation: landscape) {
-  .heading {
-    margin: 0.5em;
-  }
   .aboutContainer {
     @include v.flex-row;
-    width: 65%;
+    width: 80%;
     justify-content: space-between;
     overflow: hidden;
-    .photoContainer {
-      width: 20%;
-      height: 100%;
-    }
-    .textContainer {
-      width: 80%;
-      height: 100%;
-    }
+    .profileContainer { flex: 1; }
+    .textContainer { flex: 3; }
   }
 }
 
 @media (orientation: portrait) {
-  .heading {
-    margin: 0.5em;
-  }
   .aboutContainer {
     @include v.flex-column;
-    width: 100%;
-    .photoContainer {
-      width: 30%;
-      height: 30%;
+    .profileContainer {
+      margin-top: 1em;
+      order: 1 
     }
-    .textContainer {
-      width: 100%;
-      height: 70%;
+    .textContainer { 
+      width: 100%; 
+      order: 2;
     }
   }
 }
 
 @media (orientation: portrait) and (max-width: 767px) {
-  .heading {
-    margin-top: 1.5em;
-  }
+  .heading { margin-top: 1.5em; }
 }
 
 @keyframes border-move{
