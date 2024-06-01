@@ -4,6 +4,7 @@
   @include v.flex-row;
   width: 100%;
   justify-content: flex-end;
+  align-items: center;
   a {
     margin-left: 2em;
     &:hover {

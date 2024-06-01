@@ -11,6 +11,10 @@
     display: flex;
     @include v.flex-column;
     .heading { margin: 0.5em 0; }
+    .skillsContainer {
+      @include v.flex-column; 
+      width: 100%; 
+    }
     .aboutContainer {
       align-items: center;
       .textContainer {

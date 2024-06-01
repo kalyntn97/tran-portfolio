@@ -9,9 +9,8 @@ import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './About.module.scss'
 //assets
-import avatar from '/assets/images/avatar.jpeg'
-import resume from '/Tran_Nguyen_Resume.pdf'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import ScrollAnimatedSection from '../../components/ScrollAnimatedSection'
 
 type IProps = {
   handleShowNavAndFooter: () => void
@@ -25,17 +24,18 @@ const About: React.FC<IProps> = (props) => {
 
   const variants = {
     container : {
-      animate: { transition: { staggerChildren: 0.2 } },
-      exit: { opacity: 0, y: '-100%', transition: { duration: 0.5 } }
+      initial: { x: '100%', opacity: 0},
+      animate: { x: 0, opacity: 1, transition: { duration: 0.5, delayChildren: 0.5 } },
+      exit: { x: '-100%', opacity: 0, transition: { duration: 0.5 } }
     },
-    h1: {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 }
+    left: {
+      initial: { x: '-100%', opacity: 0 },
+      animate: { x: 0, opacity: 1, transition: { duration: 0.5, type: 'spring', stiffness: 100 } }
     },
-    about: {
-      initial: { scale: 0 },
-      animate: { scale: 1, transition: {duration: 1 } }
-    }
+    right: {
+      initial: { x: '100%', opacity: 0 },
+      animate: { x: 0, opacity: 1, transition: { duration: 0.5, type: 'spring', stiffness: 100 } }
+    },
   }
   
 
@@ -52,9 +52,9 @@ const About: React.FC<IProps> = (props) => {
           className={styles.section}
           style={{ minHeight: `80vh`, height: 'fit-content'}}
         >
-          <motion.h1 variants={variants.h1} className={styles.heading}>Who I am</motion.h1>
-          <motion.div variants={variants.about} key='about' className={styles.aboutContainer}>
-            <div className={styles.textContainer}>
+          <h1 className={styles.heading}>Who I am</h1>
+          <div className={styles.aboutContainer}>
+            <motion.div variants={variants.left} className={styles.textContainer}>
               <div>
                 <p>Hi! My name is Tran. I am a Software Engineer dedicated to creating user-friendly and whimsical designs that spark joy and smiles. </p>
                 <p>With a previous background in biotech and a passion for art, I am committed to crafting delightful digital experiences that seamlessly blend analytical power and creativity</p>
@@ -69,11 +69,11 @@ const About: React.FC<IProps> = (props) => {
                   </Link>
                 </span> I love to play with my dog and two cats. I also like drawing, coffee, going to concerts, and listening to podcasts.</p>
               </div>
-            </div>
-            <div className={styles.profileContainer}>
+            </motion.div>
+            <motion.div variants={variants.right} className={styles.profileContainer}>
               <ProfileCard />
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </section>
 
         <section
@@ -82,8 +82,12 @@ const About: React.FC<IProps> = (props) => {
           className={styles.section}
           style={{ height: 'fit-content' }}
         >
-          <h1 className={styles.heading}>Skills</h1>
-          <Skills />  
+          <ScrollAnimatedSection index={1}>
+            <h1 className={styles.heading}>Skills</h1>
+          </ScrollAnimatedSection>
+          <ScrollAnimatedSection index={2}>
+            <Skills />
+          </ScrollAnimatedSection>
         </section>
       </motion.div>
   )
