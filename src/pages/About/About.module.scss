@@ -30,8 +30,15 @@
         }
         a {
           color: $bright-blue;
-          &:hover { font-weight: bold; }
+          transition: all 0.3s ease-in-out;
+          &:hover { font-size: 1.1em; }
         }
+        .title { 
+          font-size: 1.2em; 
+          transition: all 0.3s ease-in-out;
+          &:hover { font-size: 1.3em; }
+        }
+        // .colored { color: $bright-blue; }
       }
     }
   }

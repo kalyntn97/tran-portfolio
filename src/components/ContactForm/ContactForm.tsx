@@ -37,7 +37,8 @@ const ContactForm = () => {
 
   return ( 
     <main className={styles.container} data-theme={theme}>
-      <h2>Send me a message!</h2>
+      <h2>Hi there! 🌟</h2>
+      <h3>I&rsquo;d absolutely love to collaborate on exciting projects, hear your thoughts on my work, or simply say hi and connect!</h3>
       {/* // eslint-disable-next-line */}
       <form className={styles.contactForm} onSubmit={handleSubmit} ref={form}>
         <label htmlFor="nameInput">Name</label>

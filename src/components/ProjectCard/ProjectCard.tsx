@@ -44,7 +44,7 @@ const ProjectCard: React.FC<Props> = ({ project, handleOpen, index }) => {
       <div className={styles.header}>
         <div className={styles.linkWrapper} data-theme={theme}>
           <a href={project.url} target={'_blank'} className={styles.hover}>
-            <h2>{project.title}</h2>
+            <h4>{project.title}</h4>
           </a>
         </div>
         <ProjectLinks project={project} mode={mode} />

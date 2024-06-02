@@ -12,9 +12,18 @@
     font-family: $headingFontFamily;
   }
   h2 {
+    font-family: $accentFontFamily;
+    font-size: 3em;
+  }
+  h3 {
     font-family: $bodyFontFamily;
     font-weight: bold;
-    font-size: 3em;
+    font-size: 1.3em;
+  }
+  h4 {
+    font-family: $accentFontFamily;
+    font-size: 2em;
+    font-weight: normal;
   }
   p, a {
     font-family: $bodyFontFamily;
@@ -32,6 +41,7 @@
   background: linear-gradient(to bottom, $light-blue, $light-blue2);
   background-color: $light-blue;
   color: $dark-brown;
+  h4 { color: $medium-brown ;}
   button, a {
     color: $dark-blue;
   }

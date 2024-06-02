@@ -101,18 +101,18 @@ const ProjectList: React.FC<IProps>= (props) => {
               left: '50%',
               top: '50%',
               transform: 'translate(-50%,-50%)',
-              width: '60vw',
-              height: '90vh',
               maxWidth: '90vw',
               maxHeight: '90vh',
               border: 'none',
               borderRadius: '1em',
-              backgroundColor: `${theme === 'blossom' ? 'white' : '#495563'}`
+              backgroundColor: `${theme === 'blossom' ? 'white' : '#495563'}`,
             },
             overlay: {
+              zIndex: 20,
               backgroundColor: 'rgba(0,0,0,0.5)'
             },
           }}
+          className='modal'
         >
           <ProjectCardExpanded key={`${isClicked.id}-${isClicked.title}`} project={isClicked} handleClose={handleClose}/>
         </Modal> 

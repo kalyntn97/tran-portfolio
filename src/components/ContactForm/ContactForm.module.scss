@@ -6,6 +6,10 @@
   @include v.flex-column;
   width: 100%;
   align-items: center;
+  h3 { 
+    width: 90%; 
+    margin-top: 1em;
+  }
   .contactForm {
     @include v.flex-column;
     align-items: flex-start;
@@ -33,10 +37,12 @@
       @include v.flex-row;
       align-items: center;
       overflow: hidden;
-      transition: all 0.2s;
       font-weight: bold;
-      transition: all 0.3s;
-      img { width: 1.5em; } 
+      transition: all 0.3 ease-in-out;
+      img { 
+        width: 1.5em; 
+        transition: all 0.2s ease-in-out;
+      } 
       .word {
         transition: all 0.3s ease-in-out;
         margin: 0 auto;
@@ -52,6 +58,7 @@
 
 [data-theme='blossom'].container {
   h2 { color: $blue; }
+  h3 { color: $dark-blue2; }
   .contactForm {
     input, textarea { border: 1px solid $dark-blue; }
     button {
@@ -66,6 +73,7 @@
 
 [data-theme='starry'].container {
   h2 { color: $medium-purple; }
+  h3 { color: $light-silver; }
   .contactForm {
     input, textarea {
       color: $white;

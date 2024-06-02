@@ -10,4 +10,19 @@
 .ReactModal__Overlay--before-close{
   opacity: 0;
 }
+.modal {
+  height: 80%;
+  position: absolute;
+}
 
+@media (orientation: portrait) {
+  .modal { 
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
+@media (orientation: landscape) {
+  .modal { width: 60%; }
+}

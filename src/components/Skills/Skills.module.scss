@@ -75,7 +75,6 @@
           margin: 0 1em;
           img {
             height: auto;
-            &:hover { transform: scale(110%); }
             transition: all 0.3s ease-in-out;
           }
           p {
@@ -84,9 +83,12 @@
             transform: translateY(-30px);
             transition: all 0.5s ease-in-out;
           }
-          &:hover p { 
-            opacity: 1;
-            transform: translateY(5px);
+          &:hover {
+            p { 
+              opacity: 1;
+              transform: translateY(5px);
+            }
+            img { transform: scale(110%); }
           }
         }
       }

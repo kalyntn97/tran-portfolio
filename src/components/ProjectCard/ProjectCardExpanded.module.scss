@@ -7,7 +7,7 @@
   @media (orientation: portrait) {
     @include v.flex-column;
     height: fit-content;
-    .leftColumn, .rightColumn { 
+    .leftColumn, .rightColumn {
       width: 90%;
       text-align: center;
     }
@@ -15,7 +15,6 @@
   @media (orientation: landscape) {
     @include v.flex-row;
     height: 100%;
-    padding: 0 1em;
     .rightColumn {
       width: 40%;
       height: 100%;
@@ -29,13 +28,13 @@
     }
   }
   width: 100%;
+  padding: 1.5em;
   font-family: $bodyFontFamily;
   .leftColumn {
     align-self: center;
     img {
       width: auto;
       max-height: 90%;
-      margin: 1em;
       border-radius: 15px;
     }
   }
