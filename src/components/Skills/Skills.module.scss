@@ -67,7 +67,7 @@
         @include v.flex-row;
         flex-wrap: wrap;
         opacity: 0;
-        margin-top: 0.5em;
+        margin-top: 1em;
         transform: translateY(100%);
         transition: all 0.5s ease-in-out;
         span {
@@ -87,7 +87,7 @@
           &:hover {
             p { 
               opacity: 1;
-              transform: translateY(5px);
+              transform: translateY(7px);
             }
             img { transform: scale(110%); }
           }

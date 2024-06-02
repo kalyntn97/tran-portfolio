@@ -80,7 +80,7 @@ const About: React.FC<IProps> = (props) => {
           style={{ height: 'fit-content' }}
         >
           <ScrollAnimatedSection index={1}>
-            <h1 className={styles.heading}>Tech & Tools</h1>
+            <h1 className={styles.heading}>Tech Stack</h1>
           </ScrollAnimatedSection>
           <ScrollAnimatedSection index={2}>
             <Skills />
