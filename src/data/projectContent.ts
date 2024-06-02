@@ -33,7 +33,7 @@ export const projects: Array<Project> = [
     mainTechnology: ['TypeScript', 'NextJS', 'TailwindCSS'],
     otherTechnology: ['Framer Motion', 'EmailJS'],
     intro: ['Landing page for Happy Tails, a mobile pet app for managing pet care and health'],
-    img: ['public/assets/images/happy-tails-web.png'],
+    img: ['/assets/images/happy-tails-web.png'],
     url: 'https://happy-tails-website.vercel.app/',
     gitHubUrl: 'https://github.com/kalyntn97/happy-tails-website',
     planningUrl: 'https://www.figma.com/design/MJtp0vcbfqSn9D63rJ765x/Happy-Tails-Website?node-id=0-1&t=1BmvTmFC1LajX8vk-0',

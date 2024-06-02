@@ -105,7 +105,7 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
       {/* dot navigation */}
       <div className={styles.navContainer}>
           <button className={`${styles.navButton} ${styles.prev}`} onClick={() => onPrevButtonClick()} disabled={prevBtnDisabled}>
-            <img src='public/assets/icons/next.png' />
+            <img src='/assets/icons/next.png' />
           </button>
 
           <div className={styles.dotContainer}>
