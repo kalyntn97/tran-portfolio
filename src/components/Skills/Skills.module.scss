@@ -56,7 +56,6 @@
       h1 {
         transform: translateY(4em) rotate(-90deg);
         text-align: center;
-        // writing-mode: vertical-lr;
         font-family: $accentFontFamily;
         letter-spacing: .1em;
         transition: all 0.5s ease-in-out;
@@ -72,13 +71,23 @@
         transition: all 0.5s ease-in-out;
         span {
           @include v.flex-column;
+          transition: all 1s ease-in-out;
+          margin: 0 1em;
           img {
             height: auto;
-            margin: 1em;
+            &:hover { transform: scale(110%); }
+            transition: all 0.3s ease-in-out;
           }
-          p { opacity: 0; }
-          transition: all 1s ease-in-out;
-          &:hover p { opacity: 1; }
+          p {
+            font-weight: bold;
+            opacity: 0; 
+            transform: translateY(-30px);
+            transition: all 0.5s ease-in-out;
+          }
+          &:hover p { 
+            opacity: 1;
+            transform: translateY(5px);
+          }
         }
       }
     }
