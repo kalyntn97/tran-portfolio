@@ -26,11 +26,9 @@
           height: 3px;
           transform: scaleX(0);
           transform-origin: bottom left;
-          transition: transform 0.3s;
+          transition: transform 0.3s ease-in-out;
         }
-        &:hover:after {
-          transform: scaleX(1);
-        }
+        &:hover:after { transform: scaleX(1); }
       }
     }
     .linkContainer {
@@ -40,10 +38,10 @@
         width: 2em;
         margin: 0 1em;
       }
-      a:hover {
-        transform: translateY(-0.2em);
-        transition: all 0.25s;
-      }
+      a {
+        transition: all 0.5s ease-in-out;
+        :hover { transform: translateY(-0.2em); }
+      }      
     }
   }
   .contentContainer {
@@ -55,6 +53,7 @@
       margin: 1em;
       width: 90%;
       height: 90%;
+      transition: opacity .2s ease-out;
       img {
         max-width: 70%;
         height: 90%;
@@ -62,7 +61,6 @@
         position: absolute;
         @include v.center-absolute;
         opacity: 1;
-        transition: opacity .2s ease-out;
       }
     }
     .movingContainer {
@@ -103,12 +101,8 @@
           text-transform: uppercase;   
         }
         &:hover {
-          .circle {
-            width: 100%;
-          }
-          .btnText {
-            color: #fff;
-          }
+          .circle { width: 100%; }
+          .btnText { color: #fff; }
         }
       }
     }
@@ -117,12 +111,8 @@
     .movingContainer {
       @include v.center-absolute;
       opacity: 1;
-      transition: inset .3s ease-out opacity 0.1s ease-out;
     }
-    .imgContainer {
-      opacity: 0.3;
-      transition: opacity .3s ease-in;
-    }
+    .imgContainer { opacity: 0.3; }
   }
 }
 

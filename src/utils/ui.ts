@@ -5,6 +5,7 @@ export const iconSource: { [name: string]: { light: string, dark: string }} = {
   mail: { light: '/assets/icons/mail.png', dark: '/assets/icons/mail-white.png' },
   note: { light: '/assets/icons/note.png', dark: '/assets/icons/note-white.png' },
   menu: { light: '/assets/icons/menu.png', dark: '/assets/icons/menu-white.png' },
+  next: { light: '/assets/icons/next.png', dark: '/assets/icons/next-white.png' },
 }
 
 export const LANGUAGES = [

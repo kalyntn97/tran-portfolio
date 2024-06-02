@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { EmblaCarouselType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
@@ -6,9 +6,12 @@ import { AutoplayType } from 'embla-carousel-autoplay'
 import { motion } from 'framer-motion'
 //components
 import ProjectCard from '../ProjectCard/ProjectCard'
+import { ThemeContext } from '../../contexts/ThemeContext'
 //css
 import styles from './Carousel.module.scss'
+//data
 import { Project } from '../../data/projectContent'
+import { getIconSource } from '../../utils/ui'
 
 
 type Props = {
@@ -75,6 +78,9 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
     emblaApi.on('reInit', onInit).on('reInit', onSelect).on('select', onSelect)
   }, [emblaApi, onInit, onSelect, cards])
 
+  const { theme } = useContext(ThemeContext)
+  const mode = theme === 'blossom' ? 'light' : 'dark'
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -89,7 +95,7 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-theme={theme}>
       {/* carousel viewport */}
       <div ref={emblaRef} className={styles.viewport}>
         {/* carousel container */}
@@ -104,20 +110,20 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
       </div>
       {/* dot navigation */}
       <div className={styles.navContainer}>
-          <button className={`${styles.navButton} ${styles.prev}`} onClick={() => onPrevButtonClick()} disabled={prevBtnDisabled}>
-            <img src='/assets/icons/next.png' />
-          </button>
+        <button className={`${styles.navButton} ${styles.prev}`} onClick={() => onPrevButtonClick()} disabled={prevBtnDisabled}>
+          <img src={getIconSource('next', mode)} />
+        </button>
 
-          <div className={styles.dotContainer}>
-            {scrollSnaps.map((_, index) =>
-              <button key={`dot-${index}`} onClick={() => onDotButtonClick(index)} className={`${index === selectedIndex ? styles.selectedDot : styles.unselectedDot} ${styles.baseDot}`} />
-            )}
-          </div>
-
-          <button className={`${styles.navButton} ${styles.next}`} onClick={() => onNextButtonClick()} disabled={nextBtnDisabled}>
-            <img src='/assets/icons/next.png' />
-          </button>
+        <div className={styles.dotContainer}>
+          {scrollSnaps.map((_, index) =>
+            <button key={`dot-${index}`} onClick={() => onDotButtonClick(index)} className={`${index === selectedIndex ? styles.selectedDot : styles.unselectedDot} ${styles.baseDot}`} />
+          )}
         </div>
+
+        <button className={`${styles.navButton} ${styles.next}`} onClick={() => onNextButtonClick()} disabled={nextBtnDisabled}>
+          <img src={getIconSource('next', mode)} />
+        </button>
+      </div>
       
     </div>
   )

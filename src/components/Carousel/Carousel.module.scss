@@ -34,9 +34,11 @@ $slide-spacing: 2em;
       border-radius: 99px;
       border: 1px solid black;
       padding: 0.5em;
+      transition: all 0.1s ease-in-out;
       @include v.centered;
       img { width: 1em; }
       &:disabled { opacity: 50%; }
+      &:hover { transform: scale(110%); }
     }
     .prev img { transform: rotate(180deg);}
     .dotContainer {
@@ -82,4 +84,8 @@ $slide-spacing: 2em;
     .card { flex: 0 0 $slide-size-full; }
   }
   
+}
+
+[data-theme='starry'].container {
+  .navButton { border-color: white; }
 }

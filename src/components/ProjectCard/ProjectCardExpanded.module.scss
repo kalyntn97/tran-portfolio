@@ -48,6 +48,7 @@
         position: relative;
         display: block;
         .hover {
+          transition: transform 0.5s ease-in-out;
           &:after {
             content: '';
             position: absolute;
@@ -56,8 +57,8 @@
             width: 100%;
             height: 3px;
             transform: scaleX(0);
+            transition: transform 0.5s ease-in-out;
             transform-origin: bottom left;
-            transition: transform 0.3s;
           }
           &:hover:after { transform: scaleX(1); }
           h1 {
@@ -73,10 +74,10 @@
         a img {
           width: 3em;
           margin: 0 1em;
+          transition: all 0.5s ease-in-out;
         }
         a:hover {
           transform: translateY(-0.2em);
-          transition: all 0.25s;
         }
       }
     }
@@ -162,8 +163,8 @@
   color: white;
   .linkWrapper .hover:after { background-color: white; }
   .closeBtn {
-    border: 1px solid rgb(132, 132, 132);
-    color: rgb(132, 132, 132);
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
     &:hover {
       border: 1px solid white;
       color: white;
