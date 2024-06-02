@@ -26,7 +26,6 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
     ])
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
-  const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
 
@@ -61,10 +60,6 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
 
   const onInit = useCallback((emblaApi: EmblaCarouselType) => {
     setScrollSnaps(emblaApi.scrollSnapList())
-
-    const autoplay: AutoplayType = emblaApi?.plugins()?.autoplay
-    if (!autoplay) return
-    setIsPlaying(autoplay.isPlaying())
   }, [])
 
   const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
