@@ -30,12 +30,12 @@
         }
         a {
           color: $bright-blue;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.1s ease-in;
           &:hover { font-size: 1.1em; }
         }
         .title { 
           font-size: 1.2em; 
-          transition: all 0.3s ease-in-out;
+          transition: all 0.1s ease-in;
           &:hover { font-size: 1.3em; }
         }
         // .colored { color: $bright-blue; }
