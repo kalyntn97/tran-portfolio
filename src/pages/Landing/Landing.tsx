@@ -1,7 +1,6 @@
 //npm modules
 import { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
-import { animate, motion, transform } from 'framer-motion'
+import { motion } from 'framer-motion'
 //components
 import { ThemeContext } from '../../contexts/ThemeContext'
 import ThemeSwitcher from '../../components/ThemeSwitcher/ThemeSwitcher'
