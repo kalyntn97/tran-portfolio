@@ -6,7 +6,7 @@ export const LinkSection = () => {
   return (
     <div className={styles.slideLinkCon}>
       {navLinks.map(link => 
-        <NavLink to={link.href} data-replace={link.title} className={styles.slideLink}><span>{link.title}</span></NavLink>
+        <NavLink key={link.name} to={link.href} data-replace={link.title} className={styles.slideLink}><span>{link.title}</span></NavLink>
       )}
     </div>
   )

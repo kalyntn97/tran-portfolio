@@ -1,7 +1,7 @@
 //npm modules
 import { useContext, useEffect, useState } from 'react'
 import Modal from 'react-modal'
-import { animate, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 //components
 import ProjectCardExpanded from '../../components/ProjectCard/ProjectCardExpanded'
 import Carousel from '../../components/Carousel/Carousel'
@@ -19,8 +19,6 @@ import { projects } from '../../data/projectContent'
 type IProps = {
   handleShowNavAndFooter: () => void
 }
-
-
 
 const ProjectList: React.FC<IProps>= (props) => {
   props.handleShowNavAndFooter()
@@ -103,7 +101,7 @@ const ProjectList: React.FC<IProps>= (props) => {
               left: '50%',
               top: '50%',
               transform: 'translate(-50%,-50%)',
-              width: '80vw',
+              width: '60vw',
               height: '90vh',
               maxWidth: '90vw',
               maxHeight: '90vh',

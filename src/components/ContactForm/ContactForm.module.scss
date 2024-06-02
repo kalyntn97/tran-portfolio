@@ -65,6 +65,7 @@
 }
 
 [data-theme='starry'].container {
+  h2 { color: $medium-purple; }
   .contactForm {
     input, textarea {
       color: $white;

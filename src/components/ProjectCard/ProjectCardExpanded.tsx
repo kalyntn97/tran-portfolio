@@ -51,13 +51,13 @@ const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
             <h3>Built with</h3>
             <div>
               {project.mainTechnology?.map(l => 
-                <li>{l}</li>
+                <li key={l}>{l}</li>
               )}
             </div>
             <h3>&</h3>
             <div>
               {project.otherTechnology?.map(t => 
-                <li>{t}</li>
+                <li key={t}>{t}</li>
               )}
             </div>
           </div>

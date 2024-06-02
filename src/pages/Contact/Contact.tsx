@@ -1,6 +1,6 @@
 //npm modules
 import { useContext } from 'react'
-import { motion } from 'framer-motion'
+import { animate, motion } from 'framer-motion'
 import Lottie from 'lottie-react'
 //components
 import ContactForm from "../../components/ContactForm/ContactForm"
@@ -18,24 +18,33 @@ const Contact: React.FC<IProps> = (props) => {
   props.handleShowNavAndFooter()
   const { theme } = useContext(ThemeContext)
   
-  const contact = {
-    initial: { y: '100vh'},
-    animate: { y: 0, transition: { delayChildren: 0.5, duration: 1 } },
-    exit: { y: '-100vh' }
+  const variants = {
+    container: {
+     animate: { transition: { delayChildren: 0.5, duration: 0.5, type: 'spring', stiffness: 100 } },
+      exit: { x: '-100%' }
+    },
+    left: {
+      initial: { x: '-100%' },
+      animate: {x: 0 },
+    },
+    right: {
+      initial: { x: '100%' },
+      animate: {x: 0 },
+    }
   }
 
   return ( 
-    <motion.div variants={contact} key='contact' className={styles.container} data-theme={theme}
+    <motion.div variants={variants.container} key='contact' className={styles.container} data-theme={theme}
       initial='initial'
       animate='animate'
       exit='exit'
     >
-      <div className={styles.imgContainer}>
+      <motion.div variants={variants.left} className={styles.imgContainer}>
         <Lottie animationData={catLaptop} loop={true} />
-      </div>
-      <div className={styles.formContainer}>
+      </motion.div>
+      <motion.div variants={variants.right} className={styles.formContainer}>
         <ContactForm />
-      </div>
+      </motion.div>
     </motion.div>
    )
 }

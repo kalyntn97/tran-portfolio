@@ -29,11 +29,11 @@ const Landing: React.FC<IProps> = (props) => {
     },
     laptop: {
       initial: { y: '-100%' },
-      animate: { y: 0, transition: { delayChildren: 1 } },
+      animate: { y: 0, transition: { delayChildren: 1, type: "spring", stiffness: 100 } },
     },
     cat: { 
-      initial: { y: '100%' },
-      animate: { y: 0 },
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
     },
     landing: {
       initial: { opacity: 0 },

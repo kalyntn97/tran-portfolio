@@ -27,7 +27,7 @@ const App: React.FC = () => {
   }
 
   return ( 
-    <body className={styles.container} data-theme={theme}>
+    <div className={styles.container} data-theme={theme}>
       {showNavAndFooter && <NavBar />}
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
@@ -38,7 +38,7 @@ const App: React.FC = () => {
         </Routes>
       </AnimatePresence>
       {showNavAndFooter && <Footer />}
-    </body>
+    </div>
    )
 }
   

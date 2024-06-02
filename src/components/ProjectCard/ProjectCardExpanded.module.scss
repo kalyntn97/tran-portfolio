@@ -15,6 +15,7 @@
   @media (orientation: landscape) {
     @include v.flex-row;
     height: 100%;
+    padding: 0 1em;
     .rightColumn {
       width: 40%;
       height: 100%;
@@ -23,6 +24,8 @@
     .leftColumn {
       width: 60%;
       height: 100%;
+      display: flex;
+      @include v.centered;
     }
   }
   width: 100%;

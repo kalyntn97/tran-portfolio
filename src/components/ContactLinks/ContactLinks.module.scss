@@ -7,12 +7,13 @@
   align-items: center;
   a {
     margin-left: 2em;
+    transition: all 0.3s ease-in-out;
     &:hover {
-      transform: translateY(-5px);
+      transform: scale(110%) translateY(-5px);
     }
     img {
       z-index: 999;
-      width: 4em;
+      width: 3.5em;
     }
   }
 }
