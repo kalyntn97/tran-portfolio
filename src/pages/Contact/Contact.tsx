@@ -1,6 +1,6 @@
 //npm modules
 import { useContext } from 'react'
-import { animate, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Lottie from 'lottie-react'
 //components
 import ContactForm from "../../components/ContactForm/ContactForm"

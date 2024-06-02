@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 //assets
 import avatar from '/assets/images/avatar.png'
 import resume from '/Tran_Nguyen_Resume.pdf'

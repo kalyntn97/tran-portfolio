@@ -1,6 +1,6 @@
 //npm modules
 import { useContext } from 'react'
-import { Link, animateScroll as scroll} from 'react-scroll'
+import { Link } from 'react-scroll'
 import { motion } from 'framer-motion'
 //components
 import Skills from '../../components/Skills/Skills'

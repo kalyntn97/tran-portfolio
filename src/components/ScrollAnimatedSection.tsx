@@ -1,5 +1,5 @@
 import { useAnimation, useInView, motion } from 'framer-motion'
-import { Children, ReactNode, useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 
 type Props = {
   index: number
