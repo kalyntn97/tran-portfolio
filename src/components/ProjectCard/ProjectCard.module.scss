@@ -1,6 +1,7 @@
 @use '../../styles/variables' as v;
 @import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/typography';
 
 .container {
   width: 100%;
@@ -132,7 +133,7 @@
 }
 
 /* floating animation */
-@for $i from 1 through 5 {
+@for $i from 1 through 7 {
   .floating-#{$i} {
     animation-name: floating#{$i};
     animation-duration: $i*10+s;

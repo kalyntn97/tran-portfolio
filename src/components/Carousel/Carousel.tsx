@@ -1,24 +1,23 @@
-import { useCallback, useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { EmblaCarouselType, EmblaEventType } from 'embla-carousel'
+import { EmblaCarouselType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import { AutoplayType } from 'embla-carousel-autoplay'
+import { motion } from 'framer-motion'
 //components
 import ProjectCard from '../ProjectCard/ProjectCard'
 //css
 import styles from './Carousel.module.scss'
-import { Project, projects } from '../../data/projectContent'
-import { useDotButton } from './CarouselDotButton'
+import { Project } from '../../data/projectContent'
+import Loader from '../Loader/Loader'
+
 
 type Props = {
   cards: Project[]
   cardSize: 'sm' | 'md' | 'lg'  | 'full'
   type?: 'project'
   onOpenCard: (id: string) => void
-}
-
-
+} 
 
 function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -26,43 +25,61 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
     [
       Autoplay({ playOnInit: true, stopOnInteraction: false, stopOnMouseEnter: true, delay: 3000 })
     ])
-    const [isPlaying, setIsPlaying] = useState<boolean>(false)
-  
-  const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
-    const autoplay: AutoplayType = emblaApi?.plugins()?.autoplay
-    if (!autoplay) return
+  const [selectedIndex, setSelectedIndex] = useState<number>(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
 
-    const resetOrStop =
-      autoplay.options.stopOnInteraction === false
-        ? autoplay.reset
-        : autoplay.stop
+  const onPrevButtonClick = useCallback(() => {
+    if (!emblaApi) return
+    emblaApi.scrollPrev()
+  }, [emblaApi])
 
-    resetOrStop()
-  }, [])
+  const onNextButtonClick = useCallback(() => {
+    if (!emblaApi) return
+    emblaApi.scrollNext()
+    
+  }, [emblaApi])
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(
-    emblaApi,
-    onNavButtonClick
+  const onDotButtonClick = useCallback(
+    (index: number) => {
+      if (!emblaApi) return
+      emblaApi.scrollTo(index)
+
+      const autoplay: AutoplayType = emblaApi?.plugins()?.autoplay
+      if (!autoplay) return
+
+      const resetOrStop =
+        autoplay.stopOnInteraction === false
+          ? autoplay.reset
+          : autoplay.stop
+
+      resetOrStop()
+    },
+    [emblaApi]          
   )
 
-  // const toggleAutoplay = useCallback(() => {
-  //   const autoplay = emblaApi?.plugins()?.autoplay
-  //   if (!autoplay) return
+  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
+    setScrollSnaps(emblaApi.scrollSnapList())
 
-  //   const playOrStop: AutoplayType  = autoplay.isPlaying ? autoplay.stop : autoplay.play
-  //   playOrStop()
-  // }, [emblaApi])
-
-  useEffect(() => {
     const autoplay: AutoplayType = emblaApi?.plugins()?.autoplay
     if (!autoplay) return
     setIsPlaying(autoplay.isPlaying())
+  }, [])
+
+  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+    setPrevBtnDisabled(!emblaApi.canScrollPrev())
+    setNextBtnDisabled(!emblaApi.canScrollNext())
+  }, [])
+  
+  useEffect(() => {
     if (!emblaApi) return
-    emblaApi
-      .on('reInit', () => setIsPlaying(autoplay.isPlaying()))
-      // .on('autoplay:play', () => setIsPlaying(true))
-      // .on('autoplay:stop', () => setIsPlaying(false))
-  }, [emblaApi])
+    onInit(emblaApi)
+    onSelect(emblaApi)
+    emblaApi.on('reInit', onInit).on('reInit', onSelect).on('select', onSelect)
+  }, [emblaApi, onInit, onSelect, cards])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -92,14 +109,22 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
         </motion.div>
       </div>
       {/* dot navigation */}
-      <div className={styles.dotContainer}>
-        {scrollSnaps.map((_, index) =>
-          <button key={`dot-${index}`} onClick={() => onDotButtonClick(index)} className={`${index === selectedIndex ? styles.selectedDot : styles.unselectedDot} ${styles.baseDot}`} />
-        )}
-      </div>
-      {/* <button onClick={toggleAutoplay} type="button">
-        {isPlaying ? 'Stop' : 'Start'}
-      </button> */}
+      <div className={styles.navContainer}>
+          <button className={`${styles.navButton} ${styles.prev}`} onClick={() => onPrevButtonClick()} disabled={prevBtnDisabled}>
+            <img src='public/assets/icons/next.png' />
+          </button>
+
+          <div className={styles.dotContainer}>
+            {scrollSnaps.map((_, index) =>
+              <button key={`dot-${index}`} onClick={() => onDotButtonClick(index)} className={`${index === selectedIndex ? styles.selectedDot : styles.unselectedDot} ${styles.baseDot}`} />
+            )}
+          </div>
+
+          <button className={`${styles.navButton} ${styles.next}`} onClick={() => onNextButtonClick()} disabled={nextBtnDisabled}>
+            <img src='public/assets/icons/next.png' />
+          </button>
+        </div>
+      
     </div>
   )
 }

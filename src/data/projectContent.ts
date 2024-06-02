@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid'
 export type Project = {
   id: string;
   title: string;
+  fullStack: boolean;
   mainTechnology: string[];
   otherTechnology: string[];
   intro: string[];
@@ -16,6 +17,7 @@ export const projects: Array<Project> = [
   {
     id: uuid(),
     title: 'TetraZoo',
+    fullStack: false,
     mainTechnology: ['HTML5', 'JavaScript'],
     otherTechnology: ['CSS3', 'Netlify', 'Git/GitHub'],
     intro: ['Classic tile-matching puzzle Tetris meets adorable creatures from the animal kingdom'],
@@ -27,6 +29,7 @@ export const projects: Array<Project> = [
   {
     id: uuid(),
     title: 'PlanPal',
+    fullStack: true,
     mainTechnology: ['MongoDB', 'Express', 'Node.js', 'JavaScript'],
     otherTechnology: ['EJS', 'Mongoose', 'CSS3', 'HTML5', 'fly.io', 'Git/GitHub'],
     intro: ['The go-to app for seamless and stress-free event coordination with friends.'],
@@ -38,7 +41,8 @@ export const projects: Array<Project> = [
   {
     id: uuid(),
     title: 'Wandr',
-    mainTechnology: ['MongoDB', 'Express', 'React', 'Node.js', 'JavaScript'],
+    fullStack: true,
+    mainTechnology: ['MongoDB', 'Express', 'ReactJS', 'Node.js', 'JavaScript'],
     otherTechnology: ['Mongoose', 'CSS3', 'HTML5',  'Cloudinary', 'fly.io', 'Netlify','Git/GitHub'],
     intro: ['Explore diverse cultures, landscapes, and create lasting memories'],
     img: ['/assets/images/wandr.png'],
@@ -49,6 +53,7 @@ export const projects: Array<Project> = [
   { 
     id: uuid(),
     title: 'ReadIt',
+    fullStack: true,
     mainTechnology: ['Python', 'Django'],
     otherTechnology: ['JavaScript', 'Neon', 'CSS', 'Git/GitHub', 'HTMl5', 'fly.io'],
     intro: ['The app where the art of note-taking meets the ease of organization, creating a symphony of productivity for daily life.'],
@@ -60,7 +65,8 @@ export const projects: Array<Project> = [
   {
     id: uuid(),
     title: 'Tran Nguyen',
-    mainTechnology: ['Typescript', 'React'],
+    fullStack: false,
+    mainTechnology: ['TypeScript', 'ReactJS'],
     otherTechnology: ['SCSS', 'Framer Motion', 'Netlify', 'Git/GitHub', 'HTML5'],
     intro: ['A personal portfolio that showcases a visual narrative of a creative journey and expertise'],
     img: ['/assets/images/portfolio.png'],
@@ -68,15 +74,28 @@ export const projects: Array<Project> = [
     gitHubUrl: 'https://github.com/kalyntn97/tran-portfolio.git',
     planningUrl: 'https://trello.com/b/hdbCUibc/personal-portfolio',
   },
-  // {
-  //   id: uuid(),
-  //   title: 'Placeholder',
-  //   mainTechnology: [],
-  //   otherTechnology: [],
-  //   intro: [],
-  //   img: [],
-  //   url: '',
-  //   gitHubUrl: '',
-  //   planningUrl: '',
-  // },
+  {
+    id: uuid(),
+    fullStack: true,
+    title: 'Happy Tails',
+    mainTechnology: ['TypeScript', 'React Native', 'Fastify', 'MongoDB'],
+    otherTechnology: ['React Query', 'Zustand', 'Git/GitHub', ],
+    intro: [],
+    img: [],
+    url: '',
+    gitHubUrl: '',
+    planningUrl: '',
+  },
+  {
+    id: uuid(),
+    fullStack: false,
+    title: 'Happy Tails Web',
+    mainTechnology: ['TypeScript', 'NextJS', 'TailwindCSS'],
+    otherTechnology: ['Framer Motion', 'EmailJS'],
+    intro: [],
+    img: [],
+    url: '',
+    gitHubUrl: '',
+    planningUrl: '',
+  },
 ]

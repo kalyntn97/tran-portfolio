@@ -1,10 +1,71 @@
 @use '../../styles//variables' as v;
 @import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/typography';
 
 .container {
   @include v.flex-column;
   width: 100%;
+  min-height: calc(100vh - 7vh - 5vh);
+  .filterContainer {
+    @include v.flex-row;
+    width: fit-content;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba($bright-blue, 10%);
+    border-radius: 30px;
+    padding: 0.3em 1em;
+    .filterButton {
+      display: flex;
+      @include v.centered;
+      flex: 1;
+      padding: 1em;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      &:hover:not(.activeButton) {
+        img { transform: translateY(10px) scale(90%); }
+        .tag {
+          opacity: 1;
+          transform: translateY(-30px);
+          color: #9655ff;
+        }
+      }
+      &:hover:not(.activeAll) .all{
+        transform: scale(110%);
+        color: #9655ff;
+      }  
+      .all {
+        color: #A6A6A6;
+        font-size: 1.5em; 
+        transition: all 0.3s ease-in-out;
+      }
+      .tag {
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        font-size: 1em;
+        font-family: $bodyFontFamily;
+        font-weight: bold;
+        opacity: 0;
+        transform: translateY(0px);
+      }
+      img {
+        width: 4em;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    .activeButton {
+      img { margin-top: 0.3em; }
+      .tag { 
+        opacity: 1;
+        transform: translateY(-30px);
+        font-size: 0.8em;
+        color: #5E17EB;
+      }
+    }
+    .activeAll .all { color: #5E17EB; }
+  }
 }
 
 .modal {

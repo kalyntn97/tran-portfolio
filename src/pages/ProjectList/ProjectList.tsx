@@ -1,5 +1,5 @@
 //npm modules
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Modal from 'react-modal'
 import { motion } from 'framer-motion'
 //components
@@ -8,10 +8,12 @@ import Carousel from '../../components/Carousel/Carousel'
 //css
 import styles from './ProjectList.module.scss'
 import './Modal.css'
+//utils & types
+import { FILTERS } from '../../utils/ui'
+import { Project } from '../../data/projectContent'
 //data
 import { projects } from '../../data/projectContent'
-import { Project } from '../../data/projectContent'
-import { FILTERS } from '../../utils/ui'
+import Loader from '../../components/Loader/Loader'
 
 type IProps = {
   handleShowNavAndFooter: () => void
@@ -21,9 +23,9 @@ type IProps = {
 
 const ProjectList: React.FC<IProps>= (props) => {
   props.handleShowNavAndFooter()
-  const filters = FILTERS.map(f => f.name)
-  const [filteredProjects, setFilteredProjects] = useState(projects.length > 0 ? projects : [])
-  const [activeFilters, setActiveFilters] = useState(filters)
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects)
+  const [activeFilter, setActiveFilter] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
   const [open, setOpen] = useState(false)
   const [isClicked, setIsClicked] = useState<Project | undefined>(undefined)
 
@@ -36,11 +38,29 @@ const ProjectList: React.FC<IProps>= (props) => {
     setIsClicked(undefined)
   }
   
+  useEffect(() => {
+    setLoading(true)
+    if (activeFilter) {
+      setFilteredProjects(() => {
+        const filtered = projects.filter(p => {
+          if (activeFilter === 'Full Stack') return !!p.fullStack
+          else return p.mainTechnology.includes(activeFilter)
+        })
+        setLoading(false)
+        return filtered
+      })
+    } else {
+      setFilteredProjects(()=> {
+        setLoading(false)
+        return projects
+      })
+    }
+  }, [activeFilter])
+ 
   const container = {
     animate: { transition: { delayChildren: 0.5, staggerChildren: 0.3 } },
     exit: { y: '-100%', opacity: 0, transition: { duration: 0.5 } }
   }
-
 
   return ( 
     <motion.div variants={container} key='container' className={styles.container}
@@ -48,28 +68,21 @@ const ProjectList: React.FC<IProps>= (props) => {
       animate='animate'
       exit='exit'
     >
-      {/* {projects.map((project: Project, idx) =>
-        <motion.div variants={card} className={styles.cardContainer} key={idx}>
-          <ProjectCard id={project.id} project={project} handleOpen={handleOpen}/>
-        </motion.div>
-      )} */}
       <div className={styles.filterContainer}>
-        <button onClick={() => setActiveFilters(filters)}
-          className={`${styles.filterButton} ${activeFilters.length === filters.length ? styles.activeButton : styles.inactiveButton}`}
-        >
-          <span className={styles.filterText}>All</span>
+        <button onClick={() => setActiveFilter(null)} className={`${styles.filterButton} ${activeFilter === null && styles.activeAll}`}>
+          <span className={styles.all}>All</span>
         </button>
         {FILTERS.map(f =>
-          <button onClick={() => setActiveFilters(prev => activeFilters.includes(f.name) ? activeFilters.filter(a => a !== f.name) : [...prev, f.name])}
-            className={`${styles.filterButton} ${activeFilters.includes(f.name) ? styles.activeButton : styles.inactiveButton}`}
-          >
-            <span className={styles.filterText}>{f.name}</span>
+          <button key={f.name} onClick={() => setActiveFilter(f.name)} className={`${styles.filterButton} ${activeFilter === f.name ? styles.activeButton : styles.inactiveButton}`}>
+            <span className={styles.tag}>{f.name}</span>
+            <img src={activeFilter === f.name ? f.activeIcon : f.icon} />
           </button>
         )}
       </div>
-
-      <Carousel cards={projects} type='project' cardSize='md' onOpenCard={handleOpen} />
-
+      {loading ? <Loader />
+        : <Carousel cards={filteredProjects} type='project' cardSize='md' onOpenCard={handleOpen} />
+      }
+      
       {isClicked && 
         <Modal
           closeTimeoutMS={500}
@@ -94,11 +107,11 @@ const ProjectList: React.FC<IProps>= (props) => {
           }}
         >
           <ProjectCardExpanded key={`${isClicked.id}-${isClicked.title}`} project={isClicked} handleClose={handleClose}/>
-         
+
         </Modal> 
       }
     </motion.div>
    )
 }
- 
+
 export default ProjectList

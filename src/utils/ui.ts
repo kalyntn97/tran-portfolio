@@ -59,6 +59,6 @@ export const navLinks = [
 export const FILTERS = [
   {name: 'ReactJS', icon: '/assets/icons/react-inactive.png', activeIcon: '/assets/icons/react-active.png' },
   {name: 'NextJS', icon: '/assets/icons/nextjs-inactive.png', activeIcon: '/assets/icons/nextjs-active.png' },
-  {name: 'React Native', icon: '/assets/icons/react-native.png', activeIcon: '/assets/icons/react-native-active.png' },
-  {name: 'Full Stack', icon: '/assets/icons/nextjs-active.png', activeIcon: '/assets/icons/full-stack-active.png' },
+  {name: 'React Native', icon: '/assets/icons/react-native-inactive.png', activeIcon: '/assets/icons/react-native-active.png' },
+  {name: 'Full Stack', icon: '/assets/icons/full-stack-inactive.png', activeIcon: '/assets/icons/full-stack-active.png' },
 ]
