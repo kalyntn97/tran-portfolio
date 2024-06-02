@@ -5,14 +5,13 @@
 .container {
   @include v.flex-column;
   width: 100%;
-  align-items: center;
   h3 { 
     width: 90%; 
     margin-top: 1em;
   }
   .contactForm {
     @include v.flex-column;
-    align-items: flex-start;
+    justify-content: center;
     width: 100%;
     max-height: 90%;
     font-size: 1.0em;
@@ -20,8 +19,9 @@
     font-family: $bodyFontFamily;
     @include v.medium-spacing;
     label {
+      align-self: flex-start;
       font-family: $headingFontFamily;
-      margin: 0.5em 0 0.5em 1.2em;
+      margin: 0.5em 0 0.5em 2em;
     }
     input, textarea {
       width: 90%;
@@ -96,6 +96,7 @@
     input { height: 2em; }
     textarea { height: 10em; }
   }
+  
 }
 @media (max-width: 430px) {
   .contactForm {

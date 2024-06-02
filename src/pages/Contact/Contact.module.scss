@@ -5,11 +5,11 @@
 .container {
   width: 100%;
   margin: 2em 0;
-  height: calc(100vh - 7vh - 5vh - 4em);
 }
 
 @media (orientation: landscape) {
   .container {
+    min-height: calc(100vh - 7vh - 5vh - 4em);
     @include v.flex-row;
     align-items: center;
     .imgContainer {
@@ -17,17 +17,23 @@
       height: 90%;
     }
     .formContainer {
-      width: 30%;
       height: 90%;
     }
   }
 }
 
+@media (orientation: landscape) and (min-width: 1181px) {
+  .formContainer { width: 30%; }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) and (max-width: 1180px) {
+  .formContainer { width: 40%; }
+}
+
 @media (orientation: portrait) {
   .container {
     @include v.flex-column;
-    align-items: center;
-    height: 100%;
+    height: fit-content;
     .formContainer { width: 100%; }
   }
 }

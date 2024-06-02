@@ -14,7 +14,6 @@ $slide-spacing: 2em;
     width: 100%;
     overflow: hidden;
     height: fit-content;
-    padding: 2em 0;
     .carousel {
       display: flex;
       align-items: center;
@@ -28,11 +27,12 @@ $slide-spacing: 2em;
   .navContainer {
     @include v.flex-row;
     width: 100%;
-    margin-top: 4em;
     .navButton {
       display: flex;
       border-radius: 99px;
       border: 1px solid black;
+      width: 40px;
+      height: 40px;
       padding: 0.5em;
       transition: all 0.1s ease-in-out;
       @include v.centered;
@@ -44,12 +44,10 @@ $slide-spacing: 2em;
     .dotContainer {
       width: fit-content;
       @include v.centered;
-      margin: 0 1.3em;
       .baseDot {
         border-radius: 99px;
         width: 10px;
         height: 10px;
-        margin: 0 1em;
       }
       .unselectedDot {
         background-color: gray;
@@ -72,9 +70,35 @@ $slide-spacing: 2em;
 }
 
 @media (orientation: landscape) {
-  .carousel {
-    margin-left: $slide-spacing;
-    .card { padding-left: $slide-spacing; }
+  .container {
+    .viewport { 
+      .carousel {
+      margin-left: $slide-spacing;
+        padding: 2em 0; 
+        .card { padding-left: $slide-spacing; }
+      }
+    }
+    .navContainer {
+      margin-top: 4em;
+      margin-bottom: 3em;
+      .dotContainer { 
+        margin: 0 1em;
+        .baseDot { margin: 0 1em; }
+      }
+    }
+  }
+}
+@media (orientation: portrait) {
+  .container {
+    .viewport { padding: 1em 0; }
+    .navContainer {
+      margin-top: 1em;
+      margin-bottom: 3em;
+      .dotContainer { 
+        margin: 0 0.5em;
+        .baseDot { margin: 0 0.7em; }
+      }
+    }
   }
 }
 
