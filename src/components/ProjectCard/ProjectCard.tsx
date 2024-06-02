@@ -22,13 +22,13 @@ interface ProjectLinksProps {
 
 export const ProjectLinks = ({ project, mode }: ProjectLinksProps) => (
   <div className={styles.linkContainer}>
-  <a href={project.gitHubUrl} target={'_blank'}>
-    <img src={getIconSource('github', mode)} alt='a GitHub icon'/>
-  </a>
-  <a href={project.planningUrl} target={'_blank'}>
-    <img src={getIconSource('note', mode)} alt='a note icon'/>
-  </a>
-</div>
+    <a href={project.gitHubUrl} target={'_blank'}>
+      <img src={getIconSource('github', mode)} alt='a GitHub icon'/>
+    </a>
+    <a href={project.planningUrl} target={'_blank'}>
+      <img src={getIconSource('note', mode)} alt='a note icon'/>
+    </a>
+  </div>
 )
 
 const ProjectCard: React.FC<Props> = ({ project, handleOpen, index }) => {

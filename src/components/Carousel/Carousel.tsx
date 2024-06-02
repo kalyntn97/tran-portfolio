@@ -9,7 +9,6 @@ import ProjectCard from '../ProjectCard/ProjectCard'
 //css
 import styles from './Carousel.module.scss'
 import { Project } from '../../data/projectContent'
-import Loader from '../Loader/Loader'
 
 
 type Props = {

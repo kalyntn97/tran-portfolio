@@ -24,7 +24,7 @@ const Landing: React.FC<IProps> = (props) => {
   
   const variants = {
     container: {
-      animate: { transition: { staggerChildren: 0.5, duration: 1, type: "spring", stiffness: 10 } },
+      animate: { transition: { staggerChildren: 0.5, duration: 1, type: "spring", stiffness: 100 } },
       exit: { x: '-100%', opacity: 0, transition: { duration: 0.5 } }
     },
     laptop: {

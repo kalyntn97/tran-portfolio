@@ -6,7 +6,7 @@ import { Project } from '../../data/projectContent'
 //css
 import styles from './ProjectCardExpanded.module.scss'
 import '../../pages/ProjectList/Modal.css'
-import { ProjectLinks } from './ProjectCard'
+import { getIconSource } from '../../utils/ui'
 
 type IProps = {
   project: Project,
@@ -21,10 +21,11 @@ const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
     handleClose()
   }
   return ( 
-    <main className={styles.container}>
+    <div className={styles.container} data-theme={theme}>
       <div className={styles.leftColumn}>
         <img src={project.img[0]} alt={`A screenshot of ${project.title}`}/>
       </div>
+
       <div className={styles.rightColumn}>
         <div className={styles.header}>
           <div className={styles.linkWrapper}>
@@ -32,7 +33,14 @@ const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
               <h1>{project.title}</h1>
             </a>
           </div>
-          <ProjectLinks project={project} mode={mode} />
+          <div className={styles.linkContainer}>
+            <a href={project.gitHubUrl} target={'_blank'}>
+              <img src={getIconSource('github', mode)} alt='a GitHub icon'/>
+            </a>
+            <a href={project.planningUrl} target={'_blank'}>
+              <img src={getIconSource('note', mode)} alt='a note icon'/>
+            </a>
+          </div>
         </div>
         
         <div className={styles.contentContainer}>
@@ -54,11 +62,13 @@ const ProjectCardExpanded: React.FC<IProps> = ({ project, handleClose }) =>  {
             </div>
           </div>
         </div>
-        <button onClick={handleClickClose} className='close-btn fill'>
+
+        <button onClick={handleClickClose} className={`${styles.closeBtn} ${styles.fill}`}>
             <span>Go back</span>
         </button>
+        
       </div>
-    </main>
+    </div>
   )
 }
  

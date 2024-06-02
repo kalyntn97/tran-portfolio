@@ -8,6 +8,7 @@
   align-items: center;
   .contactForm {
     @include v.flex-column;
+    align-items: flex-start;
     width: 100%;
     max-height: 90%;
     font-size: 1.0em;
@@ -16,13 +17,15 @@
     @include v.medium-spacing;
     label {
       font-family: $headingFontFamily;
-      margin: 0.5em;
+      margin: 0.5em 0 0.5em 1.2em;
     }
     input, textarea {
       width: 90%;
       @include v.small-spacing;
+      border-radius: 4px;
     }
     button {
+      align-self: center;
       @include v.small-spacing;
       width: 7em;
       height: 2.5em;
@@ -33,29 +36,24 @@
       transition: all 0.2s;
       font-weight: bold;
       transition: all 0.3s;
-      img {
-        width: 1.5em;
-      } 
+      img { width: 1.5em; } 
       .word {
         transition: all 0.3s ease-in-out;
         margin: 0 auto;
         color: $white;
       }
       &:hover {
-        img { 
-          transform: rotate(45deg) translateX(1.5em) translateY(-1.7em) scale(1.1); 
-        }
-        .word {
-          transform: translateX(5em);
-        }
+        img { transform: rotate(45deg) translateX(1.5em) translateY(-1.7em) scale(1.1); }
+        .word { transform: translateX(5em); }
       }
     }
   }
 }
 
 [data-theme='blossom'].container {
+  h2 { color: $blue; }
   .contactForm {
-    background-color: $shadow;
+    input, textarea { border: 1px solid $dark-blue; }
     button {
       background-color: $bright-blue;
       &:hover {
@@ -68,10 +66,10 @@
 
 [data-theme='starry'].container {
   .contactForm {
-    background-color: $dark-blue;
     input, textarea {
       color: $white;
       background-color: $dark-blue2;
+      border: 1px solid $dark-blue;
     }
     button {
       background-color: $dark-blue2;

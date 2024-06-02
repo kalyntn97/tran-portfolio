@@ -1,19 +1,20 @@
 //npm modules
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Modal from 'react-modal'
-import { motion } from 'framer-motion'
+import { animate, motion } from 'framer-motion'
 //components
 import ProjectCardExpanded from '../../components/ProjectCard/ProjectCardExpanded'
 import Carousel from '../../components/Carousel/Carousel'
+import Loader from '../../components/Loader/Loader'
 //css
 import styles from './ProjectList.module.scss'
 import './Modal.css'
 //utils & types
+import { ThemeContext } from '../../contexts/ThemeContext'
 import { FILTERS } from '../../utils/ui'
 import { Project } from '../../data/projectContent'
 //data
 import { projects } from '../../data/projectContent'
-import Loader from '../../components/Loader/Loader'
 
 type IProps = {
   handleShowNavAndFooter: () => void
@@ -28,6 +29,8 @@ const ProjectList: React.FC<IProps>= (props) => {
   const [loading, setLoading] = useState(true)
   const [open, setOpen] = useState(false)
   const [isClicked, setIsClicked] = useState<Project | undefined>(undefined)
+
+  const { theme } = useContext(ThemeContext)
 
   const handleOpen = (id: string) => {
     setOpen(true)
@@ -57,18 +60,24 @@ const ProjectList: React.FC<IProps>= (props) => {
     }
   }, [activeFilter])
  
-  const container = {
-    animate: { transition: { delayChildren: 0.5, staggerChildren: 0.3 } },
-    exit: { y: '-100%', opacity: 0, transition: { duration: 0.5 } }
+  const variants = {
+    container: {
+      animate: { transition: { delayChildren: 0.5, staggerChildren: 1 } },
+      exit: { x: '-100%', opacity: 0, transition: { duration: 0.5 } }
+    },
+    heading: {
+      initial: { x: '100%' },
+      animate: { x: 0, transition: { duration: 0.5, type: "spring", stiffness: 100 } },
+    },
   }
 
   return ( 
-    <motion.div variants={container} key='container' className={styles.container}
+    <motion.div data-theme={theme} variants={variants.container} key='container' className={styles.container}
       initial='initial'
       animate='animate'
       exit='exit'
     >
-      <div className={styles.filterContainer}>
+      <motion.div variants={variants.heading} className={styles.filterContainer}>
         <button onClick={() => setActiveFilter(null)} className={`${styles.filterButton} ${activeFilter === null && styles.activeAll}`}>
           <span className={styles.all}>All</span>
         </button>
@@ -78,10 +87,10 @@ const ProjectList: React.FC<IProps>= (props) => {
             <img src={activeFilter === f.name ? f.activeIcon : f.icon} />
           </button>
         )}
-      </div>
-      {loading ? <Loader />
-        : <Carousel cards={filteredProjects} type='project' cardSize='md' onOpenCard={handleOpen} />
-      }
+      </motion.div>
+        {loading ? <Loader />
+          : <Carousel cards={filteredProjects} type='project' cardSize='md' onOpenCard={handleOpen} />
+        }
       
       {isClicked && 
         <Modal
@@ -100,6 +109,7 @@ const ProjectList: React.FC<IProps>= (props) => {
               maxHeight: '90vh',
               border: 'none',
               borderRadius: '1em',
+              backgroundColor: `${theme === 'blossom' ? 'white' : '#495563'}`
             },
             overlay: {
               backgroundColor: 'rgba(0,0,0,0.5)'
@@ -107,7 +117,6 @@ const ProjectList: React.FC<IProps>= (props) => {
           }}
         >
           <ProjectCardExpanded key={`${isClicked.id}-${isClicked.title}`} project={isClicked} handleClose={handleClose}/>
-
         </Modal> 
       }
     </motion.div>
