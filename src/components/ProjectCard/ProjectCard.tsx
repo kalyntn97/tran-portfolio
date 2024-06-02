@@ -12,6 +12,7 @@ type Props = {
   handleOpen: (val: string) => void,
   project: Project,
   id: string,
+  index: number
 }
 
 interface ProjectLinksProps {
@@ -30,7 +31,7 @@ export const ProjectLinks = ({ project, mode }: ProjectLinksProps) => (
 </div>
 )
 
-const ProjectCard: React.FC<Props> = ({ project, handleOpen }) => {
+const ProjectCard: React.FC<Props> = ({ project, handleOpen, index }) => {
   const { theme } = useContext(ThemeContext)
   const mode = theme === 'blossom' ? 'light' : 'dark'
 
@@ -39,7 +40,7 @@ const ProjectCard: React.FC<Props> = ({ project, handleOpen }) => {
   }
 
   return ( 
-    <main className={styles.container}>
+    <div className={`${styles.container} ${styles[`floating-${index + 1}`]}`}>
       <div className={styles.header}>
         <div className={styles.linkWrapper} data-theme={theme}>
           <a href={project.url} target={'_blank'} className={styles.hover}>
@@ -60,7 +61,7 @@ const ProjectCard: React.FC<Props> = ({ project, handleOpen }) => {
           </button>
         </div>
       </div>
-    </main>
+    </div>
    )
 }
  

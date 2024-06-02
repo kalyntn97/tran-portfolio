@@ -4,9 +4,10 @@
 
 .container {
   width: 100%;
-  height: 100%;
+  height: 25em;
   @include v.flex-column;
-  justify-content: space-around;
+  @include v.centered;
+  box-shadow: inset 20px 20px 20px $shadow, 25px 35px 20px $shadow, 25px 30px 30px $shadow, inset -20px -20px 25px $white;
   .header {
     @include v.flex-column;
     height: 30%;
@@ -121,7 +122,7 @@
       transition: opacity .3s ease-in;
     }
   }
-}              
+}
 
 [data-theme='blossom'].linkWrapper { 
   .hover:after { background-color: $dark-blue; }
@@ -129,4 +130,61 @@
 [data-theme='starry'].linkWrapper {
   .hover:after { background-color: $white; }
 }
+
+/* floating animation */
+@for $i from 1 through 5 {
+  .floating-#{$i} {
+    animation-name: floating#{$i};
+    animation-duration: $i*10+s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes floating#{$i} {
+    0% { 
+      transform: rotate(random($i)*(-1)*1+deg) translateY((random(1))+px) translateX(random(1)+px);
+      border-radius: 50% 50% 40% 60% / 59% 57% 43% 41%; 
+    }
+    10% { 
+      transform: rotate(random($i)*(-1)*1+deg) translateY((random(5))+px) translateX(random(5)+px);
+      border-radius: 39% 61% 38% 62% / 53% 54% 46% 47%; 
+    }
+    20% {
+      transform: rotate(random($i)*(-1)*1+deg) translateY((random(10))+px) translateX(random(10)+px);
+      border-radius: 56% 44% 52% 48% / 57% 35% 65% 43%;
+    }
+    30% {
+      transform: rotate(random($i)*(-1)*1+deg) translateY((random(15))+px) translateX(random(15)+px);
+      border-radius: 41% 59% 45% 55% / 33% 56% 44% 67%; 
+    }
+    40%{ 
+      transform: rotate(random($i)*(-1)*1+deg) translateY((random(20))+px) translateX(random(20)+px);
+      border-radius: 46% 54% 60% 40% / 55% 74% 26% 45%; 
+    }
+    50% {
+      transform: rotate(random($i)*(-1)*1+deg) translateY((random(25))+px) translateX(random(25)+px);
+      border-radius: 44% 56% 22% 78% / 31% 74% 26% 69%;
+    }
+    60% { 
+      transform: rotate(random($i)*2+deg) translateY((random(20))+px) translateX(random(20)+px);
+      border-radius: 31% 69% 32% 68% / 31% 71% 29% 69%; 
+    }
+    70% {
+      transform: rotate(random($i)*2+deg) translateY((random(15))+px) translateX(random(15)+px);
+      border-radius: 44% 56% 60% 40% / 63% 36% 64% 37%;
+    }
+    80% { 
+      transform: rotate(random($i)*2+deg) translateY((random(10))+px) translateX(random(10)+px);
+      border-radius: 46% 54% 38% 62% / 44% 48% 52% 56%; 
+    }
+    90% { 
+      transform: rotate(random($i)*2+deg) translateY((random(5))+px) translateX(random(5)+px);
+      border-radius: 66% 34% 57% 43% / 49% 51% 49% 51%; 
+    }
+    100% { 
+      transform: rotate(random($i)*2+deg) translateY((random(1))+px) translateX(random(1)+px);
+      border-radius: 50% 50% 40% 60% / 59% 57% 43% 41%; 
+    }
+  }
+}              
+
+
 

@@ -55,3 +55,10 @@ export const navLinks = [
   { name: 'Projects', title: 'projects', href: '/projects', icon: '/assets/images/purple-flower.png' },
   { name: 'Contact', title: 'contact', href: '/contact', icon: '/assets/images/yellow-flower.png' },
 ]
+
+export const FILTERS = [
+  {name: 'ReactJS', icon: '/assets/icons/react-inactive.png', activeIcon: '/assets/icons/react-active.png' },
+  {name: 'NextJS', icon: '/assets/icons/nextjs-inactive.png', activeIcon: '/assets/icons/nextjs-active.png' },
+  {name: 'React Native', icon: '/assets/icons/react-native.png', activeIcon: '/assets/icons/react-native-active.png' },
+  {name: 'Full Stack', icon: '/assets/icons/nextjs-active.png', activeIcon: '/assets/icons/full-stack-active.png' },
+]

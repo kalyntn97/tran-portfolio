@@ -1,0 +1,91 @@
+@use '../../styles//variables' as v;
+@import '../../styles/variables';
+@import '../../styles/colors';
+
+$slide-size-small: 30%;
+$slide-size-medium: 45%;
+$slide-size-full: 90%;
+$slide-spacing: 2em;
+
+.container {
+  width: 100%;
+  height: fit-content;
+  .viewport {
+    width: 100%;
+    overflow: hidden;
+    .carousel {
+      display: flex;
+      align-items: center;
+      .card {
+        height: fit-content;
+        @include v.centered;
+        @include v.medium-spacing;
+      }
+    }
+  }
+  .dotContainer {
+    width: 100%;
+    @include v.centered;
+    .baseDot {
+      border-radius: 99px;
+      width: 10px;
+      height: 10px;
+      margin: 0 1em;
+    }
+    .unselectedDot {
+      background-color: gray;
+    }
+    .selectedDot {
+      width: 15px;
+      height: 15px;
+      background-color: $bright-blue;
+    }
+  }
+  .filterContainer {
+    @include v.flex-row;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: $dark-blue2 ;
+    border-radius: 30px;
+    .filterButton {
+      flex: 1;
+      .filterText {
+
+      }
+    }
+    .activeButton {
+      background-color: red;
+      .activeText {
+
+      }
+    }
+    .inactiveButton {
+
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .carousel .card { flex: 0 0 $slide-size-small; }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) and (orientation: landscape) {
+  .carousel .card { flex: 0 0 $slide-size-medium; }
+}
+
+@media (orientation: landscape) {
+  .carousel {
+    margin-left: $slide-spacing;
+    .card { padding-left: $slide-spacing; }
+  }
+}
+
+@media (max-width: 767px) or (orientation: portrait) {
+  .carousel  {
+    margin-left: calc(10% / 2);
+    .card { flex: 0 0 $slide-size-full; }
+  }
+  
+}
