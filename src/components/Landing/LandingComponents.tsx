@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import { navLinks } from "../../utils/ui"
 import styles from '../../pages/Landing/Landing.module.scss'
 //assets
-import resume from '/Tran_Nguyen_Resume.pdf'
+// import resume from '/Tran_Nguyen_Resume.pdf'
 
 export const LinkSection = () => {
   return (
