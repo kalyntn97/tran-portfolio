@@ -7,6 +7,7 @@
   width: 100%;
   height: 7vh;
   font-size: 1.5em;
+  z-index: 99;
   .leftContainer {
     float: left;
     display: flex;
@@ -110,7 +111,6 @@
           align-items: flex-end;
           border-radius: 10px;
           padding: 1em 2em;
-          z-index: 99;
           top: 2.5em;
         }
         .menuIcon { width: 2em; }
