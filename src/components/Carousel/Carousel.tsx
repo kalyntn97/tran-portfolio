@@ -115,7 +115,7 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
           </div>
 
           <button className={`${styles.navButton} ${styles.next}`} onClick={() => onNextButtonClick()} disabled={nextBtnDisabled}>
-            <img src='public/assets/icons/next.png' />
+            <img src='/assets/icons/next.png' />
           </button>
         </div>
       
