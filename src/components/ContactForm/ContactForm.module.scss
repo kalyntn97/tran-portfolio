@@ -23,6 +23,7 @@
       font-family: $headingFontFamily;
       margin: 0.5em 0 0.5em 2em;
     }
+    input { height: 2em; }
     input, textarea {
       width: 90%;
       @include v.small-spacing;
@@ -93,14 +94,12 @@
 
 @media (min-width: 431px) {
   .contactForm {
-    input { height: 2em; }
     textarea { height: 10em; }
   }
   
 }
 @media (max-width: 430px) {
   .contactForm {
-    input { height: 1.5em; }
     textarea { height: 5em; }
   }
 }

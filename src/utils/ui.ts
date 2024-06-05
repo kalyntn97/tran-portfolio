@@ -30,7 +30,7 @@ export const FRAMEWORKS_AND_LIBRARIES = [
 ]
 
 export const DATABASES_HOSTING = [
-  { name: 'MongoDB', icon: '/assets/icons/mongodb.svg'},
+  { name: 'MongoDB', icon: '/assets/icons/mongodb.png'},
   { name: 'PostgreSQL', icon: '/assets/icons/postgresql.svg'},
   { name: 'Netlify', icon: '/assets/icons/netlify.png' },
   { name: 'Heroku', icon: '/assets/icons/heroku.png' },

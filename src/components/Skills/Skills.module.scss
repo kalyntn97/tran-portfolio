@@ -4,57 +4,18 @@
 
 .container {
   width: 100%;
-  height: 50vh;
   border-radius: 4px;
   padding: .4em;
   gap: 7px;
-  @include v.flex-row;
-  /* loading bar animation - save */
-  // .loadingBar {
-  //   position: relative;
-  //   width: 200px;
-  //   height: 50px;
-  //   cursor: pointer;
-  //   border-radius: 5px;
-  //   border: 2px solid #272727;
-  //   overflow: hidden;
-  //   .fill {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 100%;
-  //     background: hotpink;
-  //   }
-  //   .content {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 100%;
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: center;
-  //     color: #272727;
-  //   }
-  // }
   .skillContainer {
-    @include v.centered;
-    height: 100%;
-    flex: 1;
     overflow: hidden;
     border-radius: 4px;
     cursor: pointer;
-    &:hover {
-      flex: 6;
-    }
     .contentCon {
-      height: 100%;
       padding: 0.5em;
       @include v.flex-column;
       justify-content: center;
       h1 {
-        transform: translateY(4em) rotate(-90deg);
         text-align: center;
         font-family: $accentFontFamily;
         letter-spacing: .1em;
@@ -63,7 +24,6 @@
       }
       div {
         width: 100%;
-        height: 70%;
         @include v.flex-row;
         flex-wrap: wrap;
         opacity: 0;
@@ -73,9 +33,9 @@
         span {
           @include v.flex-column;
           transition: all 1s ease-in-out;
-          margin: 0 1em;
+          margin: 1em;
           img {
-            height: auto;
+            width: auto;
             transition: all 0.3s ease-in-out;
           }
           p {
@@ -95,7 +55,6 @@
       }
     }
     &:hover .contentCon {
-      h1 { transform: translateY(0) rotate(0); }
       div {
         opacity: 1;
         transform: translateY(0);
@@ -127,34 +86,79 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (orientation: landscape) {
+  .container {
+    height: 50vh;
+    @include v.flex-row;
+    .skillContainer {
+      height: 100%;
+      flex: 1;
+      @include v.centered;
+      &:hover {
+        flex: 6;
+        .contentCon h1 { transform: translateY(0) rotate(0); }
+      }
+      .contentCon {
+        height: 100%;
+        h1 { transform: translateY(4em) rotate(-90deg); }
+        div { height: 70%; } 
+      }
+    }
+  }
+}
+
+@media (min-width: 1680px) and (orientation: landscape) {
   .container {
     width: 50%;
-    .contentCon h1 { font-size: 2.2em; }
+    .contentCon {
+      span img { height: 4em; }
+      h1 { font-size: 2.2em; }
+    }
   }
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1679px) and (orientation: landscape) {
   .container {
-    width: 70%;
-    .contentCon h1 { font-size: 2em; }
+    width: 80%;
+    .contentCon {
+      span img { height: 2.5em; }
+      h1 { font-size: 2em; }
+    }
   }
 }
 
-@media (orientation: landscape) or (min-width: 768px) {
-  .container { 
-    .contentCon div span img { width: 4em; } 
+@media (orientation: portrait) or (max-width: 1023px) {
+  .container {
+    @include v.flex-column;
+    .skillContainer {
+      width: 100%;
+      transition: all 0.5s ease-in-out;
+      height: 10vh;
+      &:hover { 
+        height: fit-content;
+        .contentCon h1 { transform: translateY(0.5em); }
+      }
+      .contentCon h1 {
+        transform: translateY(1.5em);
+        transition: all 0.5s ease-in-out;
+      }
+      &.notHovered .contentCon h1 { transform: scale(50%) translateY(-1.5em); }
+    }
+  }
+}
+
+@media (orientation: portrait) and (min-width: 768px) and (max-width: 1024px) {
+  .container .contentCon {
+    h1 { font-size: 1.5em; }
+    div span img { height: 3em; }
   }
 }
 
 @media (orientation: portrait) and (max-width: 767px) {
-  .container { 
-    width: 100%;
-    height: 60vh;
-    .contentCon {
-      h1 { font-size: 1.4em; }
-      div span img { width: 1.8em; }
-    }
+  .container .contentCon {
+    h1 { font-size: 1em; }
+    div span img { height: 2em; }
   }
 }
+
 
