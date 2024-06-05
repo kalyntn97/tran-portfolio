@@ -48,7 +48,7 @@ function Carousel({ cards, type, cardSize, onOpenCard }: Props) {
       if (!emblaApi) return
       emblaApi.scrollTo(index)
 
-      const autoplay: AutoplayType = emblaApi?.plugins()?.autoplay
+      const autoplay: AutoplayType = emblaApi.plugins()?.autoplay
       if (!autoplay) return
 
       const resetOrStop =

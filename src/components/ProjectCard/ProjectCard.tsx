@@ -35,10 +35,6 @@ const ProjectCard: React.FC<Props> = ({ project, handleOpen, index }) => {
   const { theme } = useContext(ThemeContext)
   const mode = theme === 'blossom' ? 'light' : 'dark'
 
-  const handleClick = (id: string) => {
-    handleOpen(id)
-  }
-
   return ( 
     <div className={`${styles.container} ${styles[`floating-${index + 1}`]}`}>
       <div className={styles.header}>
@@ -53,7 +49,7 @@ const ProjectCard: React.FC<Props> = ({ project, handleOpen, index }) => {
         <div className={styles.imgContainer}>
           <img src={project.img[0]} alt={`A screenshot of ${project.title}`}/>
         </div>
-        <div className={styles.movingContainer} onClick={() => handleClick(project.id)}>
+        <div className={styles.movingContainer} onClick={() => handleOpen(project.id)}>
           <p className={styles.intro}>{project.intro}</p>
           <button className={styles.seeMore}>
             <span className={styles.circle} aria-aria-hidden='true'></span>
